@@ -1,0 +1,230 @@
+/* ==================== PÁGINA SOBRE ==================== */
+.sobre-page {
+  min-height: 100vh;
+  background-color: var(--color-bg-primary);
+}
+
+/* ==================== HERO SOBRE ==================== */
+.hero-sobre {
+  padding: var(--spacing-24) 0;
+  min-height: calc(100vh - 80px);
+  display: flex;
+  align-items: center;
+
+  &__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: var(--spacing-16);
+    align-items: start;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+  }
+
+  &__title {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-extrabold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+  }
+
+  &__title-highlight {
+    display: block;
+    background: var(--gradient-accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__bio {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-6);
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+
+    p {
+      margin: 0;
+    }
+
+    strong {
+      color: var(--color-text-primary);
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+
+  &__aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    position: sticky;
+    top: 120px;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius-2xl);
+    overflow: hidden;
+    border: 2px solid var(--border-color);
+    background: var(--color-surface);
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+/* ==================== SOCIAL LINKS ==================== */
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-3) var(--spacing-4);
+  background: var(--color-surface);
+  border: var(--border-width) solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  transition: all var(--transition-base);
+
+  &:hover {
+    background: var(--color-surface-elevated);
+    border-color: var(--color-accent-primary);
+    color: var(--color-text-primary);
+    transform: translateX(4px);
+  }
+
+  &__icon {
+    font-size: var(--font-size-base);
+    opacity: 0.7;
+  }
+
+  &__text {
+    flex: 1;
+  }
+}
+
+/* ==================== MENTORIA CTA ==================== */
+.mentoria-cta {
+  padding: var(--spacing-24) 0;
+  background: var(--color-surface);
+  border-top: var(--border-width) solid var(--border-color);
+  border-bottom: var(--border-width) solid var(--border-color);
+
+  &__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+  }
+
+  &__content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-6);
+  }
+
+  &__title {
+    font-size: var(--font-size-5xl);
+    font-weight: var(--font-weight-extrabold);
+    color: var(--color-text-primary);
+    background: var(--gradient-accent);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  &__description {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+  }
+}
+
+/* ==================== MAIN FOOTER ==================== */
+.main-footer {
+  padding: var(--spacing-12) 0;
+  background: var(--color-bg-primary);
+
+  &__container {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 var(--container-padding);
+    text-align: center;
+  }
+
+  &__text {
+    color: var(--color-text-muted);
+    font-size: var(--font-size-sm);
+  }
+}
+
+/* ==================== RESPONSIVE ==================== */
+@media (max-width: 1024px) {
+  .hero-sobre {
+    &__container {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-12);
+    }
+
+    &__aside {
+      position: static;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-sobre {
+    padding: var(--spacing-16) 0;
+
+    &__title {
+      font-size: var(--font-size-4xl);
+    }
+
+    &__bio {
+      font-size: var(--font-size-base);
+    }
+  }
+
+  .mentoria-cta {
+    &__title {
+      font-size: var(--font-size-3xl);
+    }
+
+    &__description {
+      font-size: var(--font-size-base);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-sobre {
+    &__title {
+      font-size: var(--font-size-3xl);
+    }
+  }
+}

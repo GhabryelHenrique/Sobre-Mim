@@ -1,0 +1,98 @@
+<!-- Página de Projetos -->
+<div class="projetos-page">
+  <!-- ==================== HEADER ==================== -->
+  <app-header></app-header>
+
+  <!-- ==================== HERO / ABERTURA ==================== -->
+  <section class="projetos-hero">
+    <div class="projetos-hero__container">
+      <h1 class="projetos-hero__title">
+        Projetos que representam
+        <span class="projetos-hero__highlight">como eu penso e trabalho.</span>
+      </h1>
+      <p class="projetos-hero__subtitle">
+        Não são projetos aleatórios. São iniciativas com propósito técnico e impacto real,
+        escolhidas para mostrar intenção, não volume.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== LISTA DE PROJETOS ==================== -->
+  <section class="projetos-lista">
+    <div class="projetos-lista__container">
+      @for (projeto of projetos; track projeto.nome) {
+        <article class="projeto-card">
+          <div class="projeto-card__header">
+            @if (projeto.imagemUrl) {
+              <img [src]="projeto.imagemUrl" [alt]="projeto.nome" class="projeto-card__imagem" />
+            } @else if (projeto.icone) {
+              <span class="projeto-card__icone">{{ projeto.icone }}</span>
+            }
+            <div class="projeto-card__title-group">
+              <h2 class="projeto-card__titulo">{{ projeto.nome }}</h2>
+              <p class="projeto-card__descricao">{{ projeto.descricao }}</p>
+            </div>
+          </div>
+
+          <div class="projeto-card__conteudo">
+            <p class="projeto-card__texto">{{ projeto.textoCompleto }}</p>
+
+            <div class="projeto-card__pilares">
+              <h3 class="projeto-card__pilares-titulo">Pilares técnicos</h3>
+              <ul class="pilares-lista">
+                @for (pilar of projeto.pilares; track pilar) {
+                  <li class="pilares-item">
+                    <span class="pilares-item__icon">→</span>
+                    <span class="pilares-item__text">{{ pilar }}</span>
+                  </li>
+                }
+              </ul>
+            </div>
+
+            @if (projeto.ctaLink.startsWith('http')) {
+              <a
+                [href]="projeto.ctaLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="projeto-card__cta"
+              >
+                {{ projeto.ctaText }}
+                <span class="projeto-card__cta-icon">↗</span>
+              </a>
+            } @else {
+              <a
+                [routerLink]="projeto.ctaLink"
+                class="projeto-card__cta"
+              >
+                {{ projeto.ctaText }}
+                <span class="projeto-card__cta-icon">→</span>
+              </a>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </section>
+
+  <!-- ==================== ENCERRAMENTO ==================== -->
+  <section class="projetos-encerramento">
+    <div class="projetos-encerramento__container">
+      <p class="projetos-encerramento__texto">
+        Qualidade acima de quantidade. Projetos como extensão da forma de pensar.
+      </p>
+      <p class="projetos-encerramento__convite">
+        Se você busca evolução técnica real,
+        <a routerLink="/mentoria" class="projetos-encerramento__link">
+          explore a mentoria Beyond the Framework
+        </a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="main-footer">
+    <div class="main-footer__container">
+      <p class="main-footer__text">© 2025 Ghabryel Henrique. Desenvolvimento sério.</p>
+    </div>
+  </footer>
+</div>

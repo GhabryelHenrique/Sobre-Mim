@@ -1,0 +1,38 @@
+<!-- Header Compartilhado -->
+<header class="main-header">
+  <div class="main-header__container">
+    <a routerLink="/" class="main-header__logo">
+      <img [src]="logoImage" alt="Ghabryel Henrique" class="main-header__logo-img" />
+    </a>
+
+    <nav class="main-nav">
+      <a
+        routerLink="/"
+        routerLinkActive="main-nav__link--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="main-nav__link"
+      >
+        Sobre
+      </a>
+      <a
+        routerLink="/mentoria"
+        routerLinkActive="main-nav__link--active"
+        class="main-nav__link"
+      >
+        Mentoria
+      </a>
+      <a
+        routerLink="/projetos"
+        routerLinkActive="main-nav__link--active"
+        class="main-nav__link"
+      >
+        Projetos
+      </a>
+      <!-- <a href="#talks" class="main-nav__link">Talks</a> -->
+    </nav>
+
+    <button class="theme-toggle" (click)="toggleTheme()" aria-label="Alternar tema">
+      <span class="theme-toggle__icon">{{ themeIcon() }}</span>
+    </button>
+  </div>
+</header>

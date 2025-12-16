@@ -1,0 +1,95 @@
+<!-- Página Sobre - Portfolio Pessoal -->
+<div class="sobre-page">
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <app-header></app-header>
+
+  <!-- ==================== HERO SOBRE ==================== -->
+  <section class="hero-sobre">
+    <div class="hero-sobre__container">
+      <!-- Texto Principal -->
+      <div class="hero-sobre__content">
+        <h1 class="hero-sobre__title">
+          Eu sou Ghabryel Henrique,
+          <span class="hero-sobre__title-highlight">Muito prazer!</span>
+        </h1>
+
+        <div class="hero-sobre__bio">
+          <p>
+            Sou <strong>Engenheiro de Software Sênior</strong> e <strong>Especialista em Angular</strong>.
+            Atuo no desenvolvimento de sistemas globais de alta escala no setor financeiro, lidando diariamente
+            com arquitetura, performance, segurança e código que não pode falhar.
+          </p>
+
+          <p>
+            Não ensino teoria de curso. Compartilho o que é cobrado na prática em projetos reais,
+            times grandes e ambientes complexos.
+          </p>
+
+          <p>
+            Também atuo em comunidades de tecnologia, eventos e iniciativas que conectam desenvolvedores
+            à evolução técnica de verdade.
+          </p>
+
+          <p>
+            Sou apaixonado por dar aulas e compartilhar conhecimento. Acredito que o crescimento técnico
+            acontece quando saímos da zona de conforto e questionamos o que achamos que já sabemos.
+          </p>
+
+          <p>
+            Minha missão é ajudar desenvolvedores a pensarem como engenheiros sênior — com clareza,
+            profundidade e visão arquitetural.
+          </p>
+        </div>
+      </div>
+
+      <!-- Imagem e Links -->
+      <div class="hero-sobre__aside">
+        <div class="hero-sobre__image-wrapper">
+          <img
+            src="/images/ghabryelMicrofone.jpeg"
+            alt="Ghabryel Henrique"
+            class="hero-sobre__image"
+          />
+        </div>
+
+        <div class="social-links">
+          @for (link of socialLinks; track link.platform) {
+            <a
+              [href]="link.url"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              [attr.data-platform]="link.platform"
+            >
+              <i [class]="link.icon + ' social-link__icon'"></i>
+              <span class="social-link__text">{{ link.text }}</span>
+            </a>
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== MENTORIA CTA ==================== -->
+  <section class="mentoria-cta">
+    <div class="mentoria-cta__container">
+      <div class="mentoria-cta__content">
+        <h2 class="mentoria-cta__title">Beyond the Framework</h2>
+        <p class="mentoria-cta__description">
+          Mentoria individual para desenvolvedores que querem dominar Angular, arquitetura e carreira
+          — com clareza, profundidade e prática real de mercado.
+        </p>
+        <a routerLink="/mentoria" class="btn btn--primary btn--large">
+          Conhecer a mentoria
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="main-footer">
+    <div class="main-footer__container">
+      <p class="main-footer__text">© 2025 Ghabryel Henrique. Desenvolvimento sério.</p>
+    </div>
+  </footer>
+</div>

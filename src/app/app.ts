@@ -1,12 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
+/**
+ * Componente raiz da aplicação
+ * Gerencia o roteamento entre Landing Page e Página de Aplicação
+ */
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [RouterOutlet],
-  templateUrl: './app.html',
-  styleUrl: './app.scss'
+  template: '<router-outlet />',
+  styles: []
 })
-export class App {
-  protected readonly title = signal('ghabryelPage');
-}
+export class App {}
