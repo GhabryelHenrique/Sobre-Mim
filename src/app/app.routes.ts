@@ -18,6 +18,11 @@ export const routes: Routes = [
     loadComponent: () => import('./projetos/projetos.component').then(m => m.ProjetosComponent)
   },
   {
+    path: 'palestras',
+    title: 'Palestras | Ghabryel Henrique',
+    loadComponent: () => import('./palestras/palestras').then(m => m.PalestrasComponent)
+  },
+  {
     path: 'aplicacao',
     title: 'Aplicação | Beyond the Framework',
     component: AplicacaoComponent

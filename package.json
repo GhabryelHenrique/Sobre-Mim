@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "deploy": "ng build --configuration production --base-href https://ghabryelhenrique.com.br/ && npx angular-cli-ghpages --dir=dist/ghabryel-page/browser --cname=ghabryelhenrique.com.br"
+    "deploy": "ng build --configuration production --base-href https://ghabryelhenrique.com.br/ && npx angular-cli-ghpages --dir=dist/ghabryelPage/browser --cname=ghabryelhenrique.com.br"
   },
   "prettier": {
     "printWidth": 100,
@@ -45,6 +45,7 @@
     "@angular/compiler-cli": "^21.0.0",
     "@types/aos": "^3.0.7",
     "angular-cli-ghpages": "^2.0.3",
+    "heic-convert": "^2.1.0",
     "jsdom": "^27.1.0",
     "typescript": "~5.9.2",
     "vitest": "^4.0.8"

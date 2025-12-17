@@ -1,0 +1,214 @@
+<!-- Página de Palestras -->
+<div class="palestras-page">
+  <!-- ==================== HEADER / NAVIGATION ==================== -->
+  <app-header></app-header>
+
+  <!-- ==================== HERO PALESTRAS ==================== -->
+  <section class="hero-palestras">
+    <div class="hero-palestras__container">
+      <h1 class="hero-palestras__title">
+        Palestras &
+        <span class="hero-palestras__title-highlight">Workshops</span>
+      </h1>
+      <p class="hero-palestras__subtitle">
+        Compartilhando conhecimento e experiência com a comunidade tech
+      </p>
+    </div>
+  </section>
+
+  <!-- ==================== LISTA DE PALESTRAS ==================== -->
+  <section class="palestras-section">
+    <div class="palestras-section__container">
+      <div class="palestras-grid">
+        @for (palestra of palestras; track palestra.title) {
+          <article class="palestra-card" (click)="openGallery(palestra)">
+            <!-- Imagem da Palestra -->
+            <div class="palestra-card__image-wrapper">
+              <img
+                [src]="palestra.image"
+                [alt]="palestra.title"
+                class="palestra-card__image"
+              />
+              @if (palestra.isGratuitous) {
+                <span class="palestra-card__badge palestra-card__badge--free">Gratuito</span>
+              }
+              @if (palestra.hasLimitedSeats) {
+                <span class="palestra-card__badge palestra-card__badge--limited">Vagas Limitadas</span>
+              }
+              @if (palestra.eventPhotos && palestra.eventPhotos.length > 0) {
+                <div class="palestra-card__photo-count">
+                  <i class="fa-solid fa-images"></i>
+                  <span>{{ palestra.eventPhotos.length }} fotos</span>
+                </div>
+              }
+            </div>
+
+            <!-- Conteúdo da Palestra -->
+            <div class="palestra-card__content">
+              <!-- Cabeçalho -->
+              <div class="palestra-card__header">
+                <h2 class="palestra-card__title">{{ palestra.title }}</h2>
+                @if (palestra.subtitle) {
+                  <p class="palestra-card__subtitle">{{ palestra.subtitle }}</p>
+                }
+              </div>
+
+              <!-- Informações -->
+              <div class="palestra-card__info">
+                <div class="palestra-card__info-item">
+                  <i class="fa-solid fa-building"></i>
+                  <span>{{ palestra.institution }}</span>
+                </div>
+                <div class="palestra-card__info-item">
+                  <i class="fa-solid fa-calendar"></i>
+                  <span>{{ palestra.date }}</span>
+                </div>
+                <div class="palestra-card__info-item">
+                  <i class="fa-solid fa-clock"></i>
+                  <span>{{ palestra.time }}</span>
+                </div>
+                <div class="palestra-card__info-item">
+                  <i class="fa-solid fa-location-dot"></i>
+                  <span>{{ palestra.local }}</span>
+                </div>
+              </div>
+
+              <!-- Descrição -->
+              <p class="palestra-card__description">{{ palestra.description }}</p>
+
+              <!-- Tópicos -->
+              @if (palestra.topics && palestra.topics.length > 0) {
+                <div class="palestra-card__topics">
+                  <h3 class="palestra-card__topics-title">O que você vai aprender:</h3>
+                  <ul class="palestra-card__topics-list">
+                    @for (topic of palestra.topics; track $index) {
+                      <li class="palestra-card__topic">
+                        <i class="fa-solid fa-check"></i>
+                        <span>{{ topic }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+
+              <!-- Requisitos -->
+              @if (palestra.requirements && palestra.requirements.length > 0) {
+                <div class="palestra-card__requirements">
+                  <h3 class="palestra-card__requirements-title">Requisitos:</h3>
+                  <ul class="palestra-card__requirements-list">
+                    @for (req of palestra.requirements; track $index) {
+                      <li class="palestra-card__requirement">
+                        <i class="fa-solid fa-laptop"></i>
+                        <span>{{ req }}</span>
+                      </li>
+                    }
+                  </ul>
+                </div>
+              }
+
+              <!-- Certificado -->
+              @if (palestra.certificate) {
+                <div class="palestra-card__certificate">
+                  <i class="fa-solid fa-certificate"></i>
+                  <span>Certificado de participação será enviado após o evento</span>
+                </div>
+              }
+
+              <!-- Tags -->
+              @if (palestra.tags && palestra.tags.length > 0) {
+                <div class="palestra-card__tags">
+                  @for (tag of palestra.tags; track $index) {
+                    <span class="palestra-card__tag">{{ tag }}</span>
+                  }
+                </div>
+              }
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== CTA SECTION ==================== -->
+  <section class="cta-palestras">
+    <div class="cta-palestras__container">
+      <div class="cta-palestras__content">
+        <h2 class="cta-palestras__title">Interessado em me convidar para uma palestra?</h2>
+        <p class="cta-palestras__description">
+          Estou sempre aberto a compartilhar conhecimento e experiências com comunidades,
+          universidades e eventos tech. Entre em contato para conversarmos sobre possíveis colaborações.
+        </p>
+        <a href="mailto:ghabryelcode@gmail.com" class="btn btn--primary btn--large">
+          Entrar em contato
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="main-footer">
+    <div class="main-footer__container">
+      <p class="main-footer__text">© 2025 Ghabryel Henrique. Desenvolvimento sério.</p>
+    </div>
+  </footer>
+
+  <!-- ==================== MODAL GALERIA ==================== -->
+  @if (selectedPalestra) {
+    <div class="gallery-modal" (click)="closeGallery()">
+      <div class="gallery-modal__overlay"></div>
+
+      <div class="gallery-modal__content" (click)="$event.stopPropagation()">
+        <!-- Header -->
+        <div class="gallery-modal__header">
+          <h3 class="gallery-modal__title">{{ selectedPalestra.title }}</h3>
+          <button class="gallery-modal__close" (click)="closeGallery()" aria-label="Fechar galeria">
+            <i class="fa-solid fa-times"></i>
+          </button>
+        </div>
+
+        <!-- Imagem -->
+        <div class="gallery-modal__image-container">
+          <button
+            class="gallery-modal__nav gallery-modal__nav--prev"
+            (click)="prevPhoto()"
+            aria-label="Foto anterior"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+
+          <img
+            [src]="getCurrentPhoto()"
+            [alt]="selectedPalestra.title"
+            class="gallery-modal__image"
+          />
+
+          <button
+            class="gallery-modal__nav gallery-modal__nav--next"
+            (click)="nextPhoto()"
+            aria-label="Próxima foto"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Contador -->
+        <div class="gallery-modal__counter">
+          {{ currentPhotoIndex + 1 }} / {{ selectedPalestra.eventPhotos.length }}
+        </div>
+
+        <!-- Thumbnails -->
+        <div class="gallery-modal__thumbnails">
+          @for (photo of selectedPalestra.eventPhotos; track $index) {
+            <button
+              class="gallery-modal__thumbnail"
+              [class.gallery-modal__thumbnail--active]="currentPhotoIndex === $index"
+              (click)="currentPhotoIndex = $index"
+            >
+              <img [src]="photo" [alt]="'Foto ' + ($index + 1)" />
+            </button>
+          }
+        </div>
+      </div>
+    </div>
+  }
+</div>

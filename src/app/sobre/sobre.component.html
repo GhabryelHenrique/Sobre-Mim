@@ -70,6 +70,88 @@
     </div>
   </section>
 
+  <!-- ==================== EXPERIÊNCIA PROFISSIONAL ==================== -->
+  <section class="experiencia-section">
+    <div class="experiencia-section__container">
+      <h2 class="experiencia-section__title">Experiência Profissional</h2>
+
+      <div class="timeline">
+        @for (exp of experiences; track exp.company + exp.period) {
+          <div class="timeline-item">
+            <div class="timeline-item__marker"></div>
+            <div class="timeline-item__content">
+              <div class="timeline-item__header">
+                <div class="timeline-item__title-group">
+                  @if (exp.logo) {
+                    <img [src]="exp.logo" [alt]="exp.company" class="timeline-item__logo" />
+                  }
+                  <div>
+                    <h3 class="timeline-item__position">{{ exp.position }}</h3>
+                    <div class="timeline-item__company">
+                      <strong>{{ exp.company }}</strong>
+                      @if (exp.location) {
+                        <span class="timeline-item__location"> • {{ exp.location }}</span>
+                      }
+                    </div>
+                  </div>
+                </div>
+                <span class="timeline-item__period">{{ exp.period }}</span>
+              </div>
+
+              <div class="timeline-item__description">
+                @for (desc of exp.description; track $index) {
+                  <p>{{ desc }}</p>
+                }
+              </div>
+
+              @if (exp.highlights && exp.highlights.length > 0) {
+                <div class="timeline-item__highlights">
+                  <strong>Principais contribuições:</strong>
+                  <ul>
+                    @for (highlight of exp.highlights; track $index) {
+                      <li>{{ highlight }}</li>
+                    }
+                  </ul>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== VOLUNTARIADO ==================== -->
+  <section class="voluntariado-section">
+    <div class="voluntariado-section__container">
+      <h2 class="voluntariado-section__title">Voluntariado & Impacto Social</h2>
+
+      <div class="volunteer-grid">
+        @for (vol of volunteer; track vol.organization + vol.period) {
+          <div class="volunteer-card">
+            @if (vol.logo) {
+              <div class="volunteer-card__logo-wrapper">
+                <img [src]="vol.logo" [alt]="vol.organization" class="volunteer-card__logo" />
+              </div>
+            }
+
+            <div class="volunteer-card__content">
+              <h3 class="volunteer-card__position">{{ vol.position }}</h3>
+              <div class="volunteer-card__organization">
+                <strong>{{ vol.organization }}</strong>
+              </div>
+              <div class="volunteer-card__meta">
+                <span class="volunteer-card__period">{{ vol.period }}</span>
+                <span class="volunteer-card__category">{{ vol.category }}</span>
+              </div>
+              <p class="volunteer-card__description">{{ vol.description }}</p>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
   <!-- ==================== MENTORIA CTA ==================== -->
   <section class="mentoria-cta">
     <div class="mentoria-cta__container">
