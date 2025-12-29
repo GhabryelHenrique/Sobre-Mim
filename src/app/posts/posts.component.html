@@ -1,0 +1,47 @@
+<app-header></app-header>
+
+<section class="posts-section">
+  <div class="container">
+    <div class="section-header">
+      <h1 class="section-title">Meus Posts</h1>
+      <p class="section-subtitle">Artigos técnicos sobre Angular, arquitetura e desenvolvimento web</p>
+    </div>
+
+    <div class="posts-grid">
+      @for (post of posts; track post.url) {
+        <article class="post-card" (click)="abrirPost(post.url)">
+          @if (post.imagemCapa) {
+            <div class="post-image">
+              <img [src]="post.imagemCapa" [alt]="post.titulo" loading="lazy">
+            </div>
+          }
+
+          <div class="post-content">
+            <div class="post-meta">
+              <span class="post-date">{{ post.dataPublicacao }}</span>
+            </div>
+
+            <h2 class="post-title">{{ post.titulo }}</h2>
+            <p class="post-description">{{ post.descricao }}</p>
+
+            <div class="post-tags">
+              @for (categoria of post.categorias.slice(0, 3); track categoria) {
+                <span class="tag">{{ categoria }}</span>
+              }
+            </div>
+
+            <div class="post-footer">
+              <span class="read-more">Ler no Medium →</span>
+            </div>
+          </div>
+        </article>
+      }
+    </div>
+
+    <div class="medium-link">
+      <a href="https://medium.com/@ghabryel" target="_blank" rel="noopener noreferrer" class="btn-medium">
+        Ver todos os posts no Medium
+      </a>
+    </div>
+  </div>
+</section>
