@@ -1,0 +1,194 @@
+[
+  {
+    "titulo": "Fundamentos de HTML5 e CSS3",
+    "autor": "Maurício Samy Silva (Maujor)",
+    "descricao": "O livro ideal para iniciantes que querem aprender a base do desenvolvimento web. Maujor ensina de forma clara e didática como criar páginas semânticas com HTML5 e estilizá-las com CSS3.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71NTJ8kXHlL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4spQeJ2",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Lógica de Programação e Algoritmos com JavaScript",
+    "autor": "Edécio Fernando Iepsen",
+    "descricao": "Introdução à programação usando JavaScript e HTML. Perfeito para quem está dando os primeiros passos e quer aprender lógica de programação de forma prática no navegador.",
+    "imagemCapa": "images/livros/logica_programacao_JS.png",
+    "linkAmazon": "https://amzn.to/45yakGZ",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Estruturas de Dados e Algoritmos com JavaScript",
+    "autor": "Loiane Groner",
+    "descricao": "A referência brasileira para estruturas de dados em JavaScript. Loiane, Google Developer Expert, ensina arrays, filas, pilhas, listas ligadas, árvores e grafos de forma didática e com exemplos práticos.",
+    "imagemCapa": "images/livros/estruturas_De_Dados_JS.png",
+    "linkAmazon": "https://amzn.to/49eHTz0",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Entendendo Algoritmos",
+    "autor": "Aditya Y. Bhargava",
+    "descricao": "Um guia ilustrado para programadores e curiosos. Explica algoritmos de forma visual e acessível, ideal para quem quer construir bases sólidas em lógica de programação.",
+    "imagemCapa": "images/livros/entendendo_algoritimos.png",
+    "linkAmazon": "https://amzn.to/3MXtrE9",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "JavaScript: O Guia Definitivo",
+    "autor": "David Flanagan",
+    "descricao": "A bíblia do JavaScript em português. Uma referência completa da linguagem que todo desenvolvedor frontend precisa ter, cobrindo desde o básico até recursos avançados.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/816vDdUauOL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3KUW8RD",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Código Limpo",
+    "autor": "Robert C. Martin",
+    "descricao": "O guia essencial para escrever código limpo e manutenível. Uncle Bob ensina princípios fundamentais de boas práticas que todo desenvolvedor junior precisa dominar.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/41xShlnTZTL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/4pUMFsw",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Aprendendo TypeScript: Melhore suas habilidades de desenvolvimento web usando JavaScript Type-Safe",
+    "autor": "Josh Goldberg",
+    "descricao": "Aprenda TypeScript com as mãos na massa. Aborda tipagem, interfaces, decorators e Generics com exemplos práticos para desenvolvimento frontend e backend.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81tK8zB3ZvL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/49ih1Ow",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Angular: Desenvolvimento de Aplicações Web",
+    "autor": "William Grasel (Willgm)",
+    "descricao": "Guia completo de Angular do básico ao avançado. Aprenda componentes, diretivas, serviços, rotas, formulários reativos e RxJS de forma prática com um desenvolvedor Google Developer Expert.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81q4-p78fzL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3YiYLQg",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Desenvolvimento Web com Angular",
+    "autor": "Flávio Almeida",
+    "descricao": "Do iniciante ao avançado com TypeScript e boas práticas. Aprenda a criar SPAs robustas, trabalhar com APIs REST, gerenciar estado e otimizar performance em Angular.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/51bMN8rx8LL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Desenvolvimento-Angular-TypeScript-Práticas-Flávio/dp/8555192757?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Arquitetura Limpa",
+    "autor": "Robert C. Martin",
+    "descricao": "Princípios e padrões para criar arquiteturas de software limpas e sustentáveis. Fundamental para desenvolvedores plenos assumirem decisões arquiteturais em projetos frontend.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61r4tYVsRVL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Arquitetura-Limpa-Artesão-Estrutura-Software/dp/8550804606?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Fundamentos da Arquitetura de Software",
+    "autor": "Mark Richards, Neal Ford",
+    "descricao": "Primeira visão geral completa de muitos aspectos da arquitetura de software. Cobre padrões, componentes, habilidades sociais e arquitetura como disciplina de engenharia.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81qxOYl8XUL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Fundamentos-Arquitetura-Software-Abordagem-Engenharia/dp/8550819859?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Desenvolvimento Ágil com Angular",
+    "autor": "Rodrigo Branas",
+    "descricao": "Arquitetura de aplicações enterprise com Angular. Aprenda padrões avançados, arquitetura modular, state management com NgRx, testes automatizados e CI/CD para projetos de grande escala.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/51X8qJLqh0L._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Desenvolvimento-Ágil-Angular-Rodrigo-Branas/dp/8555190681?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "O Codificador Limpo",
+    "autor": "Robert C. Martin",
+    "descricao": "Um código de conduta para programadores profissionais. Ensina postura, ética, gerenciamento de tempo e comportamento esperado de um desenvolvedor de nível pleno.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71T7aUqnv3L._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/codificador-limpo-conduta-programadores-profissionais/dp/8576086476?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Refatoração",
+    "autor": "Martin Fowler",
+    "descricao": "O guia definitivo para melhorar o design de código existente. Ensina técnicas para evoluir código legado com segurança e manter a qualidade do projeto.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81mOCCJCdEL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Refatoração-Aperfeiçoando-Design-Códigos-Existentes/dp/8575227246?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Arquitetura de Software: As Partes Difíceis",
+    "autor": "Neal Ford, Mark Richards",
+    "descricao": "Trade-offs e decisões difíceis em arquitetura de software. Aborda problemas reais que arquitetos seniores enfrentam diariamente em arquiteturas distribuídas.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/816+-T4lLhzL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Arquitetura-Software-Partes-Difíceis-Distribuídas/dp/8550817651?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "Domain-Driven Design",
+    "autor": "Eric Evans",
+    "descricao": "O livro azul de DDD. Ensina a modelar software complexo com foco no domínio do negócio, aplicável a grandes aplicações frontend com gerenciamento de estado complexo.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61aQd8hML2L._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "Projetando Sistemas Distribuídos",
+    "autor": "Brendan Burns",
+    "descricao": "Padrões e paradigmas para sistemas escaláveis e confiáveis. Essencial para seniores que trabalham com microfrontends e arquiteturas de grande escala.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81qPZmIhz0L._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Projetando-Sistemas-Distribuídos-Padrões-paradigmas/dp/8575227173?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "Craftsmanship Limpo",
+    "autor": "Robert C. Martin",
+    "descricao": "Disciplinas, padrões e ética do desenvolvimento de software. Uncle Bob apresenta a filosofia e as práticas que definem um desenvolvedor sênior exemplar.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71kk8YSn0LL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Craftsmanship-limpo-disciplinas-padrões-Robert/dp/8550819506?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "O Programador Pragmático",
+    "autor": "David Thomas, Andrew Hunt",
+    "descricao": "Clássico atemporal com práticas que transcendem linguagens e frameworks. Ensina a pensar como um desenvolvedor sênior e tomar decisões técnicas sólidas.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71f1jieYHNL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Programador-Pragmático-Aprendiz-Mestre/dp/8550819530?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "A Startup Enxuta",
+    "autor": "Eric Ries",
+    "descricao": "O método para criar negócios de sucesso com inovação contínua. Ensina a validar ideias rapidamente, pivotar quando necessário e eliminar desperdícios.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81+-T4lLhzL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/startup-enxuta-Eric-Ries/dp/8543108624?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "De Zero a Um",
+    "autor": "Peter Thiel",
+    "descricao": "Notas sobre startups e como construir o futuro. Thiel compartilha insights únicos sobre inovação e criação de empresas disruptivas de tecnologia.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71m-MxdJ2WL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Zero-Um-Peter-Thiel/dp/8539006200?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "Startup: Manual do Empreendedor",
+    "autor": "Steve Blank, Bob Dorf",
+    "descricao": "O guia passo a passo para construir uma grande empresa. Metodologia Customer Development para validar seu negócio antes de escalar.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81q+v9i2KnL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Startup-Manual-Empreendedor-Steve-Blank/dp/8576087820?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "Sprint",
+    "autor": "Jake Knapp, John Zeratsky, Braden Kowitz",
+    "descricao": "O método usado no Google para testar e aplicar novas ideias em apenas cinco dias. Perfeito para validar produtos digitais rapidamente.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81uDCxLJ8sL._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Sprint-Jake-Knapp/dp/8551001523?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "Comece pelo Porquê",
+    "autor": "Simon Sinek",
+    "descricao": "Como grandes líderes inspiram pessoas e equipes a agir. Essencial para empreendedores que querem construir marcas e produtos com propósito.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71bMfbQvQ2L._SY466_.jpg",
+    "linkAmazon": "https://www.amazon.com.br/Comece-pelo-porquê-Simon-Sinek/dp/8543102146?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "nivel": "empreendedorismo"
+  }
+]

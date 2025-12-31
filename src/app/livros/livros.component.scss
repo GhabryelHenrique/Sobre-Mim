@@ -1,0 +1,284 @@
+.livros-page {
+  min-height: 100vh;
+  background: var(--color-bg-primary);
+}
+
+// Hero Section
+.livros-hero {
+  padding: calc(var(--spacing-20) + var(--spacing-8)) var(--spacing-6) var(--spacing-20);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -20%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: var(--font-size-6xl);
+    font-weight: var(--font-weight-bold);
+    line-height: var(--line-height-tight);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-6);
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-4xl);
+    }
+  }
+
+  &__highlight {
+    background: var(--gradient-accent);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-xl);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--spacing-8);
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  &__cta {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-4);
+  }
+}
+
+// Livros Section
+.livros-section {
+  padding: var(--spacing-20) var(--spacing-6);
+
+  &:nth-child(odd) {
+    background: var(--color-bg-secondary);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--spacing-12);
+  }
+
+  &__badge {
+    display: inline-block;
+    padding: var(--spacing-2) var(--spacing-4);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 100px;
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-accent-primary);
+    margin-bottom: var(--spacing-4);
+  }
+
+  &__title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-3);
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  &__description {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+// Livros Grid
+.livros-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--spacing-8);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-6);
+  }
+}
+
+// Book Card
+.book-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+    border-color: var(--color-accent-primary);
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    background: var(--color-bg-secondary);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-6);
+  }
+
+  &__image {
+    width: auto;
+    height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform var(--transition-normal);
+
+    .book-card:hover & {
+      transform: scale(1.05);
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 15, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+
+    .book-card:hover & {
+      opacity: 1;
+    }
+  }
+
+  &__cta {
+    padding: var(--spacing-3) var(--spacing-6);
+    background: var(--gradient-cta);
+    color: var(--color-text-primary);
+    font-weight: var(--font-weight-semibold);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-normal);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-glow);
+    }
+  }
+
+  &__content {
+    padding: var(--spacing-6);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-size: var(--font-size-lg);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-2);
+    line-height: var(--line-height-snug);
+  }
+
+  &__author {
+    font-size: var(--font-size-sm);
+    color: var(--color-accent-primary);
+    font-weight: var(--font-weight-medium);
+    margin-bottom: var(--spacing-4);
+  }
+
+  &__description {
+    font-size: var(--font-size-base);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    flex: 1;
+  }
+}
+
+// CTA Section
+.cta-section {
+  padding: var(--spacing-20) var(--spacing-6);
+  background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(168, 85, 247, 0.05) 100%);
+  text-align: center;
+
+  &__content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  &__title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-4);
+
+    @media (max-width: 768px) {
+      font-size: var(--font-size-3xl);
+    }
+  }
+
+  &__subtitle {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-8);
+  }
+}
+
+// Footer
+.livros-footer {
+  padding: var(--spacing-12) var(--spacing-6);
+  background: var(--color-bg-secondary);
+  border-top: 1px solid var(--color-border);
+  text-align: center;
+
+  &__text {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-4);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__copyright {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+  }
+}
+
+// Button icon
+.btn__icon {
+  width: 20px;
+  height: 20px;
+  margin-right: var(--spacing-2);
+}

@@ -1,0 +1,201 @@
+<div class="livros-page">
+  <app-header></app-header>
+
+  <!-- Hero Section -->
+  <section class="livros-hero">
+    <div class="container">
+      <div class="livros-hero__content">
+        <h1 class="livros-hero__title">
+          Livros que <span class="livros-hero__highlight">Transformam Carreiras</span>
+        </h1>
+        <p class="livros-hero__subtitle">
+          Recomendações cuidadosamente selecionadas para cada fase da sua jornada como desenvolvedor.
+          De fundamentos essenciais a arquiteturas complexas.
+        </p>
+        <div class="livros-hero__cta">
+          <a [href]="affiliateLink" target="_blank" rel="noopener noreferrer" class="btn btn--hero">
+            <svg class="btn__icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M3.5 13h6a1 1 0 0 1 1 1v7a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-7a1 1 0 0 1 1-1z"/>
+              <path d="M14.5 3h6a1 1 0 0 1 1 1v15a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/>
+            </svg>
+            Ver Minha Lista Completa na Amazon
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Livros para Iniciantes -->
+  <section class="livros-section">
+    <div class="container">
+      <div class="livros-section__header">
+        <span class="livros-section__badge">📚 Fundamentos</span>
+        <h2 class="livros-section__title">{{ getNivelLabel('iniciante') }}</h2>
+        <p class="livros-section__description">{{ getNivelDescription('iniciante') }}</p>
+      </div>
+
+      <div class="livros-grid">
+        <div class="book-card" *ngFor="let livro of livrosIniciantes">
+          <div class="book-card__image-wrapper">
+            <img [src]="livro.imagemCapa" [alt]="livro.titulo" class="book-card__image" loading="lazy">
+            <div class="book-card__overlay">
+              <a [href]="livro.linkAmazon" target="_blank" rel="noopener noreferrer" class="book-card__cta">
+                Ver na Amazon
+              </a>
+            </div>
+          </div>
+          <div class="book-card__content">
+            <h3 class="book-card__title">{{ livro.titulo }}</h3>
+            <p class="book-card__author">{{ livro.autor }}</p>
+            <p class="book-card__description">{{ livro.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Livros para Júniores -->
+  <section class="livros-section">
+    <div class="container">
+      <div class="livros-section__header">
+        <span class="livros-section__badge">🚀 Evolução</span>
+        <h2 class="livros-section__title">{{ getNivelLabel('junior') }}</h2>
+        <p class="livros-section__description">{{ getNivelDescription('junior') }}</p>
+      </div>
+
+      <div class="livros-grid">
+        <div class="book-card" *ngFor="let livro of livrosJuniores">
+          <div class="book-card__image-wrapper">
+            <img [src]="livro.imagemCapa" [alt]="livro.titulo" class="book-card__image" loading="lazy">
+            <div class="book-card__overlay">
+              <a [href]="livro.linkAmazon" target="_blank" rel="noopener noreferrer" class="book-card__cta">
+                Ver na Amazon
+              </a>
+            </div>
+          </div>
+          <div class="book-card__content">
+            <h3 class="book-card__title">{{ livro.titulo }}</h3>
+            <p class="book-card__author">{{ livro.autor }}</p>
+            <p class="book-card__description">{{ livro.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Livros para Plenos -->
+  <section class="livros-section">
+    <div class="container">
+      <div class="livros-section__header">
+        <span class="livros-section__badge">🏗️ Arquitetura</span>
+        <h2 class="livros-section__title">{{ getNivelLabel('pleno') }}</h2>
+        <p class="livros-section__description">{{ getNivelDescription('pleno') }}</p>
+      </div>
+
+      <div class="livros-grid">
+        <div class="book-card" *ngFor="let livro of livrosPlenos">
+          <div class="book-card__image-wrapper">
+            <img [src]="livro.imagemCapa" [alt]="livro.titulo" class="book-card__image" loading="lazy">
+            <div class="book-card__overlay">
+              <a [href]="livro.linkAmazon" target="_blank" rel="noopener noreferrer" class="book-card__cta">
+                Ver na Amazon
+              </a>
+            </div>
+          </div>
+          <div class="book-card__content">
+            <h3 class="book-card__title">{{ livro.titulo }}</h3>
+            <p class="book-card__author">{{ livro.autor }}</p>
+            <p class="book-card__description">{{ livro.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Livros para Seniores -->
+  <section class="livros-section">
+    <div class="container">
+      <div class="livros-section__header">
+        <span class="livros-section__badge">⚡ Maestria</span>
+        <h2 class="livros-section__title">{{ getNivelLabel('senior') }}</h2>
+        <p class="livros-section__description">{{ getNivelDescription('senior') }}</p>
+      </div>
+
+      <div class="livros-grid">
+        <div class="book-card" *ngFor="let livro of livrosSeniores">
+          <div class="book-card__image-wrapper">
+            <img [src]="livro.imagemCapa" [alt]="livro.titulo" class="book-card__image" loading="lazy">
+            <div class="book-card__overlay">
+              <a [href]="livro.linkAmazon" target="_blank" rel="noopener noreferrer" class="book-card__cta">
+                Ver na Amazon
+              </a>
+            </div>
+          </div>
+          <div class="book-card__content">
+            <h3 class="book-card__title">{{ livro.titulo }}</h3>
+            <p class="book-card__author">{{ livro.autor }}</p>
+            <p class="book-card__description">{{ livro.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Livros de Empreendedorismo -->
+  <section class="livros-section">
+    <div class="container">
+      <div class="livros-section__header">
+        <span class="livros-section__badge">💼 Negócios</span>
+        <h2 class="livros-section__title">{{ getNivelLabel('empreendedorismo') }}</h2>
+        <p class="livros-section__description">{{ getNivelDescription('empreendedorismo') }}</p>
+      </div>
+
+      <div class="livros-grid">
+        <div class="book-card" *ngFor="let livro of livrosEmpreendedorismo">
+          <div class="book-card__image-wrapper">
+            <img [src]="livro.imagemCapa" [alt]="livro.titulo" class="book-card__image" loading="lazy">
+            <div class="book-card__overlay">
+              <a [href]="livro.linkAmazon" target="_blank" rel="noopener noreferrer" class="book-card__cta">
+                Ver na Amazon
+              </a>
+            </div>
+          </div>
+          <div class="book-card__content">
+            <h3 class="book-card__title">{{ livro.titulo }}</h3>
+            <p class="book-card__author">{{ livro.autor }}</p>
+            <p class="book-card__description">{{ livro.descricao }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-section__content">
+        <h2 class="cta-section__title">Acelere Sua Carreira</h2>
+        <p class="cta-section__subtitle">
+          Invista no seu desenvolvimento profissional com livros que realmente fazem diferença.
+          Cada compra através dos links acima ajuda a manter este conteúdo gratuito e acessível.
+        </p>
+        <a [href]="affiliateLink" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--large">
+          Ver Todos os Livros na Amazon
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="livros-footer">
+    <div class="container">
+      <p class="livros-footer__text">
+        ℹ️ Links de afiliado Amazon: Ao comprar através dos links desta página, você me ajuda a continuar
+        criando conteúdo gratuito, sem custo adicional para você.
+      </p>
+      <p class="livros-footer__copyright">
+        © 2025 Ghabryel Veloso. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+</div>
