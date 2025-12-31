@@ -64,27 +64,19 @@
     "nivel": "junior"
   },
   {
-    "titulo": "Desenvolvimento Web com Angular",
-    "autor": "Flávio Almeida",
-    "descricao": "Do iniciante ao avançado com TypeScript e boas práticas. Aprenda a criar SPAs robustas, trabalhar com APIs REST, gerenciar estado e otimizar performance em Angular.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/51bMN8rx8LL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Desenvolvimento-Angular-TypeScript-Práticas-Flávio/dp/8555192757?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
-    "nivel": "junior"
-  },
-  {
     "titulo": "Arquitetura Limpa",
     "autor": "Robert C. Martin",
     "descricao": "Princípios e padrões para criar arquiteturas de software limpas e sustentáveis. Fundamental para desenvolvedores plenos assumirem decisões arquiteturais em projetos frontend.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/61r4tYVsRVL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Arquitetura-Limpa-Artesão-Estrutura-Software/dp/8550804606?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/41T8NdKFqEL._SY445_SX342_ML2_.jpg",
+    "linkAmazon": "https://amzn.to/4peFgD9",
     "nivel": "pleno"
   },
   {
     "titulo": "Fundamentos da Arquitetura de Software",
     "autor": "Mark Richards, Neal Ford",
     "descricao": "Primeira visão geral completa de muitos aspectos da arquitetura de software. Cobre padrões, componentes, habilidades sociais e arquitetura como disciplina de engenharia.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/81qxOYl8XUL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Fundamentos-Arquitetura-Software-Abordagem-Engenharia/dp/8550819859?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81fGrAy3AYL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/45yZrES",
     "nivel": "pleno"
   },
   {
@@ -92,7 +84,7 @@
     "autor": "Rodrigo Branas",
     "descricao": "Arquitetura de aplicações enterprise com Angular. Aprenda padrões avançados, arquitetura modular, state management com NgRx, testes automatizados e CI/CD para projetos de grande escala.",
     "imagemCapa": "https://m.media-amazon.com/images/I/51X8qJLqh0L._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Desenvolvimento-Ágil-Angular-Rodrigo-Branas/dp/8555190681?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "linkAmazon": "https://amzn.to/45yZrES",
     "nivel": "pleno"
   },
   {
