@@ -1,0 +1,186 @@
+[
+  {
+    "titulo": "Fundamentos de HTML5 e CSS3",
+    "autor": "Maurício Samy Silva (Maujor)",
+    "descricao": "O livro ideal para iniciantes que querem aprender a base do desenvolvimento web. Maujor ensina de forma clara e didática como criar páginas semânticas com HTML5 e estilizá-las com CSS3.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71NTJ8kXHlL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4spQeJ2",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Lógica de Programação e Algoritmos com JavaScript",
+    "autor": "Edécio Fernando Iepsen",
+    "descricao": "Introdução à programação usando JavaScript e HTML. Perfeito para quem está dando os primeiros passos e quer aprender lógica de programação de forma prática no navegador.",
+    "imagemCapa": "images/livros/logica_programacao_JS.png",
+    "linkAmazon": "https://amzn.to/45yakGZ",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Estruturas de Dados e Algoritmos com JavaScript",
+    "autor": "Loiane Groner",
+    "descricao": "A referência brasileira para estruturas de dados em JavaScript. Loiane, Google Developer Expert, ensina arrays, filas, pilhas, listas ligadas, árvores e grafos de forma didática e com exemplos práticos.",
+    "imagemCapa": "images/livros/estruturas_De_Dados_JS.png",
+    "linkAmazon": "https://amzn.to/49eHTz0",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Entendendo Algoritmos",
+    "autor": "Aditya Y. Bhargava",
+    "descricao": "Um guia ilustrado para programadores e curiosos. Explica algoritmos de forma visual e acessível, ideal para quem quer construir bases sólidas em lógica de programação.",
+    "imagemCapa": "images/livros/entendendo_algoritimos.png",
+    "linkAmazon": "https://amzn.to/3MXtrE9",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "JavaScript: O Guia Definitivo",
+    "autor": "David Flanagan",
+    "descricao": "A bíblia do JavaScript em português. Uma referência completa da linguagem que todo desenvolvedor frontend precisa ter, cobrindo desde o básico até recursos avançados.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/816vDdUauOL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3KUW8RD",
+    "nivel": "iniciante"
+  },
+  {
+    "titulo": "Código Limpo",
+    "autor": "Robert C. Martin",
+    "descricao": "O guia essencial para escrever código limpo e manutenível. Uncle Bob ensina princípios fundamentais de boas práticas que todo desenvolvedor junior precisa dominar.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/41xShlnTZTL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/4pUMFsw",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Aprendendo TypeScript: Melhore suas habilidades de desenvolvimento web usando JavaScript Type-Safe",
+    "autor": "Josh Goldberg",
+    "descricao": "Aprenda TypeScript com as mãos na massa. Aborda tipagem, interfaces, decorators e Generics com exemplos práticos para desenvolvimento frontend e backend.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81tK8zB3ZvL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/49ih1Ow",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Angular: Desenvolvimento de Aplicações Web",
+    "autor": "William Grasel (Willgm)",
+    "descricao": "Guia completo de Angular do básico ao avançado. Aprenda componentes, diretivas, serviços, rotas, formulários reativos e RxJS de forma prática com um desenvolvedor Google Developer Expert.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81q4-p78fzL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3YiYLQg",
+    "nivel": "junior"
+  },
+  {
+    "titulo": "Arquitetura Limpa",
+    "autor": "Robert C. Martin",
+    "descricao": "Princípios e padrões para criar arquiteturas de software limpas e sustentáveis. Fundamental para desenvolvedores plenos assumirem decisões arquiteturais em projetos frontend.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/41T8NdKFqEL._SY445_SX342_ML2_.jpg",
+    "linkAmazon": "https://amzn.to/4peFgD9",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Fundamentos da Arquitetura de Software",
+    "autor": "Mark Richards, Neal Ford",
+    "descricao": "Primeira visão geral completa de muitos aspectos da arquitetura de software. Cobre padrões, componentes, habilidades sociais e arquitetura como disciplina de engenharia.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81fGrAy3AYL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/45yZrES",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Desenvolvimento ágil Limpo: de Volta às Origens",
+    "autor": "Robert C. Martin",
+    "descricao": "Quase 20 anos após a primeira apresentação do Manifesto Ágil, o lendário Robert C. Martin (“Uncle Bob”) reapresenta os valores e os princípios ágeis para uma nova geração ― para programadores e não programadores. Martin, autor da obra Código Limpo, Arquitetura Limpa e de outros guias de desenvolvimento de software bastante influentes, estava lá quando o ágil nasceu.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/6106595rrML._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3KZZh2y",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "O Codificador Limpo",
+    "autor": "Robert C. Martin",
+    "descricao": "Um código de conduta para programadores profissionais. Ensina postura, ética, gerenciamento de tempo e comportamento esperado de um desenvolvedor de nível pleno.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/91lBONZ4tAL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3NrUNCk",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Refatoração",
+    "autor": "Martin Fowler",
+    "descricao": "O guia definitivo para melhorar o design de código existente. Ensina técnicas para evoluir código legado com segurança e manter a qualidade do projeto.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81sTm5M7wjL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4qzMrqM",
+    "nivel": "pleno"
+  },
+  {
+    "titulo": "Arquitetura de Software: As Partes Difíceis",
+    "autor": "Neal Ford, Mark Richards",
+    "descricao": "Trade-offs e decisões difíceis em arquitetura de software. Aborda problemas reais que arquitetos seniores enfrentam diariamente em arquiteturas distribuídas.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71mouBDwxAL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4jxeSDp",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "Domain-Driven Design",
+    "autor": "Eric Evans",
+    "descricao": "O livro azul de DDD. Ensina a modelar software complexo com foco no domínio do negócio, aplicável a grandes aplicações frontend com gerenciamento de estado complexo.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61aIS4n2jZL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/3YFuTxH",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "Projetando Sistemas Distribuídos",
+    "autor": "Brendan Burns",
+    "descricao": "Padrões e paradigmas para sistemas escaláveis e confiáveis. Essencial para seniores que trabalham com microfrontends e arquiteturas de grande escala.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/51HCnAsj2lL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4pmbcWi",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "Craftsmanship Limpo",
+    "autor": "Robert C. Martin",
+    "descricao": "Disciplinas, padrões e ética do desenvolvimento de software. Uncle Bob apresenta a filosofia e as práticas que definem um desenvolvedor sênior exemplar.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61MVSFec9nL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/45od0Ha",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "O Programador Pragmático",
+    "autor": "David Thomas, Andrew Hunt",
+    "descricao": "Clássico atemporal com práticas que transcendem linguagens e frameworks. Ensina a pensar como um desenvolvedor sênior e tomar decisões técnicas sólidas.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61hewOW+8zL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4soqqgb",
+    "nivel": "senior"
+  },
+  {
+    "titulo": "A Startup Enxuta",
+    "autor": "Eric Ries",
+    "descricao": "O método para criar negócios de sucesso com inovação contínua. Ensina a validar ideias rapidamente, pivotar quando necessário e eliminar desperdícios.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71YL9YiqeuL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/49i8XgR",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "De Zero a Um",
+    "autor": "Peter Thiel",
+    "descricao": "Notas sobre startups e como construir o futuro. Thiel compartilha insights únicos sobre inovação e criação de empresas disruptivas de tecnologia.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71m-MxdJ2WL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/44QXh3f",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "Startup: Manual do Empreendedor",
+    "autor": "Steve Blank, Bob Dorf",
+    "descricao": "O guia passo a passo para construir uma grande empresa. Metodologia Customer Development para validar seu negócio antes de escalar.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81kwaPCHP1L._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4q4q7Wz",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "Sprint",
+    "autor": "Jake Knapp, John Zeratsky, Braden Kowitz",
+    "descricao": "O método usado no Google para testar e aplicar novas ideias em apenas cinco dias. Perfeito para validar produtos digitais rapidamente.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81UhvfLRyAL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/3YQN831",
+    "nivel": "empreendedorismo"
+  },
+  {
+    "titulo": "Comece pelo Porquê",
+    "autor": "Simon Sinek",
+    "descricao": "Como grandes líderes inspiram pessoas e equipes a agir. Essencial para empreendedores que querem construir marcas e produtos com propósito.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71M6czhxmTL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/49Bknxt",
+    "nivel": "empreendedorismo"
+  }
+]

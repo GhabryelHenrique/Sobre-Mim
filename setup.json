@@ -1,0 +1,157 @@
+[
+  {
+    "nome": "Notebook Lenovo IdeaPad Slim 3 AMD Ryzen 7",
+    "categoria": "hardware",
+    "descricao": "Notebook principal para desenvolvimento e criação de conteúdo",
+    "imagem": "https://m.media-amazon.com/images/I/713GzsYLBbL._AC_SX522_.jpg",
+    "link": "https://amzn.to/4jqP5gb",
+    "especificacoes": ["AMD Ryzen 7 7735HS 3,2 GHz", "16 GB RAM DDR5", "512 GB SSD"]
+  },
+  {
+    "nome": "Samsung T350 - Monitor Gamer, 24 Polegadas, Full HD, 75Hz",
+    "categoria": "hardware",
+    "descricao": "Monitor principal para desenvolvimento e criação de conteúdo",
+    "imagem": "https://m.media-amazon.com/images/I/71fExkr1vWL._AC_SX522_.jpg",
+    "link": "https://amzn.to/49kAj5S",
+    "especificacoes": ["Tela 24 polegadas",
+      "Descrição da superfície Brilhante",
+      "Taxa de atualização 75 Hz",
+      "Tipo de tela LCD",
+      "Tecnologia LED",
+      "Tecnologia FreeSync",
+      "Características especiais Freesync",
+      "Marca Samsung",
+      "Modelo F24T350FHL",
+      "Resolução FHD 1920x1080"
+    ]
+  },
+  {
+    "nome": "Processador AMD Ryzen 5 5500",
+    "categoria": "hardware",
+    "descricao": "Processador do meu desktop de alto desempenho",
+    "imagem": "https://m.media-amazon.com/images/I/51So7GoGvxL._AC_SX522_.jpg",
+    "link": "https://amzn.to/49idobv",
+    "especificacoes": [
+      "Modelo da CPU: Ryzen 5 5500",
+      "Velocidade da CPU: 3,6 GHz",
+      "Soquete de CPU: Socket AM4",
+      "Plataforma: Windows",
+      "Cache Secundário: 16 MB",
+      "Potência: 65 watts",
+      "Soquete de CPU - Soquete AM4"
+    ]
+  },
+  {
+    "nome": "Placa Mãe Gigabyte B550M-K",
+    "categoria": "hardware",
+    "descricao": "Placa Mãe Gigabyte B550M-K: Portas DisplayPort e HDMI para experiência visual imersiva e versátil.",
+    "imagem": "https://m.media-amazon.com/images/I/61RLLHk9cVL._AC_SX522_.jpg",
+    "link": "https://amzn.to/4qAP37U",
+    "especificacoes": [
+      "Tecnologia de memória RAM - DDR4",
+      "Processadores compatíveis - AMD Ryzen 5000 Series",
+      "Tipo de chipset - Intel B450",
+      "Velocidade do clock da memória - 4733 MHz",
+      "Modelo da CPU - Ryzen 5",
+      "Tipo do conector de energia principal - 24 pinos",
+      "Interface da placa de vídeo - PCI Express 4.0",
+      "Slots de memória disponíveis - 4",
+      "Número de portas - 8"
+    ]
+  },
+  {
+    "nome": "4x Memória HyperX Fury de 8GB DIMM DDR4 2666Mhz",
+    "categoria": "hardware",
+    "descricao": "Memória HyperX Fury de 8GB DIMM DDR4 2666Mhz",
+    "imagem": "https://m.media-amazon.com/images/I/51lSuEyr5ZL._AC_SX522_.jpg",
+    "link": "https://amzn.to/3Ns1gx6",
+    "especificacoes": ["4x 8GB DIMM DDR4 2666Mhz", "Total de 32GB"]
+  },
+  {
+    "nome": "Nvidia GeForce RTX 3070 Ti",
+    "categoria": "hardware",
+    "descricao": "Placa de vídeo NVIDIA GeForce RTX 3070TI para desempenho gráfico avançado",
+    "imagem": "https://m.media-amazon.com/images/I/81ZWSNdXNSS._AC_SX522_.jpg",
+    "link": "https://amzn.to/4qUkbiX",
+    "especificacoes": [
+      "8 GB VRAM GDDR6X",
+      "NVIDIA CUDA Cores 6144",
+      "Boost Clock 1.77 GH",
+      "Ray Tracing Cores 2nd Generation",
+      "Tensor Cores 3rd Generation"
+    ]
+  },
+  {
+    "nome": "Microfone Condensador HyperX QuadCast S",
+    "categoria": "perifericos",
+    "descricao": "Microfone condensador HyperX QuadCast S para gravações de alta qualidade",
+    "imagem": "https://m.media-amazon.com/images/I/51LPRVDe+6L._AC_SX522_.jpg",
+    "link": "https://amzn.to/4q6t6Oa",
+    "especificacoes": [
+      "RGB radiante com efeitos dinâmicos personalizáveis",
+      "Suspensão de corda elástica (antivibração e antichoque)",
+      "Sensor de toque para silenciar com indicador LED",
+      "Quatro padrões polares selecionáveis (estéreo, omnidirecional, cardioide, bidirecional)",
+      "Personalizável com software HyperX NGENUITY",
+      "Controle de ganho ajustável"
+    ]
+  },
+  {
+    "nome": "Headset Gamer Redragon Zeus Pro",
+    "categoria": "acessorios",
+    "descricao": "Headset gamer Redragon Zeus Pro para jogos e streaming",
+    "imagem": "https://m.media-amazon.com/images/I/619T-Fp+EkL._AC_SX522_.jpg",
+    "link": "https://amzn.to/4pheme9",
+    "especificacoes": [
+      "Tipo: Headset gamer sem fio",
+      "Conectividade: Wireless com opção de cabo USB-C removível",
+      "Áudio: Surround 7.1 virtual",
+      "Microfone: Removível e ajustável",
+      "Design premium com foco em conforto para longas sessões de jogo",
+      "Cor: Preto"
+    ]
+  },
+  {
+    "nome": "Mouse Gamer Redragon Griffin Pro",
+    "categoria": "perifericos",
+    "descricao": "Mouse gamer Redragon Griffin Pro para jogos e streaming",
+    "imagem": "https://m.media-amazon.com/images/I/51yojOrDsHL._AC_SX522_.jpg",
+    "link": "https://amzn.to/4aZF8nV",
+    "especificacoes": [
+      "Sensor Pixart PAW3212 configurável para até 4800DPI",
+      "7 Botões programáveis para maior praticidade durante o uso.",
+      "Pegada Ultra Confortável para usuários estilo Claw e Palm.",
+      "Altamente indicado para Jogos Estilo MOBA.",
+      "Iluminação RGB Redragon Chroma Mk.II para trazer mais brilho ao seu setup."
+    ]
+  },
+  {
+    "nome": "Redragon TECLADO MECANICO GAMER DRACONIC PRO",
+    "categoria": "perifericos",
+    "descricao": "Teclado mecânico gamer Redragon Draconic Pro RGB Bluetooth 5.0",
+    "imagem": "https://m.media-amazon.com/images/I/61ZgqVw4DwL._AC_SX679_.jpg",
+    "link": "https://amzn.to/4jnagzL",
+    "especificacoes": [
+      "Switch marrom",
+      "USB Tipo C",
+      "Características especiais Bluetooth",
+      "Suporte para cor de retroiluminação do teclado RGB",
+      "Fonte de energia Energia elétrica",
+      "Tipo de comutador Tátil",
+      "Orientação de uso Ambidestro"
+    ]
+  },
+  {
+    "nome": "Webcam Redragon Fobos",
+    "categoria": "acessorios",
+    "descricao": "Webcam Gamer e Streamer Redragon Fobos 720p 30fps",
+    "imagem": "https://m.media-amazon.com/images/I/612SJ8SDirL._AC_SX522_.jpg",
+    "link": "https://amzn.to/44RrcIy",
+    "especificacoes": [
+      "Resolução: Full HD 720p",
+      "Taxa de quadros: 30fps",
+      "Conectividade: USB 2.0",
+      "Microfone embutido com redução de ruído"
+    ]
+  }
+]
