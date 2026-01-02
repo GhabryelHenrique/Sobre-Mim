@@ -1,0 +1,146 @@
+<div class="setup-page">
+  <app-header></app-header>
+
+  <!-- Hero Section -->
+  <section class="setup-hero">
+    <div class="container">
+      <div class="setup-hero__content">
+        <h1 class="setup-hero__title">
+          Meu <span class="setup-hero__highlight">Setup</span>
+        </h1>
+        <p class="setup-hero__subtitle">
+          Equipamentos e ferramentas que uso no meu dia a dia para desenvolvimento,
+          criação de conteúdo e produtividade.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hardware Section -->
+  <section class="setup-section" *ngIf="hardwareItems.length > 0">
+    <div class="container">
+      <div class="setup-section__header">
+        <span class="setup-section__badge">{{ getCategoriaBadge('hardware') }}</span>
+        <h2 class="setup-section__title">{{ getCategoriaLabel('hardware') }}</h2>
+        <p class="setup-section__description">{{ getCategoriaDescription('hardware') }}</p>
+      </div>
+
+      <div class="setup-grid">
+        <div class="setup-card" *ngFor="let item of hardwareItems">
+          <div class="setup-card__image-wrapper" *ngIf="item.imagem">
+            <img [src]="item.imagem" [alt]="item.nome" class="setup-card__image" loading="lazy">
+          </div>
+          <div class="setup-card__content">
+            <h3 class="setup-card__title">{{ item.nome }}</h3>
+            <p class="setup-card__description">{{ item.descricao }}</p>
+            <ul class="setup-card__specs" *ngIf="item.especificacoes && item.especificacoes.length > 0">
+              <li *ngFor="let spec of item.especificacoes">{{ spec }}</li>
+            </ul>
+            <a *ngIf="item.link" [href]="item.link" target="_blank" rel="noopener noreferrer" class="setup-card__link">
+              Ver mais detalhes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Periféricos Section -->
+  <section class="setup-section" *ngIf="perifericosItems.length > 0">
+    <div class="container">
+      <div class="setup-section__header">
+        <span class="setup-section__badge">{{ getCategoriaBadge('perifericos') }}</span>
+        <h2 class="setup-section__title">{{ getCategoriaLabel('perifericos') }}</h2>
+        <p class="setup-section__description">{{ getCategoriaDescription('perifericos') }}</p>
+      </div>
+
+      <div class="setup-grid">
+        <div class="setup-card" *ngFor="let item of perifericosItems">
+          <div class="setup-card__image-wrapper" *ngIf="item.imagem">
+            <img [src]="item.imagem" [alt]="item.nome" class="setup-card__image" loading="lazy">
+          </div>
+          <div class="setup-card__content">
+            <h3 class="setup-card__title">{{ item.nome }}</h3>
+            <p class="setup-card__description">{{ item.descricao }}</p>
+            <ul class="setup-card__specs" *ngIf="item.especificacoes && item.especificacoes.length > 0">
+              <li *ngFor="let spec of item.especificacoes">{{ spec }}</li>
+            </ul>
+            <a *ngIf="item.link" [href]="item.link" target="_blank" rel="noopener noreferrer" class="setup-card__link">
+              Ver mais detalhes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Software Section -->
+  <section class="setup-section" *ngIf="softwareItems.length > 0">
+    <div class="container">
+      <div class="setup-section__header">
+        <span class="setup-section__badge">{{ getCategoriaBadge('software') }}</span>
+        <h2 class="setup-section__title">{{ getCategoriaLabel('software') }}</h2>
+        <p class="setup-section__description">{{ getCategoriaDescription('software') }}</p>
+      </div>
+
+      <div class="setup-grid">
+        <div class="setup-card" *ngFor="let item of softwareItems">
+          <div class="setup-card__image-wrapper" *ngIf="item.imagem">
+            <img [src]="item.imagem" [alt]="item.nome" class="setup-card__image" loading="lazy">
+          </div>
+          <div class="setup-card__content">
+            <h3 class="setup-card__title">{{ item.nome }}</h3>
+            <p class="setup-card__description">{{ item.descricao }}</p>
+            <ul class="setup-card__specs" *ngIf="item.especificacoes && item.especificacoes.length > 0">
+              <li *ngFor="let spec of item.especificacoes">{{ spec }}</li>
+            </ul>
+            <a *ngIf="item.link" [href]="item.link" target="_blank" rel="noopener noreferrer" class="setup-card__link">
+              Ver mais detalhes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Acessórios Section -->
+  <section class="setup-section" *ngIf="acessoriosItems.length > 0">
+    <div class="container">
+      <div class="setup-section__header">
+        <span class="setup-section__badge">{{ getCategoriaBadge('acessorios') }}</span>
+        <h2 class="setup-section__title">{{ getCategoriaLabel('acessorios') }}</h2>
+        <p class="setup-section__description">{{ getCategoriaDescription('acessorios') }}</p>
+      </div>
+
+      <div class="setup-grid">
+        <div class="setup-card" *ngFor="let item of acessoriosItems">
+          <div class="setup-card__image-wrapper" *ngIf="item.imagem">
+            <img [src]="item.imagem" [alt]="item.nome" class="setup-card__image" loading="lazy">
+          </div>
+          <div class="setup-card__content">
+            <h3 class="setup-card__title">{{ item.nome }}</h3>
+            <p class="setup-card__description">{{ item.descricao }}</p>
+            <ul class="setup-card__specs" *ngIf="item.especificacoes && item.especificacoes.length > 0">
+              <li *ngFor="let spec of item.especificacoes">{{ spec }}</li>
+            </ul>
+            <a *ngIf="item.link" [href]="item.link" target="_blank" rel="noopener noreferrer" class="setup-card__link">
+              Ver mais detalhes
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="setup-footer">
+    <div class="container">
+      <p class="setup-footer__text">
+        Este setup evolui constantemente. Atualizo esta página sempre que faço mudanças significativas.
+      </p>
+      <p class="setup-footer__copyright">
+        © 2025 Ghabryel Henrique. Todos os direitos reservados.
+      </p>
+    </div>
+  </footer>
+</div>

@@ -80,75 +80,75 @@
     "nivel": "pleno"
   },
   {
-    "titulo": "Desenvolvimento Ágil com Angular",
-    "autor": "Rodrigo Branas",
-    "descricao": "Arquitetura de aplicações enterprise com Angular. Aprenda padrões avançados, arquitetura modular, state management com NgRx, testes automatizados e CI/CD para projetos de grande escala.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/51X8qJLqh0L._SY466_.jpg",
-    "linkAmazon": "https://amzn.to/45yZrES",
+    "titulo": "Desenvolvimento ágil Limpo: de Volta às Origens",
+    "autor": "Robert C. Martin",
+    "descricao": "Quase 20 anos após a primeira apresentação do Manifesto Ágil, o lendário Robert C. Martin (“Uncle Bob”) reapresenta os valores e os princípios ágeis para uma nova geração ― para programadores e não programadores. Martin, autor da obra Código Limpo, Arquitetura Limpa e de outros guias de desenvolvimento de software bastante influentes, estava lá quando o ágil nasceu.",
+    "imagemCapa": "https://m.media-amazon.com/images/I/6106595rrML._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3KZZh2y",
     "nivel": "pleno"
   },
   {
     "titulo": "O Codificador Limpo",
     "autor": "Robert C. Martin",
     "descricao": "Um código de conduta para programadores profissionais. Ensina postura, ética, gerenciamento de tempo e comportamento esperado de um desenvolvedor de nível pleno.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/71T7aUqnv3L._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/codificador-limpo-conduta-programadores-profissionais/dp/8576086476?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/91lBONZ4tAL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/3NrUNCk",
     "nivel": "pleno"
   },
   {
     "titulo": "Refatoração",
     "autor": "Martin Fowler",
     "descricao": "O guia definitivo para melhorar o design de código existente. Ensina técnicas para evoluir código legado com segurança e manter a qualidade do projeto.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/81mOCCJCdEL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Refatoração-Aperfeiçoando-Design-Códigos-Existentes/dp/8575227246?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81sTm5M7wjL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4qzMrqM",
     "nivel": "pleno"
   },
   {
     "titulo": "Arquitetura de Software: As Partes Difíceis",
     "autor": "Neal Ford, Mark Richards",
     "descricao": "Trade-offs e decisões difíceis em arquitetura de software. Aborda problemas reais que arquitetos seniores enfrentam diariamente em arquiteturas distribuídas.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/816+-T4lLhzL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Arquitetura-Software-Partes-Difíceis-Distribuídas/dp/8550817651?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71mouBDwxAL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4jxeSDp",
     "nivel": "senior"
   },
   {
     "titulo": "Domain-Driven Design",
     "autor": "Eric Evans",
     "descricao": "O livro azul de DDD. Ensina a modelar software complexo com foco no domínio do negócio, aplicável a grandes aplicações frontend com gerenciamento de estado complexo.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/61aQd8hML2L._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61aIS4n2jZL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/3YFuTxH",
     "nivel": "senior"
   },
   {
     "titulo": "Projetando Sistemas Distribuídos",
     "autor": "Brendan Burns",
     "descricao": "Padrões e paradigmas para sistemas escaláveis e confiáveis. Essencial para seniores que trabalham com microfrontends e arquiteturas de grande escala.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/81qPZmIhz0L._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Projetando-Sistemas-Distribuídos-Padrões-paradigmas/dp/8575227173?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/51HCnAsj2lL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4pmbcWi",
     "nivel": "senior"
   },
   {
     "titulo": "Craftsmanship Limpo",
     "autor": "Robert C. Martin",
     "descricao": "Disciplinas, padrões e ética do desenvolvimento de software. Uncle Bob apresenta a filosofia e as práticas que definem um desenvolvedor sênior exemplar.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/71kk8YSn0LL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Craftsmanship-limpo-disciplinas-padrões-Robert/dp/8550819506?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61MVSFec9nL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/45od0Ha",
     "nivel": "senior"
   },
   {
     "titulo": "O Programador Pragmático",
     "autor": "David Thomas, Andrew Hunt",
     "descricao": "Clássico atemporal com práticas que transcendem linguagens e frameworks. Ensina a pensar como um desenvolvedor sênior e tomar decisões técnicas sólidas.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/71f1jieYHNL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Programador-Pragmático-Aprendiz-Mestre/dp/8550819530?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/61hewOW+8zL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4soqqgb",
     "nivel": "senior"
   },
   {
     "titulo": "A Startup Enxuta",
     "autor": "Eric Ries",
     "descricao": "O método para criar negócios de sucesso com inovação contínua. Ensina a validar ideias rapidamente, pivotar quando necessário e eliminar desperdícios.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/81+-T4lLhzL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/startup-enxuta-Eric-Ries/dp/8543108624?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71YL9YiqeuL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/49i8XgR",
     "nivel": "empreendedorismo"
   },
   {
@@ -156,31 +156,31 @@
     "autor": "Peter Thiel",
     "descricao": "Notas sobre startups e como construir o futuro. Thiel compartilha insights únicos sobre inovação e criação de empresas disruptivas de tecnologia.",
     "imagemCapa": "https://m.media-amazon.com/images/I/71m-MxdJ2WL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Zero-Um-Peter-Thiel/dp/8539006200?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "linkAmazon": "https://amzn.to/44QXh3f",
     "nivel": "empreendedorismo"
   },
   {
     "titulo": "Startup: Manual do Empreendedor",
     "autor": "Steve Blank, Bob Dorf",
     "descricao": "O guia passo a passo para construir uma grande empresa. Metodologia Customer Development para validar seu negócio antes de escalar.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/81q+v9i2KnL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Startup-Manual-Empreendedor-Steve-Blank/dp/8576087820?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81kwaPCHP1L._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/4q4q7Wz",
     "nivel": "empreendedorismo"
   },
   {
     "titulo": "Sprint",
     "autor": "Jake Knapp, John Zeratsky, Braden Kowitz",
     "descricao": "O método usado no Google para testar e aplicar novas ideias em apenas cinco dias. Perfeito para validar produtos digitais rapidamente.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/81uDCxLJ8sL._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Sprint-Jake-Knapp/dp/8551001523?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/81UhvfLRyAL._SY466_.jpg",
+    "linkAmazon": "https://amzn.to/3YQN831",
     "nivel": "empreendedorismo"
   },
   {
     "titulo": "Comece pelo Porquê",
     "autor": "Simon Sinek",
     "descricao": "Como grandes líderes inspiram pessoas e equipes a agir. Essencial para empreendedores que querem construir marcas e produtos com propósito.",
-    "imagemCapa": "https://m.media-amazon.com/images/I/71bMfbQvQ2L._SY466_.jpg",
-    "linkAmazon": "https://www.amazon.com.br/Comece-pelo-porquê-Simon-Sinek/dp/8543102146?&linkCode=sl1&tag=ghabryeldev-20&linkId=fc90364a7c1f7f1a2e3c6c6e5e5e5e5e&language=pt_BR&ref_=as_li_ss_tl",
+    "imagemCapa": "https://m.media-amazon.com/images/I/71M6czhxmTL._SY425_.jpg",
+    "linkAmazon": "https://amzn.to/49Bknxt",
     "nivel": "empreendedorismo"
   }
 ]

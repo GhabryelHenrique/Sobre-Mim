@@ -33,6 +33,11 @@ export const routes: Routes = [
     loadComponent: () => import('./livros/livros.component').then(m => m.LivrosComponent)
   },
   {
+    path: 'setup',
+    title: 'Setup | Ghabryel Henrique',
+    loadComponent: () => import('./setup/setup').then(m => m.SetupComponent)
+  },
+  {
     path: 'aplicacao',
     title: 'Aplicação | Beyond the Framework',
     component: AplicacaoComponent

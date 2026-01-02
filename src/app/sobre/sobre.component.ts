@@ -33,7 +33,7 @@ export class SobreComponent {
     {
       icon: 'fa-solid fa-envelope',
       text: 'Entre em contato',
-      url: 'mailto:contato@example.com',
+      url: 'mailto:ghabryelcode@gmail.com',
       platform: 'email',
     },
   ];
@@ -43,7 +43,7 @@ export class SobreComponent {
       company: 'Solutis Tecnologias',
       logo: '/images/empresas/solutis.png',
       position: 'Sênior Software Engineer',
-      period: 'novembro de 2025 - Present (2 meses)',
+      period: 'novembro de 2025 - até o momento',
       location: 'Brasil',
       description: [
         'Atuo como engenheiro responsável pela evolução e confiabilidade do sistema global de Controle de Acesso de Facilities do Santander, plataforma crítica que gerencia a autorização e segurança física de colaboradores, fornecedores e visitantes em unidades do banco no Brasil e em operações internacionais.',
