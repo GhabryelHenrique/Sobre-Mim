@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, OnDestroy, inject, signal, computed,
+  Component, OnInit, OnDestroy, inject, signal, computed, effect,
   ElementRef, PLATFORM_ID, ChangeDetectionStrategy, afterNextRender
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -146,10 +146,10 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
     </div>
   </section>
 
-  <!-- ═══════════════════ TIMELINE ═══════════════════ -->
-  <section class="timeline-section">
-    <div class="container">
-      <header class="section-head" revealOnScroll>
+  <!-- ═══════════════════ TIMELINE (horizontal scroll-driven) ═══════════════════ -->
+  <section class="tl-section">
+    <div class="tl-inner">
+      <header class="tl-header section-head" revealOnScroll>
         <span class="eyebrow">{{ 'about.timeline_title' | translate }}</span>
         <h2 class="section-title">
           {{ lang() === 'pt' ? 'Onde construí coisas importantes' : 'Where I built important things' }}
@@ -157,41 +157,74 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       </header>
 
       @if (timeline().length > 0) {
-        <div class="xp-grid">
-          @for (job of timeline(); track job.id; let i = $index) {
-            <article class="xp-card" revealOnScroll [revealDelay]="i * 60">
-              <div class="xp-stripe" [style.background]="job.color"></div>
-              <div class="xp-body">
-                <div class="xp-top">
+        <div class="tl-track">
+          <div class="tl-cap">
+            <span class="tl-cap-label">2021</span>
+            <div class="tl-cap-line"></div>
+          </div>
+
+          @for (job of timelineReversed(); track job.id; let i = $index) {
+            <article class="tl-card" [style.--card-color]="job.color">
+              <div class="tl-stripe" [style.background]="job.color"></div>
+              <div class="tl-body">
+                <div class="tl-top-row">
                   @if (job.logo) {
-                    <img [src]="job.logo" [alt]="job.company" class="xp-logo" loading="lazy" width="44" height="44" />
+                    <img [src]="job.logo" [alt]="job.company" class="tl-logo" loading="lazy" width="40" height="40" />
                   }
-                  <div class="xp-meta">
-                    <h3 class="xp-company">{{ job.company }}</h3>
-                    <p class="xp-role">{{ lang() === 'pt' ? job.position.pt : job.position.en }}</p>
+                  <div class="tl-meta">
+                    <h3 class="tl-company">{{ job.company }}</h3>
+                    <p class="tl-role">{{ lang() === 'pt' ? job.position.pt : job.position.en }}</p>
                   </div>
                   @if (job.current) {
-                    <span class="xp-current">{{ lang() === 'pt' ? 'Atual' : 'Current' }}</span>
+                    <span class="tl-badge-current">{{ lang() === 'pt' ? 'Atual' : 'Now' }}</span>
                   }
                 </div>
-                <p class="xp-period">{{ lang() === 'pt' ? job.period.pt : job.period.en }}</p>
-                <p class="xp-desc">{{ lang() === 'pt' ? job.description.pt : job.description.en }}</p>
-                <div class="xp-stack">
-                  @for (tech of job.stack.slice(0, 5); track tech) {
+                <p class="tl-period">{{ lang() === 'pt' ? job.period.pt : job.period.en }}</p>
+                <p class="tl-desc">{{ lang() === 'pt' ? job.description.pt : job.description.en }}</p>
+                <div class="tl-stack">
+                  @for (tech of job.stack.slice(0, 4); track tech) {
                     <span class="tech">{{ tech }}</span>
                   }
                 </div>
               </div>
             </article>
           }
+
+          <div class="tl-cap tl-cap-end">
+            <div class="tl-cap-line"></div>
+            <span class="tl-cap-label tl-cap-now">{{ lang() === 'pt' ? 'Hoje' : 'Today' }}</span>
+            <div class="tl-cap-dot"></div>
+          </div>
         </div>
       } @else {
-        <div class="xp-grid">
+        <div class="tl-track">
           @for (_ of [1,2,3,4]; track $index) {
-            <div class="skeleton"></div>
+            <div class="tl-skeleton"></div>
           }
         </div>
       }
+    </div>
+  </section>
+
+  <!-- ═══════════════════ STACK CONSTELLATION ═══════════════════ -->
+  <section class="stack-section">
+    <div class="container">
+      <header class="section-head" revealOnScroll>
+        <span class="eyebrow">{{ lang() === 'pt' ? 'Tecnologias' : 'Stack' }}</span>
+        <h2 class="section-title">
+          {{ lang() === 'pt' ? 'Ferramentas que dominei' : 'Tools I\'ve mastered' }}
+        </h2>
+      </header>
+
+      <div class="constellation-wrap" revealOnScroll [revealDelay]="100">
+        <canvas id="stack-canvas" class="stack-canvas"
+                aria-label="{{ lang() === 'pt' ? 'Constelação de tecnologias' : 'Technology constellation' }}">
+        </canvas>
+        <p class="constellation-hint">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+          {{ lang() === 'pt' ? 'Passe o mouse sobre os nós para explorar conexões' : 'Hover over nodes to explore connections' }}
+        </p>
+      </div>
     </div>
   </section>
 
@@ -623,115 +656,14 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       .about-grid { grid-template-columns: 1fr; }
     }
 
-    /* ─── TIMELINE ─── */
-    .timeline-section {
-      padding: var(--section-py) 0;
-      border-top: 1px solid var(--color-border);
-    }
-
-    .section-head {
-      margin-bottom: clamp(2rem, 5vw, 4rem);
-    }
+    /* ─── SHARED SECTION TYPOGRAPHY ─── */
+    .section-head { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
 
     .section-title {
       font-size: var(--text-4xl);
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-top: 8px;
-    }
-
-    .xp-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
-    }
-
-    .xp-card {
-      position: relative;
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      transition: border-color var(--duration-base) ease, transform var(--duration-base) var(--ease-out-expo);
-    }
-
-    .xp-card:hover {
-      border-color: var(--color-border-2);
-      transform: translateY(-4px);
-    }
-
-    .xp-stripe {
-      height: 3px;
-      width: 100%;
-      opacity: 0.7;
-    }
-
-    .xp-body { padding: 24px; }
-
-    .xp-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      margin-bottom: 12px;
-    }
-
-    .xp-logo {
-      width: 44px;
-      height: 44px;
-      object-fit: contain;
-      border-radius: var(--radius-md);
-      background: var(--color-surface-2);
-      padding: 4px;
-      flex-shrink: 0;
-    }
-
-    .xp-company {
-      font-size: var(--text-base);
-      font-weight: 700;
-      margin-bottom: 3px;
-    }
-
-    .xp-role {
-      font-size: var(--text-sm);
-      color: var(--color-accent);
-      font-weight: 500;
-    }
-
-    .xp-current {
-      margin-left: auto;
-      padding: 3px 10px;
-      background: rgba(255,69,0,0.12);
-      border: 1px solid rgba(255,69,0,0.3);
-      border-radius: var(--radius-full);
-      font-size: var(--text-xs);
-      font-weight: 600;
-      color: var(--color-accent);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .xp-period {
-      font-size: var(--text-xs);
-      font-family: var(--font-mono);
-      color: var(--color-fg-muted);
-      margin-bottom: 12px;
-    }
-
-    .xp-desc {
-      font-size: var(--text-sm);
-      color: var(--color-fg-muted);
-      line-height: 1.65;
-      margin-bottom: 16px;
-      display: -webkit-box;
-      -webkit-line-clamp: 3;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .xp-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
     }
 
     .tech {
@@ -743,20 +675,228 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       color: var(--color-fg-muted);
     }
 
-    /* Skeleton */
-    .skeleton {
-      height: 220px;
+    /* ─── HORIZONTAL TIMELINE ─── */
+    .tl-section {
+      overflow: hidden;
+      border-top: 1px solid var(--color-border);
+      padding-top: var(--section-py);
+      padding-bottom: 0;
+    }
+
+    .tl-inner { width: 100%; }
+
+    .tl-header { padding: 0 var(--container-px); }
+
+    .tl-track {
+      display: flex;
+      align-items: stretch;
+      gap: 0;
+      padding: 0 var(--container-px) 64px;
+      width: max-content;
+      will-change: transform;
+      position: relative;
+    }
+
+    /* Horizontal connector line running through cards */
+    .tl-track::before {
+      content: '';
+      position: absolute;
+      top: 52px;
+      left: var(--container-px);
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--color-border) 0%, var(--color-border-2) 50%, var(--color-border) 100%);
+      pointer-events: none;
+    }
+
+    .tl-cap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 42px;
+      width: 80px;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+
+    .tl-cap-end { justify-content: flex-start; }
+
+    .tl-cap-line {
+      width: 1px;
+      height: 20px;
+      background: var(--color-border-2);
+    }
+
+    .tl-cap-label {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-fg-muted);
+      white-space: nowrap;
+    }
+
+    .tl-cap-now { color: var(--color-accent); font-weight: 600; }
+
+    .tl-cap-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      margin-top: 6px;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .tl-card {
+      width: min(340px, 82vw);
+      flex-shrink: 0;
       background: var(--color-surface);
       border: 1px solid var(--color-border);
       border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin: 24px 12px 0;
+      position: relative;
+      z-index: 1;
+      transition: border-color var(--duration-base), transform 0.35s var(--ease-out-expo), box-shadow var(--duration-base);
+    }
+
+    .tl-card:hover {
+      border-color: color-mix(in srgb, var(--card-color) 40%, var(--color-border));
+      transform: translateY(-6px);
+      box-shadow: 0 12px 32px -8px color-mix(in srgb, var(--card-color) 20%, transparent);
+    }
+
+    .tl-stripe { height: 3px; width: 100%; opacity: 0.8; }
+
+    .tl-body { padding: 22px; }
+
+    .tl-top-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .tl-logo {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      background: var(--color-surface-2);
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .tl-meta { flex: 1; min-width: 0; }
+
+    .tl-company {
+      font-size: var(--text-base);
+      font-weight: 700;
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .tl-role {
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    .tl-badge-current {
+      margin-left: auto;
+      padding: 2px 8px;
+      background: rgba(255,69,0,0.12);
+      border: 1px solid rgba(255,69,0,0.28);
+      border-radius: var(--radius-full);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--color-accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .tl-period {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-fg-muted);
+      margin-bottom: 10px;
+    }
+
+    .tl-desc {
+      font-size: var(--text-sm);
+      color: var(--color-fg-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .tl-stack { display: flex; flex-wrap: wrap; gap: 5px; }
+
+    .tl-skeleton {
+      width: 320px;
+      height: 220px;
+      flex-shrink: 0;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      margin: 24px 12px 0;
       background-image: linear-gradient(90deg, var(--color-surface) 0%, var(--color-surface-2) 50%, var(--color-surface) 100%);
       background-size: 200% 100%;
       animation: shimmer 1.5s infinite;
     }
 
+    /* Mobile: native horizontal scroll */
+    @media (max-width: 1023px) {
+      .tl-section { overflow-x: clip; }
+      .tl-track {
+        overflow-x: auto;
+        overflow-y: visible;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 24px;
+        width: auto;
+      }
+      .tl-card { scroll-snap-align: start; }
+    }
+
+    /* ─── STACK CONSTELLATION ─── */
+    .stack-section {
+      padding: var(--section-py) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .constellation-wrap { position: relative; }
+
+    .stack-canvas {
+      display: block;
+      width: 100%;
+      height: 480px;
+      border-radius: var(--radius-xl);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      cursor: crosshair;
+    }
+
+    .constellation-hint {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-fg-muted);
+      margin-top: 12px;
+      opacity: 0.6;
+    }
+
     /* Light theme */
     [data-theme="light"] .hero-canvas { opacity: 0.4; }
     [data-theme="light"] .hero-grain  { opacity: 0.02; }
+    [data-theme="light"] .stack-canvas { background: #f5f5f5; border-color: #e0e0e0; }
   `]
 })
 export class SobreComponent implements OnInit, OnDestroy {
@@ -765,9 +905,10 @@ export class SobreComponent implements OnInit, OnDestroy {
   private dataService = inject(DataService);
   private i18nService = inject(I18nService);
 
-  profile  = this.dataService.profile;
-  timeline = this.dataService.timeline;
-  lang     = computed(() => this.i18nService.currentLang());
+  profile          = this.dataService.profile;
+  timeline         = this.dataService.timeline;
+  timelineReversed = computed(() => [...this.timeline()].reverse());
+  lang             = computed(() => this.i18nService.currentLang());
 
   subtitle  = signal(ROLES[0]);
   nameChars = 'Ghabryel'.split('');
@@ -777,6 +918,7 @@ export class SobreComponent implements OnInit, OnDestroy {
   private roleIdx  = 0;
   private scrambleId = 0;
   private rotateId   = 0;
+  private tlInitialized = false;
   private mouseX = 0.5;
   private mouseY = 0.5;
   private onMouseMove = (e: MouseEvent) => {
@@ -801,6 +943,16 @@ export class SobreComponent implements OnInit, OnDestroy {
     afterNextRender(() => {
       this.initWebGL();
       this.initAnimations();
+      this.initStackConstellation();
+    });
+
+    // Setup horizontal timeline once data arrives (effect runs in injection context)
+    effect(() => {
+      const jobs = this.timeline();
+      if (jobs.length > 0 && !this.tlInitialized && isPlatformBrowser(this.platformId)) {
+        this.tlInitialized = true;
+        requestAnimationFrame(() => requestAnimationFrame(() => this.initHorizontalTimeline()));
+      }
     });
   }
 
@@ -984,5 +1136,214 @@ export class SobreComponent implements OnInit, OnDestroy {
         this.subtitle.set(target);
       }
     }, 35) as unknown as number;
+  }
+
+  // ─── Horizontal timeline (GSAP ScrollTrigger pin) ────────────────
+  private async initHorizontalTimeline(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+    if (window.innerWidth < 1024) return; // mobile uses native scroll
+
+    const section = this.el.nativeElement.querySelector('.tl-section') as HTMLElement;
+    const track   = this.el.nativeElement.querySelector('.tl-track')   as HTMLElement;
+    if (!section || !track) return;
+
+    const { gsap }          = await import('gsap');
+    const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+    gsap.registerPlugin(ScrollTrigger);
+
+    const getTravel = () => track.scrollWidth - window.innerWidth + 64;
+
+    gsap.to(track, {
+      x: () => -getTravel(),
+      ease: 'none',
+      scrollTrigger: {
+        trigger: section,
+        pin: true,
+        scrub: 1.2,
+        end: () => `+=${getTravel()}`,
+        invalidateOnRefresh: true,
+      }
+    });
+  }
+
+  // ─── Stack constellation canvas ──────────────────────────────────
+  private async initStackConstellation(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const canvas = this.el.nativeElement.querySelector('#stack-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    let stackData: { categories: Array<{ id: string; items: Array<{ name: string; proficiency: number; years: number; connections: string[] }> }> };
+    try {
+      stackData = await fetch('/assets/data/stack.json').then(r => r.json());
+    } catch { return; }
+
+    const catColors: Record<string, string> = {
+      core:     '#FF4500',
+      frontend: '#00D9FF',
+      backend:  '#7C3AED',
+      database: '#059669',
+      cloud:    '#D97706',
+      tools:    '#64748B'
+    };
+
+    // Set canvas dimensions
+    const W = canvas.offsetWidth || 800;
+    const H = 480;
+    canvas.width  = W;
+    canvas.height = H;
+
+    interface CNode { name: string; x: number; y: number; vx: number; vy: number; r: number; color: string; years: number; adj: number[] }
+
+    const nodes: CNode[] = [];
+    const nameIdx: Record<string, number> = {};
+
+    for (const cat of stackData.categories) {
+      for (const item of cat.items) {
+        nameIdx[item.name] = nodes.length;
+        nodes.push({
+          name:  item.name,
+          x:     (nodes.length % 8 + 0.5) * (W / 8) + (Math.random() - 0.5) * 40,
+          y:     (Math.floor(nodes.length / 8) + 0.5) * (H / 5) + (Math.random() - 0.5) * 30,
+          vx: 0, vy: 0,
+          r:     5 + item.proficiency * 2.8,
+          color: catColors[cat.id] ?? '#666',
+          years: item.years,
+          adj:   []
+        });
+      }
+    }
+
+    // Build adjacency
+    let globalIdx = 0;
+    for (const cat of stackData.categories) {
+      for (const item of cat.items) {
+        for (const cn of item.connections) {
+          const j = nameIdx[cn];
+          if (j !== undefined) nodes[globalIdx].adj.push(j);
+        }
+        globalIdx++;
+      }
+    }
+
+    // Force simulation (runs sync — ~10ms for 30 nodes)
+    const N = nodes.length;
+    for (let step = 0; step < 200; step++) {
+      for (let i = 0; i < N; i++) {
+        for (let j = i + 1; j < N; j++) {
+          const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
+          const d2 = dx * dx + dy * dy + 1;
+          const f  = 3200 / d2;
+          nodes[i].vx -= dx * f; nodes[i].vy -= dy * f;
+          nodes[j].vx += dx * f; nodes[j].vy += dy * f;
+        }
+      }
+      for (let i = 0; i < N; i++) {
+        for (const j of nodes[i].adj) {
+          const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
+          const d  = Math.sqrt(dx * dx + dy * dy) + 0.01;
+          const f  = (d - 90) * 0.012;
+          nodes[i].vx += dx / d * f; nodes[i].vy += dy / d * f;
+          nodes[j].vx -= dx / d * f; nodes[j].vy -= dy / d * f;
+        }
+        nodes[i].vx += (W / 2 - nodes[i].x) * 0.003;
+        nodes[i].vy += (H / 2 - nodes[i].y) * 0.003;
+        nodes[i].vx *= 0.82; nodes[i].vy *= 0.82;
+        nodes[i].x = Math.max(nodes[i].r + 8, Math.min(W - nodes[i].r - 8, nodes[i].x + nodes[i].vx));
+        nodes[i].y = Math.max(nodes[i].r + 8, Math.min(H - nodes[i].r - 8, nodes[i].y + nodes[i].vy));
+      }
+    }
+
+    let hovIdx = -1;
+    const isDark = () => document.documentElement.getAttribute('data-theme') !== 'light';
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+
+      // Edges
+      for (let i = 0; i < N; i++) {
+        for (const j of nodes[i].adj) {
+          if (j <= i) continue;
+          const hi = hovIdx === i || hovIdx === j ||
+            (hovIdx !== -1 && (nodes[hovIdx].adj.includes(i) || nodes[hovIdx].adj.includes(j)));
+          ctx.beginPath();
+          ctx.moveTo(nodes[i].x, nodes[i].y);
+          ctx.lineTo(nodes[j].x, nodes[j].y);
+          ctx.strokeStyle = hi ? 'rgba(255,69,0,0.45)' : (isDark() ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.08)');
+          ctx.lineWidth = hi ? 1.5 : 0.8;
+          ctx.stroke();
+        }
+      }
+
+      // Nodes + labels
+      for (let i = 0; i < N; i++) {
+        const n  = nodes[i];
+        const hi = i === hovIdx;
+        const connected = hovIdx !== -1 && nodes[hovIdx].adj.includes(i);
+        const dim = hovIdx !== -1 && !hi && !connected;
+        const alpha = dim ? 0.25 : 1;
+
+        ctx.globalAlpha = alpha;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, hi ? n.r + 2 : n.r, 0, Math.PI * 2);
+        ctx.fillStyle = n.color;
+        ctx.fill();
+
+        if (hi) {
+          ctx.beginPath();
+          ctx.arc(n.x, n.y, n.r + 6, 0, Math.PI * 2);
+          ctx.strokeStyle = n.color + '55';
+          ctx.lineWidth = 2;
+          ctx.stroke();
+        }
+
+        ctx.globalAlpha = dim ? 0.15 : (hovIdx === -1 ? 0.7 : (hi || connected ? 1 : 0.4));
+        ctx.fillStyle   = isDark() ? '#ffffff' : '#111111';
+        ctx.font        = `${hi ? '600' : '400'} ${hi ? 11 : 10}px JetBrains Mono, monospace`;
+        ctx.textAlign   = 'center';
+        ctx.fillText(n.name, n.x, n.y + n.r + 13);
+      }
+      ctx.globalAlpha = 1;
+
+      // Tooltip on hovered node
+      if (hovIdx !== -1) {
+        const n = nodes[hovIdx];
+        const label = `${n.years} ${n.years === 1 ? 'year' : 'years'}`;
+        const px = Math.min(n.x + n.r + 10, W - 90);
+        const py = Math.max(n.y - 12, 14);
+        ctx.fillStyle = isDark() ? 'rgba(26,26,26,0.92)' : 'rgba(245,245,245,0.95)';
+        ctx.beginPath();
+        ctx.roundRect(px, py - 14, 80, 22, 4);
+        ctx.fill();
+        ctx.fillStyle = isDark() ? '#f0f0f0' : '#111';
+        ctx.font = '11px JetBrains Mono, monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(label, px + 8, py + 1);
+      }
+    };
+
+    draw();
+
+    canvas.addEventListener('mousemove', (e) => {
+      const rect = canvas.getBoundingClientRect();
+      const mx = (e.clientX - rect.left) * (W / rect.width);
+      const my = (e.clientY - rect.top)  * (H / rect.height);
+      let found = -1;
+      for (let i = 0; i < N; i++) {
+        const dx = nodes[i].x - mx, dy = nodes[i].y - my;
+        if (dx * dx + dy * dy <= (nodes[i].r + 6) ** 2) { found = i; break; }
+      }
+      if (found !== hovIdx) { hovIdx = found; draw(); }
+      canvas.style.cursor = found !== -1 ? 'pointer' : 'crosshair';
+    });
+
+    canvas.addEventListener('mouseleave', () => {
+      hovIdx = -1;
+      draw();
+      canvas.style.cursor = 'crosshair';
+    });
   }
 }
