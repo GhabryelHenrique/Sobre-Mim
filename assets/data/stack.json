@@ -1,0 +1,69 @@
+{
+  "categories": [
+    {
+      "id": "core",
+      "label": { "pt": "Principal", "en": "Core" },
+      "items": [
+        { "name": "Angular", "icon": "angular", "proficiency": 5, "years": 5, "connections": ["TypeScript", "RxJS", "Signals"] },
+        { "name": "TypeScript", "icon": "typescript", "proficiency": 5, "years": 5, "connections": ["Angular", "Node.js"] },
+        { "name": "JavaScript", "icon": "javascript", "proficiency": 5, "years": 6, "connections": ["TypeScript", "Node.js"] },
+        { "name": "RxJS", "icon": "reactivex", "proficiency": 4, "years": 4, "connections": ["Angular"] },
+        { "name": "Signals", "icon": "angular", "proficiency": 5, "years": 2, "connections": ["Angular"] }
+      ]
+    },
+    {
+      "id": "frontend",
+      "label": { "pt": "Frontend", "en": "Frontend" },
+      "items": [
+        { "name": "React", "icon": "react", "proficiency": 3, "years": 2, "connections": ["TypeScript", "JavaScript"] },
+        { "name": "TailwindCSS", "icon": "tailwindcss", "proficiency": 4, "years": 2, "connections": ["HTML5"] },
+        { "name": "GSAP", "icon": "greensock", "proficiency": 4, "years": 2, "connections": ["JavaScript"] },
+        { "name": "Three.js", "icon": "threedotjs", "proficiency": 3, "years": 1, "connections": ["JavaScript", "WebGL"] },
+        { "name": "HTML5", "icon": "html5", "proficiency": 5, "years": 6, "connections": ["CSS3"] },
+        { "name": "CSS3", "icon": "css3", "proficiency": 5, "years": 6, "connections": ["HTML5", "TailwindCSS"] }
+      ]
+    },
+    {
+      "id": "backend",
+      "label": { "pt": "Backend", "en": "Backend" },
+      "items": [
+        { "name": "Node.js", "icon": "nodedotjs", "proficiency": 4, "years": 4, "connections": ["JavaScript", "TypeScript"] },
+        { "name": "NestJS", "icon": "nestjs", "proficiency": 3, "years": 2, "connections": ["Node.js", "TypeScript"] },
+        { "name": "Python", "icon": "python", "proficiency": 3, "years": 2, "connections": ["Django"] },
+        { "name": "Java", "icon": "java", "proficiency": 3, "years": 2, "connections": ["Spring"] },
+        { "name": "Spring", "icon": "spring", "proficiency": 2, "years": 1, "connections": ["Java"] }
+      ]
+    },
+    {
+      "id": "database",
+      "label": { "pt": "Dados", "en": "Data" },
+      "items": [
+        { "name": "MongoDB", "icon": "mongodb", "proficiency": 4, "years": 4, "connections": ["Node.js"] },
+        { "name": "PostgreSQL", "icon": "postgresql", "proficiency": 3, "years": 2, "connections": ["NestJS"] },
+        { "name": "Oracle", "icon": "oracle", "proficiency": 2, "years": 1, "connections": ["Java"] }
+      ]
+    },
+    {
+      "id": "cloud",
+      "label": { "pt": "Cloud & DevOps", "en": "Cloud & DevOps" },
+      "items": [
+        { "name": "AWS", "icon": "amazonaws", "proficiency": 3, "years": 2, "connections": ["Docker"] },
+        { "name": "GCP", "icon": "googlecloud", "proficiency": 3, "years": 2, "connections": ["Gemini"] },
+        { "name": "Docker", "icon": "docker", "proficiency": 3, "years": 3, "connections": ["AWS"] },
+        { "name": "Azure DevOps", "icon": "azuredevops", "proficiency": 3, "years": 3, "connections": [] },
+        { "name": "GitHub Actions", "icon": "githubactions", "proficiency": 3, "years": 2, "connections": ["Docker"] }
+      ]
+    },
+    {
+      "id": "tools",
+      "label": { "pt": "Ferramentas", "en": "Tools" },
+      "items": [
+        { "name": "Git", "icon": "git", "proficiency": 5, "years": 6, "connections": [] },
+        { "name": "Figma", "icon": "figma", "proficiency": 3, "years": 3, "connections": [] },
+        { "name": "VS Code", "icon": "visualstudiocode", "proficiency": 5, "years": 5, "connections": [] },
+        { "name": "JetBrains", "icon": "jetbrains", "proficiency": 4, "years": 3, "connections": [] },
+        { "name": "Nx", "icon": "nx", "proficiency": 3, "years": 2, "connections": ["Angular"] }
+      ]
+    }
+  ]
+}

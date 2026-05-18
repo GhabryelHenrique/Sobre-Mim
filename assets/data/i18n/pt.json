@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "Início",
+    "projects": "Projetos",
+    "community": "Comunidade",
+    "articles": "Artigos",
+    "speaking": "Palestras",
+    "mentoria": "Mentoria",
+    "books": "Livros",
+    "setup": "Setup",
+    "contact": "Contato"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Olá, eu sou",
+      "cta_projects": "Ver Projetos",
+      "cta_contact": "Entre em Contato",
+      "scroll": "Role para explorar"
+    },
+    "about_short": {
+      "title": "Sobre mim",
+      "description": "Engenheiro de Software Sênior apaixonado por Angular e arquitetura frontend. Construo sistemas críticos em escala global, contribuo com a comunidade tech e ajudo devs a evoluírem suas carreiras.",
+      "cta": "Saber mais"
+    }
+  },
+  "about": {
+    "title": "Sobre",
+    "bio_title": "Quem sou eu",
+    "experience_title": "Experiência",
+    "stats": {
+      "years": "Anos de Experiência",
+      "companies": "Empresas",
+      "devs": "Devs Impactados",
+      "articles": "Artigos Publicados"
+    },
+    "timeline_title": "Jornada Profissional",
+    "stack_title": "Stack & Tecnologias",
+    "current": "Atual"
+  },
+  "projects": {
+    "title": "Projetos",
+    "subtitle": "Sistemas e iniciativas que construí ao longo da carreira",
+    "filter_all": "Todos",
+    "filter_featured": "Destaque",
+    "status": {
+      "completed": "Concluído",
+      "active": "Ativo",
+      "in_development": "Em Desenvolvimento"
+    },
+    "cta_live": "Ver Projeto",
+    "cta_github": "GitHub",
+    "cta_case": "Case Study",
+    "next_project": "Próximo Projeto"
+  },
+  "community": {
+    "title": "Comunidade",
+    "subtitle": "Iniciativas, eventos e organizações onde contribuo",
+    "map_title": "Impacto em Uberlândia e no Mundo",
+    "metrics_title": "Números que importam"
+  },
+  "articles": {
+    "title": "Artigos",
+    "subtitle": "Conteúdo técnico sobre Angular, arquitetura e engenharia frontend",
+    "filter_all": "Todos",
+    "read_more": "Ler Artigo",
+    "reading_time": "min de leitura",
+    "published_on": "Publicado em",
+    "articles_count": "artigos publicados"
+  },
+  "speaking": {
+    "title": "Palestras",
+    "subtitle": "Eventos, workshops e conferências onde já falei",
+    "filter_all": "Todos",
+    "filter_year": "Ano",
+    "type": {
+      "palestra": "Palestra",
+      "workshop": "Workshop",
+      "masterclass": "Masterclass"
+    },
+    "cta_invite": "Convide para Palestrar",
+    "cta_invite_desc": "Estou disponível para palestras e workshops sobre Angular, arquitetura frontend, IA e carreira em tecnologia.",
+    "cta_invite_btn": "Entrar em Contato",
+    "view_photos": "Ver Fotos",
+    "paid": "Pago"
+  },
+  "mentoria": {
+    "title": "Beyond the Framework",
+    "subtitle": "Mentoria técnica para devs que querem pensar como seniores",
+    "cta_apply": "Quero Aplicar",
+    "cta_learn": "Saiba Mais",
+    "features_title": "O que você vai desenvolver",
+    "not_for": "Para quem NÃO é",
+    "for_who": "Para quem é",
+    "price_from": "A partir de"
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Vamos conversar? Estou disponível para projetos, palestras e mentorias.",
+    "name": "Seu Nome",
+    "email": "Seu E-mail",
+    "subject": "Assunto",
+    "message": "Sua Mensagem",
+    "send": "Enviar Mensagem",
+    "sending": "Enviando...",
+    "success_title": "Mensagem enviada!",
+    "success_desc": "Obrigado pelo contato. Responderei em breve.",
+    "error_title": "Ops, algo deu errado",
+    "error_desc": "Por favor, tente novamente ou me contate diretamente por e-mail.",
+    "or": "ou fale diretamente"
+  },
+  "footer": {
+    "built_with": "Construído com",
+    "and": "e",
+    "rights": "Todos os direitos reservados.",
+    "back_top": "Voltar ao topo"
+  },
+  "common": {
+    "loading": "Carregando...",
+    "error": "Erro ao carregar dados",
+    "see_all": "Ver Todos",
+    "see_more": "Ver Mais",
+    "close": "Fechar",
+    "next": "Próximo",
+    "prev": "Anterior",
+    "dark_mode": "Modo Escuro",
+    "light_mode": "Modo Claro",
+    "lang_switch": "English"
+  },
+  "not_found": {
+    "title": "Perdido no espaço",
+    "subtitle": "Esta página não existe ou foi movida para outra galáxia.",
+    "cta_home": "Voltar ao Início",
+    "cta_projects": "Ver Projetos"
+  }
+}

@@ -1,0 +1,148 @@
+[
+  {
+    "id": "solutis",
+    "company": "Solutis Tecnologias",
+    "logo": "/images/empresas/solutis.png",
+    "position": {
+      "pt": "Sênior Software Engineer",
+      "en": "Senior Software Engineer"
+    },
+    "period": {
+      "pt": "nov 2025 — presente",
+      "en": "Nov 2025 — Present"
+    },
+    "period_start": "2025-11",
+    "period_end": null,
+    "location": "Brasil",
+    "current": true,
+    "description": {
+      "pt": "Responsável pela evolução e confiabilidade do sistema global de Controle de Acesso de Facilities do Santander — plataforma crítica que gerencia autorização e segurança física de colaboradores, fornecedores e visitantes em operações no Brasil e no mundo.",
+      "en": "Responsible for the evolution and reliability of Santander's global Facilities Access Control system — a critical platform managing physical security and authorization for employees, suppliers, and visitors in Brazil and globally."
+    },
+    "highlights": {
+      "pt": [
+        "Modernização e estabilização de módulos críticos do sistema de acesso físico",
+        "Implementação de melhorias arquiteturais para aumentar confiabilidade e tempo de resposta",
+        "Desenvolvimento de integrações seguras entre serviços internos e plataformas globais",
+        "Redução de falhas operacionais por meio de automação, testes e observabilidade"
+      ],
+      "en": [
+        "Modernization and stabilization of critical physical access system modules",
+        "Architectural improvements to increase reliability and response time",
+        "Secure integrations between internal services and global bank platforms",
+        "Reduction of operational failures through automation, testing, and observability"
+      ]
+    },
+    "stack": ["Angular", "TypeScript", "Java", "Spring", "Oracle", "AWS"],
+    "color": "#FF4500"
+  },
+  {
+    "id": "zup",
+    "company": "Zup Innovation",
+    "logo": "/images/empresas/zup.png",
+    "position": {
+      "pt": "Desenvolvedor Frontend II",
+      "en": "Frontend Developer II"
+    },
+    "period": {
+      "pt": "mar 2024 — set 2025 · 1 ano 7 meses",
+      "en": "Mar 2024 — Sep 2025 · 1 year 7 months"
+    },
+    "period_start": "2024-03",
+    "period_end": "2025-09",
+    "location": "Uberlândia, MG",
+    "current": false,
+    "description": {
+      "pt": "Lideranças no desenvolvimento de módulos em arquitetura de microfrontends para modernização de sistema bancário com Angular 17 e Standalone Components. Foco em performance web, Core Web Vitals e acessibilidade WCAG.",
+      "en": "Led module development in a microfrontend architecture for banking system modernization with Angular 17 and Standalone Components. Focus on web performance, Core Web Vitals, and WCAG accessibility."
+    },
+    "highlights": {
+      "pt": [
+        "Desenvolvimento em arquitetura microfrontend para sistema bancário do Itaú Unibanco",
+        "Performance web com foco em Core Web Vitals e Lighthouse 95+",
+        "Implementação de acessibilidade WCAG em componentes críticos",
+        "Code reviews e mentoria técnica para o time"
+      ],
+      "en": [
+        "Microfrontend architecture development for Itaú Unibanco banking system",
+        "Web performance focused on Core Web Vitals and Lighthouse 95+",
+        "WCAG accessibility implementation in critical components",
+        "Code reviews and technical mentoring for the team"
+      ]
+    },
+    "stack": ["Angular", "TypeScript", "RxJS", "Microfrontends", "Single-SPA", "WCAG"],
+    "color": "#00D9FF"
+  },
+  {
+    "id": "algar",
+    "company": "Algar Telecom",
+    "logo": "/images/empresas/algar.png",
+    "position": {
+      "pt": "Analista de Tecnologia",
+      "en": "Technology Analyst"
+    },
+    "period": {
+      "pt": "jan 2024 — abr 2024 · 4 meses",
+      "en": "Jan 2024 — Apr 2024 · 4 months"
+    },
+    "period_start": "2024-01",
+    "period_end": "2024-04",
+    "location": "Uberlândia, MG",
+    "current": false,
+    "description": {
+      "pt": "Desenvolvimento e manutenção de plataformas de telecomunicações com Java e middleware orientado a mensagens. Automação de migrações de planos móveis com Python.",
+      "en": "Development and maintenance of telecommunication platforms using Java and message-oriented middleware. Automation of mobile plan migrations with Python."
+    },
+    "highlights": {
+      "pt": [
+        "Automação de migrações de planos móveis com Python",
+        "Conversão de scripts PL/SQL garantindo transições seguras",
+        "Mentoria e treinamento de novos estagiários"
+      ],
+      "en": [
+        "Automation of mobile plan migrations with Python",
+        "PL/SQL script conversion ensuring smooth transitions",
+        "Mentoring and training new interns"
+      ]
+    },
+    "stack": ["Java", "Python", "PL/SQL", "Message Middleware", "Angular"],
+    "color": "#888888"
+  },
+  {
+    "id": "amg",
+    "company": "Angular Money Group",
+    "logo": "/images/empresas/amg.png",
+    "position": {
+      "pt": "Engenheiro de Software Full Stack III",
+      "en": "Full Stack Software Engineer III"
+    },
+    "period": {
+      "pt": "jan 2021 — jan 2024 · 3 anos",
+      "en": "Jan 2021 — Jan 2024 · 3 years"
+    },
+    "period_start": "2021-01",
+    "period_end": "2024-01",
+    "location": "Uberlândia, MG",
+    "current": false,
+    "description": {
+      "pt": "Desenvolvimento full stack de sistemas internos (gestão de fluxo de caixa, estoque) e externos (logística marítima, cadastros bancários). Gestão de equipe e mentoria de juniors.",
+      "en": "Full stack development of internal systems (cash flow, inventory management) and external projects (maritime logistics, banking forms). Team management and mentoring of juniors."
+    },
+    "highlights": {
+      "pt": [
+        "Sistema de gestão de fluxo de caixa com Node.js, MongoDB e Angular",
+        "Sistema de logística para transportadoras marítimas",
+        "Gestão de equipe e suporte a desenvolvedores junior",
+        "Code reviews e capacitação do time"
+      ],
+      "en": [
+        "Cash flow management system with Node.js, MongoDB and Angular",
+        "Maritime logistics system for shipping companies",
+        "Team management and junior developer support",
+        "Code reviews and team upskilling"
+      ]
+    },
+    "stack": ["Angular", "Node.js", "MongoDB", "Express", "TypeScript", "Karma/Jasmine"],
+    "color": "#FF4500"
+  }
+]

@@ -1,0 +1,101 @@
+[
+  {
+    "id": "sicoob-credicitrus-ia",
+    "title": {
+      "pt": "Inteligência Artificial no Setor Financeiro",
+      "en": "Artificial Intelligence in the Financial Sector"
+    },
+    "event": "Sicoob Credicitrus — Tech Day",
+    "type": "palestra",
+    "date": "2025",
+    "location": "Uberlândia, MG",
+    "description": {
+      "pt": "Palestra paga para colaboradores da Sicoob Credicitrus sobre aplicações práticas de IA no setor financeiro, automação de processos e oportunidades para o mercado de crédito.",
+      "en": "Paid talk for Sicoob Credicitrus employees about practical AI applications in the financial sector, process automation, and opportunities in the credit market."
+    },
+    "topics": {
+      "pt": ["IA Generativa no Financeiro", "Automação com LLMs", "Google Gemini na Prática"],
+      "en": ["Generative AI in Finance", "Automation with LLMs", "Google Gemini in Practice"]
+    },
+    "tags": ["IA", "Financeiro", "Gemini", "Automação"],
+    "paid": true,
+    "year": 2025,
+    "image": null,
+    "slides": null,
+    "video": null
+  },
+  {
+    "id": "build-with-ai-gdg",
+    "title": {
+      "pt": "Build with AI - Imersão Gemini",
+      "en": "Build with AI - Gemini Immersion"
+    },
+    "event": "GDG Uberlândia",
+    "type": "workshop",
+    "date": "2025-07-12",
+    "time": "08h às 12h",
+    "location": "UNA - Sala de metodologias ativas, Uberlândia",
+    "description": {
+      "pt": "Workshop prático sobre Inteligência Artificial Generativa com foco no Gemini, a plataforma de IA do Google. Uma imersão completa para desenvolvedores que querem aprender a criar aplicações com GenAI.",
+      "en": "Practical workshop on Generative Artificial Intelligence focused on Gemini, Google's AI platform. A complete immersion for developers who want to learn how to build GenAI applications."
+    },
+    "topics": {
+      "pt": ["Fundamentos de GenAI e LLMs", "Desenvolvendo com Gemini", "IA na sua carreira"],
+      "en": ["GenAI and LLM fundamentals", "Building with Gemini", "AI in your career"]
+    },
+    "tags": ["IA", "Gemini", "GenAI", "Google", "Workshop"],
+    "paid": false,
+    "year": 2025,
+    "image": "/images/palestras/build-with-AI.jpg",
+    "slides": null,
+    "video": null,
+    "photos": [
+      "/images/palestras/build-with-AI/IMG_1346.jpg",
+      "/images/palestras/build-with-AI/IMG_1347.jpg",
+      "/images/palestras/build-with-AI/IMG_1348.jpg",
+      "/images/palestras/build-with-AI/IMG_1349.jpg",
+      "/images/palestras/build-with-AI/IMG_1350.jpg",
+      "/images/palestras/build-with-AI/IMG_1351.jpg",
+      "/images/palestras/build-with-AI/IMG_1352.jpg",
+      "/images/palestras/build-with-AI/IMG_1353.jpg",
+      "/images/palestras/build-with-AI/IMG_1354.jpg",
+      "/images/palestras/build-with-AI/IMG_1355.jpg",
+      "/images/palestras/build-with-AI/IMG_1356.jpg",
+      "/images/palestras/build-with-AI/IMG_1357.jpg",
+      "/images/palestras/build-with-AI/IMG_1358.jpg"
+    ]
+  },
+  {
+    "id": "decifrando-carreira-ti",
+    "title": {
+      "pt": "Decifrando a Carreira de TI: Técnica vs. Gestão",
+      "en": "Decoding the IT Career: Technical vs. Management"
+    },
+    "event": "Unitri - Faculdade",
+    "type": "palestra",
+    "date": "2025-02-17",
+    "time": "19h",
+    "location": "Unitri, Uberlândia, MG",
+    "description": {
+      "pt": "Palestra sobre as diferenças entre carreiras técnicas (frontend, backend, QA) e de gestão (tech lead, gerente, CTO), ajudando participantes a descobrir qual caminho combina com seu perfil.",
+      "en": "Talk about the differences between technical careers (frontend, backend, QA) and management paths (tech lead, manager, CTO), helping participants discover which path fits their profile."
+    },
+    "topics": {
+      "pt": ["Carreiras Técnicas vs. Gestão", "Como se preparar para o mercado", "Histórias reais de carreira"],
+      "en": ["Technical vs. Management Careers", "How to prepare for the market", "Real career stories"]
+    },
+    "tags": ["Carreira", "TI", "Gestão", "Desenvolvimento"],
+    "paid": false,
+    "year": 2025,
+    "image": "/images/palestras/unitri.jpg",
+    "slides": null,
+    "video": null,
+    "photos": [
+      "/images/palestras/unitri/CD3B0E1D-CBDA-47EE-A2DF-CF89A4A067F4.jpg",
+      "/images/palestras/unitri/IMG_0719.PNG",
+      "/images/palestras/unitri/IMG_0715.jpg",
+      "/images/palestras/unitri/IMG_0716.jpg",
+      "/images/palestras/unitri/IMG_0717.jpg"
+    ]
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "name": "Ghabryel Henrique",
+  "first_name": "Ghabryel",
+  "title": {
+    "pt": "Engenheiro de Software Sênior",
+    "en": "Senior Software Engineer"
+  },
+  "specialty": {
+    "pt": "Angular, TypeScript, Arquitetura Frontend",
+    "en": "Angular, TypeScript, Frontend Architecture"
+  },
+  "location": "Uberlândia, MG — Brasil",
+  "experience_years": 5,
+  "bio": {
+    "pt": "Sou um engenheiro de software sênior apaixonado por Angular e arquitetura frontend. Trabalho construindo sistemas críticos em escala global, contribuo com a comunidade tech de Uberlândia e ajudo desenvolvedores a evoluírem sua carreira. Candidato a Google Developer Expert em Angular, Local Lead do NASA Space Apps Challenge e membro do Global Shapers Community (World Economic Forum).",
+    "en": "I'm a senior software engineer passionate about Angular and frontend architecture. I build critical systems at global scale, contribute to the Uberlândia tech community, and help developers grow their careers. GDE Candidate in Angular, Local Lead of NASA Space Apps Challenge, and member of the Global Shapers Community (World Economic Forum)."
+  },
+  "roles": {
+    "pt": ["Angular Architect", "GDE Candidate", "Community Builder", "Tech Speaker"],
+    "en": ["Angular Architect", "GDE Candidate", "Community Builder", "Tech Speaker"]
+  },
+  "status_cards": [
+    {
+      "pt": "Disponível para Palestras",
+      "en": "Available for Speaking",
+      "icon": "🎤",
+      "link": "/palestras"
+    },
+    {
+      "pt": "Mentorando Devs",
+      "en": "Mentoring Devs",
+      "icon": "🚀",
+      "link": "/mentoria"
+    },
+    {
+      "pt": "Escrevendo no Medium",
+      "en": "Writing on Medium",
+      "icon": "✍️",
+      "link": "https://ghabryel.medium.com"
+    }
+  ],
+  "socials": {
+    "github": "https://github.com/GhabryelHenrique",
+    "linkedin": "https://www.linkedin.com/in/ghabryelhenrique/",
+    "youtube": "https://www.youtube.com/@NgGhab/",
+    "medium": "https://ghabryel.medium.com",
+    "email": "ghabryelcode@gmail.com"
+  },
+  "stats": {
+    "experience_years": 5,
+    "companies": 4,
+    "devs_mentored": 50,
+    "articles_published": 9,
+    "talks_given": 3
+  },
+  "certifications": [
+    "Angular Certified Developer",
+    "Advanced Angular Architecture",
+    "Google Cloud Fundamentals"
+  ],
+  "gde_status": {
+    "pt": "Candidato a GDE em Angular",
+    "en": "GDE Candidate in Angular"
+  },
+  "avatar": "/images/ghabryelSorriso.jpg",
+  "avatar_serious": "/images/ghabryelSerio.png",
+  "avatar_speaking": "/images/ghabryelMicrofone.jpeg"
+}
