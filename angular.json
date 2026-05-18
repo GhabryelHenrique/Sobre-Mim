@@ -45,7 +45,8 @@
             "allowedCommonJsDependencies": [
               "gsap",
               "three",
-              "d3"
+              "d3",
+              "leaflet"
             ]
           },
           "configurations": {

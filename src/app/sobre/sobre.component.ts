@@ -207,7 +207,7 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
     </div>
   </section>
 
-  <!-- ═══════════════════ STACK CONSTELLATION ═══════════════════ -->
+  <!-- ═══════════════════ STACK GRID ═══════════════════ -->
   <section class="stack-section">
     <div class="container">
       <header class="section-head" revealOnScroll>
@@ -217,15 +217,48 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
         </h2>
       </header>
 
-      <div class="constellation-wrap" revealOnScroll [revealDelay]="100">
-        <canvas id="stack-canvas" class="stack-canvas"
-                aria-label="{{ lang() === 'pt' ? 'Constelação de tecnologias' : 'Technology constellation' }}">
-        </canvas>
-        <p class="constellation-hint">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-          {{ lang() === 'pt' ? 'Passe o mouse sobre os nós para explorar conexões' : 'Hover over nodes to explore connections' }}
-        </p>
-      </div>
+      @if (stackData()) {
+        <div class="stack-tabs">
+          <button class="stack-tab" [class.active]="activeCategory() === 'all'"
+                  (click)="activeCategory.set('all')">
+            {{ lang() === 'pt' ? 'Todas' : 'All' }}
+            <span class="tab-count">{{ totalItems() }}</span>
+          </button>
+          @for (cat of stackCategories(); track cat.id) {
+            <button class="stack-tab" [class.active]="activeCategory() === cat.id"
+                    [style.--tab-color]="catColors[cat.id]"
+                    (click)="activeCategory.set(cat.id)">
+              {{ lang() === 'pt' ? cat.label.pt : cat.label.en }}
+              <span class="tab-count">{{ cat.items.length }}</span>
+            </button>
+          }
+        </div>
+
+        <div class="stack-grid">
+          @for (item of filteredStack(); track item.name) {
+            <div class="stack-card" [style.--cat-color]="item.catColor">
+              <div class="sc-header">
+                <span class="sc-name">{{ item.name }}</span>
+                <span class="sc-years">{{ item.years }}{{ item.years === 1 ? ' yr' : ' yrs' }}</span>
+              </div>
+              <div class="sc-bar-wrap">
+                <div class="sc-bar" [style.width.%]="(item.proficiency / 5) * 100"></div>
+              </div>
+              <div class="sc-dots">
+                @for (d of [1,2,3,4,5]; track d) {
+                  <span class="sc-dot" [class.filled]="d <= item.proficiency"></span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+      } @else {
+        <div class="stack-grid">
+          @for (_ of [1,2,3,4,5,6,7,8,9,10,11,12]; track $index) {
+            <div class="stack-skeleton"></div>
+          }
+        </div>
+      }
     </div>
   </section>
 
@@ -865,39 +898,142 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       .tl-card { scroll-snap-align: start; }
     }
 
-    /* ─── STACK CONSTELLATION ─── */
+    /* ─── STACK GRID ─── */
     .stack-section {
       padding: var(--section-py) 0;
       border-top: 1px solid var(--color-border);
     }
 
-    .constellation-wrap { position: relative; }
-
-    .stack-canvas {
-      display: block;
-      width: 100%;
-      height: 480px;
-      border-radius: var(--radius-xl);
-      background: var(--color-surface);
-      border: 1px solid var(--color-border);
-      cursor: crosshair;
+    .stack-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
     }
 
-    .constellation-hint {
-      display: flex;
+    .stack-tab {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: var(--text-xs);
+      padding: 6px 16px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: transparent;
+      color: var(--color-fg-muted);
+      font-size: var(--text-sm);
+      font-family: var(--font-sans);
+      cursor: pointer;
+      transition: all var(--duration-fast);
+    }
+
+    .stack-tab:hover {
+      border-color: var(--tab-color, var(--color-accent));
+      color: var(--color-fg);
+    }
+
+    .stack-tab.active {
+      background: var(--tab-color, var(--color-accent));
+      border-color: var(--tab-color, var(--color-accent));
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .tab-count {
+      font-size: 10px;
+      font-family: var(--font-mono);
+      opacity: 0.7;
+    }
+
+    .stack-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    @media (max-width: 1100px) { .stack-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 720px)  { .stack-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .stack-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      transition: border-color var(--duration-fast), transform var(--duration-fast);
+    }
+
+    .stack-card:hover {
+      border-color: var(--cat-color, var(--color-accent));
+      transform: translateY(-2px);
+    }
+
+    .sc-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+
+    .sc-name {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-fg);
+    }
+
+    .sc-years {
+      font-size: 10px;
       font-family: var(--font-mono);
       color: var(--color-fg-muted);
-      margin-top: 12px;
-      opacity: 0.6;
+    }
+
+    .sc-bar-wrap {
+      height: 4px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 10px;
+    }
+
+    .sc-bar {
+      height: 100%;
+      background: var(--cat-color, var(--color-accent));
+      border-radius: 2px;
+      transition: width 0.6s var(--ease-out-expo);
+    }
+
+    .sc-dots {
+      display: flex;
+      gap: 4px;
+    }
+
+    .sc-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      background: transparent;
+      transition: background var(--duration-fast), border-color var(--duration-fast);
+    }
+
+    .sc-dot.filled {
+      background: var(--cat-color, var(--color-accent));
+      border-color: var(--cat-color, var(--color-accent));
+    }
+
+    .stack-skeleton {
+      height: 90px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      background-image: linear-gradient(90deg, var(--color-surface) 0%, var(--color-surface-2) 50%, var(--color-surface) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
     }
 
     /* Light theme */
     [data-theme="light"] .hero-canvas { opacity: 0.4; }
     [data-theme="light"] .hero-grain  { opacity: 0.02; }
-    [data-theme="light"] .stack-canvas { background: #f5f5f5; border-color: #e0e0e0; }
+    [data-theme="light"] .sc-bar-wrap { background: rgba(0,0,0,0.08); }
+    [data-theme="light"] .sc-dot { border-color: rgba(0,0,0,0.2); }
   `]
 })
 export class SobreComponent implements OnInit, OnDestroy {
@@ -911,6 +1047,27 @@ export class SobreComponent implements OnInit, OnDestroy {
   timeline         = this.dataService.timeline;
   timelineReversed = computed(() => [...this.timeline()].reverse());
   lang             = computed(() => this.i18nService.currentLang());
+
+  stackData       = this.dataService.stack;
+  activeCategory  = signal<string>('all');
+  stackCategories = computed(() => this.stackData()?.categories ?? []);
+  totalItems      = computed(() => this.stackCategories().reduce((sum, c) => sum + c.items.length, 0));
+  filteredStack   = computed(() => {
+    const data   = this.stackData();
+    if (!data) return [];
+    const active = this.activeCategory();
+    const cats   = active === 'all' ? data.categories : data.categories.filter(c => c.id === active);
+    return cats.flatMap(c => c.items.map(item => ({ ...item, catColor: this.catColors[c.id] ?? '#666' })));
+  });
+
+  readonly catColors: Record<string, string> = {
+    core:     '#FF4500',
+    frontend: '#00D9FF',
+    backend:  '#7C3AED',
+    database: '#059669',
+    cloud:    '#D97706',
+    tools:    '#64748B'
+  };
 
   subtitle  = signal(ROLES[0]);
   nameChars = 'Ghabryel'.split('');
@@ -945,7 +1102,6 @@ export class SobreComponent implements OnInit, OnDestroy {
     afterNextRender(() => {
       this.initWebGL();
       this.initAnimations();
-      this.initStackConstellation();
     });
 
     // Setup horizontal timeline once data arrives (effect runs in injection context)
@@ -967,6 +1123,7 @@ export class SobreComponent implements OnInit, OnDestroy {
       this.startRotation();
     }
     this.dataService.loadTimeline();
+    this.dataService.loadStack();
   }
 
   ngOnDestroy(): void {
@@ -1173,184 +1330,4 @@ export class SobreComponent implements OnInit, OnDestroy {
     });
   }
 
-  // ─── Stack constellation canvas ──────────────────────────────────
-  private async initStackConstellation(): Promise<void> {
-    if (!isPlatformBrowser(this.platformId)) return;
-
-    const canvas = this.el.nativeElement.querySelector('#stack-canvas') as HTMLCanvasElement;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let stackData: { categories: Array<{ id: string; items: Array<{ name: string; proficiency: number; years: number; connections: string[] }> }> };
-    try {
-      stackData = await fetch('/assets/data/stack.json').then(r => r.json());
-    } catch { return; }
-
-    const catColors: Record<string, string> = {
-      core:     '#FF4500',
-      frontend: '#00D9FF',
-      backend:  '#7C3AED',
-      database: '#059669',
-      cloud:    '#D97706',
-      tools:    '#64748B'
-    };
-
-    // Set canvas dimensions
-    const W = canvas.offsetWidth || 800;
-    const H = 480;
-    canvas.width  = W;
-    canvas.height = H;
-
-    interface CNode { name: string; x: number; y: number; vx: number; vy: number; r: number; color: string; years: number; adj: number[] }
-
-    const nodes: CNode[] = [];
-    const nameIdx: Record<string, number> = {};
-
-    for (const cat of stackData.categories) {
-      for (const item of cat.items) {
-        nameIdx[item.name] = nodes.length;
-        nodes.push({
-          name:  item.name,
-          x:     (nodes.length % 8 + 0.5) * (W / 8) + (Math.random() - 0.5) * 40,
-          y:     (Math.floor(nodes.length / 8) + 0.5) * (H / 5) + (Math.random() - 0.5) * 30,
-          vx: 0, vy: 0,
-          r:     5 + item.proficiency * 2.8,
-          color: catColors[cat.id] ?? '#666',
-          years: item.years,
-          adj:   []
-        });
-      }
-    }
-
-    // Build adjacency
-    let globalIdx = 0;
-    for (const cat of stackData.categories) {
-      for (const item of cat.items) {
-        for (const cn of item.connections) {
-          const j = nameIdx[cn];
-          if (j !== undefined) nodes[globalIdx].adj.push(j);
-        }
-        globalIdx++;
-      }
-    }
-
-    // Force simulation (runs sync — ~10ms for 30 nodes)
-    const N = nodes.length;
-    for (let step = 0; step < 200; step++) {
-      for (let i = 0; i < N; i++) {
-        for (let j = i + 1; j < N; j++) {
-          const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
-          const d2 = dx * dx + dy * dy + 1;
-          const f  = 3200 / d2;
-          nodes[i].vx -= dx * f; nodes[i].vy -= dy * f;
-          nodes[j].vx += dx * f; nodes[j].vy += dy * f;
-        }
-      }
-      for (let i = 0; i < N; i++) {
-        for (const j of nodes[i].adj) {
-          const dx = nodes[j].x - nodes[i].x, dy = nodes[j].y - nodes[i].y;
-          const d  = Math.sqrt(dx * dx + dy * dy) + 0.01;
-          const f  = (d - 90) * 0.012;
-          nodes[i].vx += dx / d * f; nodes[i].vy += dy / d * f;
-          nodes[j].vx -= dx / d * f; nodes[j].vy -= dy / d * f;
-        }
-        nodes[i].vx += (W / 2 - nodes[i].x) * 0.003;
-        nodes[i].vy += (H / 2 - nodes[i].y) * 0.003;
-        nodes[i].vx *= 0.82; nodes[i].vy *= 0.82;
-        nodes[i].x = Math.max(nodes[i].r + 8, Math.min(W - nodes[i].r - 8, nodes[i].x + nodes[i].vx));
-        nodes[i].y = Math.max(nodes[i].r + 8, Math.min(H - nodes[i].r - 8, nodes[i].y + nodes[i].vy));
-      }
-    }
-
-    let hovIdx = -1;
-    const isDark = () => document.documentElement.getAttribute('data-theme') !== 'light';
-
-    const draw = () => {
-      ctx.clearRect(0, 0, W, H);
-
-      // Edges
-      for (let i = 0; i < N; i++) {
-        for (const j of nodes[i].adj) {
-          if (j <= i) continue;
-          const hi = hovIdx === i || hovIdx === j ||
-            (hovIdx !== -1 && (nodes[hovIdx].adj.includes(i) || nodes[hovIdx].adj.includes(j)));
-          ctx.beginPath();
-          ctx.moveTo(nodes[i].x, nodes[i].y);
-          ctx.lineTo(nodes[j].x, nodes[j].y);
-          ctx.strokeStyle = hi ? 'rgba(255,69,0,0.45)' : (isDark() ? 'rgba(255,255,255,0.07)' : 'rgba(0,0,0,0.08)');
-          ctx.lineWidth = hi ? 1.5 : 0.8;
-          ctx.stroke();
-        }
-      }
-
-      // Nodes + labels
-      for (let i = 0; i < N; i++) {
-        const n  = nodes[i];
-        const hi = i === hovIdx;
-        const connected = hovIdx !== -1 && nodes[hovIdx].adj.includes(i);
-        const dim = hovIdx !== -1 && !hi && !connected;
-        const alpha = dim ? 0.25 : 1;
-
-        ctx.globalAlpha = alpha;
-        ctx.beginPath();
-        ctx.arc(n.x, n.y, hi ? n.r + 2 : n.r, 0, Math.PI * 2);
-        ctx.fillStyle = n.color;
-        ctx.fill();
-
-        if (hi) {
-          ctx.beginPath();
-          ctx.arc(n.x, n.y, n.r + 6, 0, Math.PI * 2);
-          ctx.strokeStyle = n.color + '55';
-          ctx.lineWidth = 2;
-          ctx.stroke();
-        }
-
-        ctx.globalAlpha = dim ? 0.15 : (hovIdx === -1 ? 0.7 : (hi || connected ? 1 : 0.4));
-        ctx.fillStyle   = isDark() ? '#ffffff' : '#111111';
-        ctx.font        = `${hi ? '600' : '400'} ${hi ? 11 : 10}px JetBrains Mono, monospace`;
-        ctx.textAlign   = 'center';
-        ctx.fillText(n.name, n.x, n.y + n.r + 13);
-      }
-      ctx.globalAlpha = 1;
-
-      // Tooltip on hovered node
-      if (hovIdx !== -1) {
-        const n = nodes[hovIdx];
-        const label = `${n.years} ${n.years === 1 ? 'year' : 'years'}`;
-        const px = Math.min(n.x + n.r + 10, W - 90);
-        const py = Math.max(n.y - 12, 14);
-        ctx.fillStyle = isDark() ? 'rgba(26,26,26,0.92)' : 'rgba(245,245,245,0.95)';
-        ctx.beginPath();
-        ctx.roundRect(px, py - 14, 80, 22, 4);
-        ctx.fill();
-        ctx.fillStyle = isDark() ? '#f0f0f0' : '#111';
-        ctx.font = '11px JetBrains Mono, monospace';
-        ctx.textAlign = 'left';
-        ctx.fillText(label, px + 8, py + 1);
-      }
-    };
-
-    draw();
-
-    canvas.addEventListener('mousemove', (e) => {
-      const rect = canvas.getBoundingClientRect();
-      const mx = (e.clientX - rect.left) * (W / rect.width);
-      const my = (e.clientY - rect.top)  * (H / rect.height);
-      let found = -1;
-      for (let i = 0; i < N; i++) {
-        const dx = nodes[i].x - mx, dy = nodes[i].y - my;
-        if (dx * dx + dy * dy <= (nodes[i].r + 6) ** 2) { found = i; break; }
-      }
-      if (found !== hovIdx) { hovIdx = found; draw(); }
-      canvas.style.cursor = found !== -1 ? 'pointer' : 'crosshair';
-    });
-
-    canvas.addEventListener('mouseleave', () => {
-      hovIdx = -1;
-      draw();
-      canvas.style.cursor = 'crosshair';
-    });
-  }
 }

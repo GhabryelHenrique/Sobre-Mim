@@ -46,6 +46,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://ghabryelhenrique.com.br/demos</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://ghabryelhenrique.com.br/projetos/nasa-space-apps</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>

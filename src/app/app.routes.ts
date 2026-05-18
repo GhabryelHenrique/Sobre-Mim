@@ -57,6 +57,31 @@ export const routes: Routes = [
     loadComponent: () => import('./aplicacao/aplicacao.component').then(m => m.AplicacaoComponent)
   },
   {
+    path: 'demos',
+    title: 'Demos & Sistemas | Ghabryel Henrique',
+    loadComponent: () => import('./demos/demos.component').then(m => m.DemosComponent)
+  },
+  {
+    path: 'demos/dashboard',
+    title: 'Dashboard Demo | Ghabryel Henrique',
+    loadComponent: () => import('./demos/dashboard/dashboard-demo.component').then(m => m.DashboardDemoComponent)
+  },
+  {
+    path: 'demos/forms',
+    title: 'Forms Demo | Ghabryel Henrique',
+    loadComponent: () => import('./demos/forms/forms-demo.component').then(m => m.FormsDemoComponent)
+  },
+  {
+    path: 'demos/state',
+    title: 'State Management Demo | Ghabryel Henrique',
+    loadComponent: () => import('./demos/state/state-demo.component').then(m => m.StateDemoComponent)
+  },
+  {
+    path: 'demos/maps',
+    title: 'Maps Demo | Ghabryel Henrique',
+    loadComponent: () => import('./demos/maps/maps-demo.component').then(m => m.MapsDemoComponent)
+  },
+  {
     path: '**',
     title: '404 | Ghabryel Henrique',
     loadComponent: () => import('./features/not-found/not-found.component').then(m => m.NotFoundComponent)

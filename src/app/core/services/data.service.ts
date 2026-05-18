@@ -101,6 +101,24 @@ export interface CommunityItem {
   coordinates: { lat: number; lng: number };
 }
 
+export interface StackItem {
+  name: string;
+  icon: string;
+  proficiency: number;
+  years: number;
+  connections: string[];
+}
+
+export interface StackCategory {
+  id: string;
+  label: { pt: string; en: string };
+  items: StackItem[];
+}
+
+export interface StackData {
+  categories: StackCategory[];
+}
+
 @Injectable({ providedIn: 'root' })
 export class DataService {
   private http = inject(HttpClient);
@@ -111,6 +129,7 @@ export class DataService {
   private _articles = signal<Article[]>([]);
   private _speaking = signal<SpeakingItem[]>([]);
   private _community = signal<CommunityItem[]>([]);
+  private _stack = signal<StackData | null>(null);
 
   profile = this._profile.asReadonly();
   timeline = this._timeline.asReadonly();
@@ -118,6 +137,7 @@ export class DataService {
   articles = this._articles.asReadonly();
   speaking = this._speaking.asReadonly();
   community = this._community.asReadonly();
+  stack = this._stack.asReadonly();
 
   loadAll(): void {
     this.loadProfile();
@@ -126,6 +146,7 @@ export class DataService {
     this.loadArticles();
     this.loadSpeaking();
     this.loadCommunity();
+    this.loadStack();
   }
 
   loadProfile(): void {
@@ -161,6 +182,13 @@ export class DataService {
   loadCommunity(): void {
     this.http.get<CommunityItem[]>('/assets/data/community.json').subscribe(
       data => this._community.set(data)
+    );
+  }
+
+  loadStack(): void {
+    if (this._stack()) return;
+    this.http.get<StackData>('/assets/data/stack.json').subscribe(
+      data => this._stack.set(data)
     );
   }
 }
