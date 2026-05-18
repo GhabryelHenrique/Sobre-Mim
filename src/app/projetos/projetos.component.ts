@@ -6,6 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DataService, Project } from '../core/services/data.service';
 import { I18nService } from '../core/services/i18n.service';
+import { SeoService } from '../core/services/seo.service';
 
 type FilterKey = 'all' | 'featured' | 'active' | 'completed';
 
@@ -454,6 +455,7 @@ export class ProjetosComponent implements OnInit {
   private el          = inject(ElementRef);
   private dataService = inject(DataService);
   private i18nService = inject(I18nService);
+  private seoService  = inject(SeoService);
 
   projects     = this.dataService.projects;
   lang         = computed(() => this.i18nService.currentLang());
@@ -471,6 +473,10 @@ export class ProjetosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.seoService.setMeta({
+      title: 'Projetos | Ghabryel Henrique',
+      description: 'Projetos com propósito técnico: NASA Space Apps, Beyond the Framework, sistemas bancários globais e mais.'
+    });
     this.dataService.loadProjects();
   }
 

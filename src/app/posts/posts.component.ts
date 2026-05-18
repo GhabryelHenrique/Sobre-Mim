@@ -5,6 +5,7 @@ import {
 import { isPlatformBrowser } from '@angular/common';
 import { DataService } from '../core/services/data.service';
 import { I18nService } from '../core/services/i18n.service';
+import { SeoService } from '../core/services/seo.service';
 
 @Component({
   selector: 'app-posts',
@@ -430,6 +431,7 @@ export class PostsComponent implements OnInit {
   private dataService = inject(DataService);
   private i18nService = inject(I18nService);
   private platformId  = inject(PLATFORM_ID);
+  private seoService  = inject(SeoService);
 
   articles  = this.dataService.articles;
   lang      = computed(() => this.i18nService.currentLang());
@@ -448,6 +450,10 @@ export class PostsComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.seoService.setMeta({
+      title: 'Artigos | Ghabryel Henrique',
+      description: '9+ artigos técnicos sobre Angular, arquitetura frontend, Clean Architecture, Signals, RxJS e inteligência artificial.'
+    });
     this.dataService.loadArticles();
   }
 

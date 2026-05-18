@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { DataService } from '../core/services/data.service';
 import { I18nService } from '../core/services/i18n.service';
+import { SeoService } from '../core/services/seo.service';
 import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.directive';
 
 @Component({
@@ -366,6 +367,7 @@ import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.d
 export class PalestrasComponent implements OnInit {
   private dataService = inject(DataService);
   private i18nService = inject(I18nService);
+  private seoService  = inject(SeoService);
 
   speaking   = this.dataService.speaking;
   lang       = computed(() => this.i18nService.currentLang());
@@ -383,6 +385,10 @@ export class PalestrasComponent implements OnInit {
   });
 
   ngOnInit(): void {
+    this.seoService.setMeta({
+      title: 'Palestras & Workshops | Ghabryel Henrique',
+      description: 'Palestras e workshops sobre Angular, IA generativa, Gemini e carreira em tecnologia. Disponível para eventos.'
+    });
     this.dataService.loadSpeaking();
   }
 

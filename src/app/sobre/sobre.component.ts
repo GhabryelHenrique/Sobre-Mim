@@ -6,6 +6,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DataService } from '../core/services/data.service';
 import { I18nService } from '../core/services/i18n.service';
+import { SeoService } from '../core/services/seo.service';
 import { TranslatePipe } from '../shared/pipes/translate.pipe';
 import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.directive';
 
@@ -212,7 +213,7 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       <header class="section-head" revealOnScroll>
         <span class="eyebrow">{{ lang() === 'pt' ? 'Tecnologias' : 'Stack' }}</span>
         <h2 class="section-title">
-          {{ lang() === 'pt' ? 'Ferramentas que dominei' : 'Tools I\'ve mastered' }}
+          {{ lang() === 'pt' ? 'Ferramentas que dominei' : 'Tools I mastered' }}
         </h2>
       </header>
 
@@ -900,10 +901,11 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
   `]
 })
 export class SobreComponent implements OnInit, OnDestroy {
-  private platformId = inject(PLATFORM_ID);
-  private el         = inject(ElementRef);
+  private platformId  = inject(PLATFORM_ID);
+  private el          = inject(ElementRef);
   private dataService = inject(DataService);
   private i18nService = inject(I18nService);
+  private seoService  = inject(SeoService);
 
   profile          = this.dataService.profile;
   timeline         = this.dataService.timeline;
@@ -957,6 +959,10 @@ export class SobreComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.seoService.setMeta({
+      title: 'Ghabryel Henrique — Senior Software Engineer & Angular GDE Candidate',
+      description: 'Senior Engineer especializado em Angular e arquitetura frontend. GDE Candidate, Local Lead NASA Space Apps, Global Shaper (WEF). Conheça meu trabalho.'
+    });
     if (isPlatformBrowser(this.platformId)) {
       this.startRotation();
     }
@@ -977,6 +983,7 @@ export class SobreComponent implements OnInit, OnDestroy {
   // ─── WebGL ───────────────────────────────────────────────────────
   private async initWebGL(): Promise<void> {
     if (!isPlatformBrowser(this.platformId)) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
     const canvas = this.el.nativeElement.querySelector('#hero-canvas') as HTMLCanvasElement;
     if (!canvas) return;
