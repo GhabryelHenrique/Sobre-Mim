@@ -1,128 +1,988 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {
+  Component, OnInit, OnDestroy, inject, signal, computed,
+  ElementRef, PLATFORM_ID, ChangeDetectionStrategy, afterNextRender
+} from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { DataService } from '../core/services/data.service';
+import { I18nService } from '../core/services/i18n.service';
+import { TranslatePipe } from '../shared/pipes/translate.pipe';
+import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.directive';
+
+const ROLES = ['Angular Architect', 'GDE Candidate', 'Community Builder', 'Tech Speaker'];
+const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
 
 @Component({
   selector: 'app-sobre',
   standalone: true,
-  imports: [CommonModule, RouterLink],
-  templateUrl: './sobre.component.html',
-  styleUrls: ['./sobre.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [RouterLink, TranslatePipe, RevealOnScrollDirective],
+  template: `
+<div class="home-page">
+
+  <!-- ═══════════════════ HERO ═══════════════════ -->
+  <section class="hero">
+    <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-grain" aria-hidden="true"></div>
+
+    <div class="hero-content">
+      <p class="hero-greeting">{{ 'home.hero.greeting' | translate }}</p>
+
+      <h1 class="hero-name" aria-label="Ghabryel">
+        @for (ch of nameChars; track $index) {
+          <span class="char-wrap">
+            <span class="char">{{ ch }}</span>
+          </span>
+        }
+      </h1>
+
+      <div class="hero-role-wrap">
+        <span class="role-prefix">//</span>
+        <span class="hero-role">{{ subtitle() }}</span>
+        <span class="caret">_</span>
+      </div>
+
+      <p class="hero-bio">
+        @if (profile()) {
+          {{ lang() === 'pt'
+              ? 'Sênior Engineer · GDE Candidate em Angular · Local Lead NASA Space Apps · Global Shaper (WEF)'
+              : 'Senior Engineer · Angular GDE Candidate · NASA Space Apps Local Lead · Global Shaper (WEF)' }}
+        }
+      </p>
+
+      <div class="hero-ctas">
+        <a routerLink="/projetos" class="btn-primary" data-cursor-hover>
+          {{ 'home.hero.cta_projects' | translate }}
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <a href="https://ghabryel.medium.com" target="_blank" rel="noopener" class="btn-ghost" data-cursor-hover>
+          Medium
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Status Cards -->
+    <div class="status-dock">
+      @for (card of statusCards; track card.icon; let i = $index) {
+        <a [href]="card.link" [attr.routerLink]="card.internal ? card.link : null"
+           class="status-card" [style.animation-delay]="(i * 0.35) + 's'" data-cursor-hover>
+          <span class="s-icon">{{ card.icon }}</span>
+          <span class="s-label">{{ lang() === 'pt' ? card.pt : card.en }}</span>
+          <span class="s-dot"></span>
+        </a>
+      }
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="scroll-line"></div>
+      <svg class="scroll-chevron" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ ABOUT ═══════════════════ -->
+  <section class="about-section">
+    <div class="container">
+      <div class="about-grid">
+
+        <!-- Visual column -->
+        <div class="about-visual" revealOnScroll>
+          <div class="photo-frame">
+            <img src="/images/ghabryelSorriso.jpg" alt="Ghabryel Henrique"
+                 class="photo" loading="lazy" width="340" height="340" />
+            <div class="photo-border"></div>
+            <div class="photo-accent"></div>
+          </div>
+
+          <div class="stats-grid">
+            @for (s of stats; track s.label.pt) {
+              <div class="stat">
+                <span class="stat-val">{{ s.value }}{{ s.suffix }}</span>
+                <span class="stat-lbl">{{ lang() === 'pt' ? s.label.pt : s.label.en }}</span>
+              </div>
+            }
+          </div>
+        </div>
+
+        <!-- Text column -->
+        <div class="about-text" revealOnScroll [revealDelay]="100">
+          <span class="eyebrow">{{ 'about.bio_title' | translate }}</span>
+
+          <h2 class="about-title">
+            {{ lang() === 'pt' ? 'Arquitetando' : 'Architecting' }}
+            <br><em class="accent-text">{{ lang() === 'pt' ? 'experiências excepcionais' : 'exceptional experiences' }}</em>
+          </h2>
+
+          @if (profile()) {
+            <p class="bio-text">
+              {{ lang() === 'pt' ? profile()!.bio.pt : profile()!.bio.en }}
+            </p>
+          }
+
+          @if (profile()?.gde_status) {
+            <div class="gde-badge">
+              <span class="gde-dot"></span>
+              <span>{{ lang() === 'pt' ? profile()!.gde_status.pt : profile()!.gde_status.en }}</span>
+            </div>
+          }
+
+          <div class="about-links">
+            <a routerLink="/projetos" class="text-link" data-cursor-hover>
+              {{ lang() === 'pt' ? 'Ver projetos' : 'View projects' }} →
+            </a>
+            <a routerLink="/comunidade" class="text-link" data-cursor-hover>
+              {{ lang() === 'pt' ? 'Comunidade' : 'Community' }} →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════ TIMELINE ═══════════════════ -->
+  <section class="timeline-section">
+    <div class="container">
+      <header class="section-head" revealOnScroll>
+        <span class="eyebrow">{{ 'about.timeline_title' | translate }}</span>
+        <h2 class="section-title">
+          {{ lang() === 'pt' ? 'Onde construí coisas importantes' : 'Where I built important things' }}
+        </h2>
+      </header>
+
+      @if (timeline().length > 0) {
+        <div class="xp-grid">
+          @for (job of timeline(); track job.id; let i = $index) {
+            <article class="xp-card" revealOnScroll [revealDelay]="i * 60">
+              <div class="xp-stripe" [style.background]="job.color"></div>
+              <div class="xp-body">
+                <div class="xp-top">
+                  @if (job.logo) {
+                    <img [src]="job.logo" [alt]="job.company" class="xp-logo" loading="lazy" width="44" height="44" />
+                  }
+                  <div class="xp-meta">
+                    <h3 class="xp-company">{{ job.company }}</h3>
+                    <p class="xp-role">{{ lang() === 'pt' ? job.position.pt : job.position.en }}</p>
+                  </div>
+                  @if (job.current) {
+                    <span class="xp-current">{{ lang() === 'pt' ? 'Atual' : 'Current' }}</span>
+                  }
+                </div>
+                <p class="xp-period">{{ lang() === 'pt' ? job.period.pt : job.period.en }}</p>
+                <p class="xp-desc">{{ lang() === 'pt' ? job.description.pt : job.description.en }}</p>
+                <div class="xp-stack">
+                  @for (tech of job.stack.slice(0, 5); track tech) {
+                    <span class="tech">{{ tech }}</span>
+                  }
+                </div>
+              </div>
+            </article>
+          }
+        </div>
+      } @else {
+        <div class="xp-grid">
+          @for (_ of [1,2,3,4]; track $index) {
+            <div class="skeleton"></div>
+          }
+        </div>
+      }
+    </div>
+  </section>
+
+</div>
+  `,
+  styles: [`
+    /* ─── PAGE ─── */
+    .home-page { background: var(--color-bg); }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .hero-grain {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 180px 180px;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--container-px);
+    }
+
+    .hero-greeting {
+      font-size: var(--text-sm);
+      font-family: var(--font-mono);
+      color: var(--color-accent-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+      opacity: 0;
+    }
+
+    .hero-name {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0;
+      font-size: clamp(3.5rem, 10vw, 9rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 0.9;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .char-wrap {
+      display: inline-block;
+      overflow: hidden;
+      line-height: 1;
+    }
+
+    .char {
+      display: inline-block;
+      color: var(--color-fg);
+      will-change: transform;
+    }
+
+    .hero-role-wrap {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 20px;
+      height: 36px;
+      opacity: 0;
+    }
+
+    .role-prefix {
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      color: var(--color-fg-muted);
+      opacity: 0.5;
+    }
+
+    .hero-role {
+      font-family: var(--font-mono);
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.02em;
+      min-width: 260px;
+    }
+
+    .caret {
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      font-weight: 700;
+      animation: blink 1.1s step-end infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    .hero-bio {
+      font-size: var(--text-base);
+      color: var(--color-fg-muted);
+      max-width: 540px;
+      line-height: 1.6;
+      margin-bottom: 32px;
+      opacity: 0;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      opacity: 0;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      background: var(--color-accent);
+      color: #fff;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-sm);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+      transition: background var(--duration-fast), transform var(--duration-fast) var(--ease-bounce), box-shadow var(--duration-fast);
+    }
+
+    .btn-primary:hover {
+      background: #ff6633;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(255,69,0,0.4);
+    }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 24px;
+      border: 1.5px solid rgba(255,255,255,0.15);
+      color: var(--color-fg-muted);
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      text-decoration: none;
+      backdrop-filter: blur(8px);
+      transition: border-color var(--duration-fast), color var(--duration-fast), transform var(--duration-fast);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--color-fg);
+      color: var(--color-fg);
+      transform: translateY(-2px);
+    }
+
+    /* Status dock */
+    .status-dock {
+      position: absolute;
+      bottom: 48px;
+      left: var(--container-px);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .status-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: var(--glass-bg, rgba(17,17,17,0.7));
+      border: 1px solid var(--glass-border, rgba(255,255,255,0.06));
+      border-radius: var(--radius-full);
+      backdrop-filter: blur(12px);
+      text-decoration: none;
+      color: var(--color-fg);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      animation: float 6s ease-in-out infinite;
+      opacity: 0;
+      transition: border-color var(--duration-fast), transform var(--duration-fast);
+    }
+
+    .status-card:hover {
+      border-color: var(--color-accent);
+      transform: translateX(4px) !important;
+    }
+
+    .s-icon { font-size: 14px; }
+
+    .s-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      margin-left: auto;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    /* Scroll cue */
+    .scroll-cue {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, transparent, var(--color-fg-muted));
+      animation: scroll-line 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-line {
+      0%, 100% { transform: scaleY(0); transform-origin: top; }
+      50%       { transform: scaleY(1); transform-origin: top; }
+    }
+
+    .scroll-chevron {
+      color: var(--color-fg-muted);
+      animation: bounce-down 1.8s ease-in-out infinite;
+    }
+
+    @keyframes bounce-down {
+      0%, 100% { transform: translateY(0); opacity: 0.4; }
+      50%       { transform: translateY(5px); opacity: 1; }
+    }
+
+    @media (max-width: 640px) {
+      .status-dock { display: none; }
+      .scroll-cue  { display: none; }
+    }
+
+    /* ─── ABOUT ─── */
+    .about-section {
+      padding: var(--section-py) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 var(--container-px);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: clamp(3rem, 8vw, 7rem);
+      align-items: center;
+    }
+
+    /* Photo */
+    .photo-frame {
+      position: relative;
+      width: min(340px, 100%);
+      margin: 0 auto;
+    }
+
+    .photo {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      border-radius: var(--radius-xl);
+      display: block;
+      transition: transform var(--duration-slow) var(--ease-out-expo);
+      position: relative;
+      z-index: 1;
+    }
+
+    .photo-frame:hover .photo { transform: scale(1.02); }
+
+    .photo-border {
+      position: absolute;
+      inset: -3px;
+      border-radius: calc(var(--radius-xl) + 3px);
+      background: linear-gradient(135deg, var(--color-accent) 0%, transparent 40%, var(--color-accent-2) 100%);
+      z-index: 0;
+    }
+
+    .photo-accent {
+      position: absolute;
+      bottom: -20px;
+      right: -20px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,69,0,0.3) 0%, transparent 70%);
+      z-index: 0;
+      filter: blur(20px);
+    }
+
+    /* Stats */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .stat {
+      padding: 16px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      transition: border-color var(--duration-fast);
+    }
+
+    .stat:hover { border-color: var(--color-accent); }
+
+    .stat-val {
+      display: block;
+      font-size: var(--text-3xl);
+      font-weight: 800;
+      font-family: var(--font-mono);
+      color: var(--color-accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-lbl {
+      font-size: var(--text-xs);
+      color: var(--color-fg-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* About text */
+    .eyebrow {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: var(--text-xs);
+      color: var(--color-accent-2);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .about-title {
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .accent-text {
+      font-style: normal;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bio-text {
+      font-size: var(--text-base);
+      color: var(--color-fg-muted);
+      line-height: 1.75;
+      margin-bottom: 24px;
+    }
+
+    .gde-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 18px;
+      background: transparent;
+      border: 1px solid var(--color-accent);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 28px;
+    }
+
+    .gde-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--color-accent);
+      animation: pulse-glow 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .about-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .text-link {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-fg-muted);
+      text-decoration: none;
+      transition: color var(--duration-fast);
+    }
+
+    .text-link:hover { color: var(--color-accent); }
+
+    @media (max-width: 768px) {
+      .about-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ─── TIMELINE ─── */
+    .timeline-section {
+      padding: var(--section-py) 0;
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section-head {
+      margin-bottom: clamp(2rem, 5vw, 4rem);
+    }
+
+    .section-title {
+      font-size: var(--text-4xl);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-top: 8px;
+    }
+
+    .xp-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .xp-card {
+      position: relative;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      transition: border-color var(--duration-base) ease, transform var(--duration-base) var(--ease-out-expo);
+    }
+
+    .xp-card:hover {
+      border-color: var(--color-border-2);
+      transform: translateY(-4px);
+    }
+
+    .xp-stripe {
+      height: 3px;
+      width: 100%;
+      opacity: 0.7;
+    }
+
+    .xp-body { padding: 24px; }
+
+    .xp-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+
+    .xp-logo {
+      width: 44px;
+      height: 44px;
+      object-fit: contain;
+      border-radius: var(--radius-md);
+      background: var(--color-surface-2);
+      padding: 4px;
+      flex-shrink: 0;
+    }
+
+    .xp-company {
+      font-size: var(--text-base);
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .xp-role {
+      font-size: var(--text-sm);
+      color: var(--color-accent);
+      font-weight: 500;
+    }
+
+    .xp-current {
+      margin-left: auto;
+      padding: 3px 10px;
+      background: rgba(255,69,0,0.12);
+      border: 1px solid rgba(255,69,0,0.3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-accent);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .xp-period {
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-fg-muted);
+      margin-bottom: 12px;
+    }
+
+    .xp-desc {
+      font-size: var(--text-sm);
+      color: var(--color-fg-muted);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .xp-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .tech {
+      padding: 3px 9px;
+      background: var(--color-surface-2);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-xs);
+      font-family: var(--font-mono);
+      color: var(--color-fg-muted);
+    }
+
+    /* Skeleton */
+    .skeleton {
+      height: 220px;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      background-image: linear-gradient(90deg, var(--color-surface) 0%, var(--color-surface-2) 50%, var(--color-surface) 100%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    /* Light theme */
+    [data-theme="light"] .hero-canvas { opacity: 0.4; }
+    [data-theme="light"] .hero-grain  { opacity: 0.02; }
+  `]
 })
-export class SobreComponent {
-  socialLinks = [
-    {
-      icon: 'fa-brands fa-youtube',
-      text: 'Se inscreve no meu canal do YouTube',
-      url: 'https://www.youtube.com/@NgGhab/',
-      platform: 'youtube',
-    },
-    {
-      icon: 'fa-brands fa-linkedin',
-      text: 'Me siga no LinkedIn',
-      url: 'https://www.linkedin.com/in/ghabryelhenrique/',
-      platform: 'linkedin',
-    },
-    {
-      icon: 'fa-brands fa-github',
-      text: 'Veja meus projetos no GitHub',
-      url: 'https://github.com/GhabryelHenrique',
-      platform: 'github',
-    },
-    {
-      icon: 'fa-solid fa-envelope',
-      text: 'Entre em contato',
-      url: 'mailto:ghabryelcode@gmail.com',
-      platform: 'email',
-    },
+export class SobreComponent implements OnInit, OnDestroy {
+  private platformId = inject(PLATFORM_ID);
+  private el         = inject(ElementRef);
+  private dataService = inject(DataService);
+  private i18nService = inject(I18nService);
+
+  profile  = this.dataService.profile;
+  timeline = this.dataService.timeline;
+  lang     = computed(() => this.i18nService.currentLang());
+
+  subtitle  = signal(ROLES[0]);
+  nameChars = 'Ghabryel'.split('');
+
+  private renderer: unknown = null;
+  private animRaf  = 0;
+  private roleIdx  = 0;
+  private scrambleId = 0;
+  private rotateId   = 0;
+  private mouseX = 0.5;
+  private mouseY = 0.5;
+  private onMouseMove = (e: MouseEvent) => {
+    this.mouseX = e.clientX / window.innerWidth;
+    this.mouseY = 1 - e.clientY / window.innerHeight;
+  };
+
+  stats = [
+    { value: 5,  suffix: '',  label: { pt: 'Anos Exp.',       en: 'Years Exp.'     } },
+    { value: 4,  suffix: '',  label: { pt: 'Empresas',        en: 'Companies'      } },
+    { value: 50, suffix: '+', label: { pt: 'Devs Impactados', en: 'Devs Impacted'  } },
+    { value: 9,  suffix: '',  label: { pt: 'Artigos',         en: 'Articles'       } }
   ];
 
-  experiences = [
-    {
-      company: 'Solutis Tecnologias',
-      logo: '/images/empresas/solutis.png',
-      position: 'Sênior Software Engineer',
-      period: 'novembro de 2025 - até o momento',
-      location: 'Brasil',
-      description: [
-        'Atuo como engenheiro responsável pela evolução e confiabilidade do sistema global de Controle de Acesso de Facilities do Santander, plataforma crítica que gerencia a autorização e segurança física de colaboradores, fornecedores e visitantes em unidades do banco no Brasil e em operações internacionais.',
-        'No dia a dia, entrego soluções que reduzem riscos operacionais, aumentam a rastreabilidade e garantem conformidade com padrões de segurança corporativa. Trabalho com arquitetura escalável, integração entre serviços, melhoria contínua de performance e automação de processos de acesso global.',
-      ],
-      highlights: [
-        'Modernização e estabilização de módulos críticos do sistema de acesso físico',
-        'Implementação de melhorias arquiteturais para aumentar confiabilidade e tempo de resposta',
-        'Desenvolvimento de integrações seguras entre serviços internos e plataformas globais do banco',
-        'Redução de falhas operacionais por meio de automação, testes e observabilidade',
-        'Suporte técnico de alto nível para times de segurança e operação em ambiente corporativo de grande escala',
-      ],
-    },
-    {
-      company: 'Zup Innovation',
-      logo: '/images/empresas/zup.png',
-      position: 'Desenvolvedor Frontend II',
-      period: 'março de 2024 - setembro de 2025 (1 ano 7 meses)',
-      location: 'Uberlândia, Minas Gerais, Brasil',
-      description: [
-        'Atuando como Desenvolvedor Frontend Sênior na modernização do sistema bancário, liderei o desenvolvimento de módulos em uma arquitetura de microfrontends com Angular 17 e Standalone Components.',
-        'Fui responsável por criar soluções de alta performance web, com foco em Core Web Vitals, e garantir a acessibilidade (WCAG). Utilizei RxJS para gerenciamento de estado complexo e participei ativamente de code reviews e mentorias técnicas para a equipe, seguindo as Metodologias Ágeis (Scrum).',
-      ],
-      highlights: [],
-    },
-    {
-      company: 'Algar Telecom',
-      logo: '/images/empresas/algar.png',
-      position: 'Analista de tecnologia',
-      period: 'janeiro de 2024 - abril de 2024 (4 meses)',
-      location: 'Uberlândia, Minas Gerais, Brasil',
-      description: [
-        'Desenvolvimento e manutenção de plataformas de telecomunicações, com foco principal em Java e middleware orientado a mensagens.',
-        'As responsabilidades incluem automatizar processos como migrações de planos móveis usando Python, convertendo scripts PL/SQL, garantindo transições suaves e minimizando o tempo de inatividade.',
-        'Além disso, a função envolve solução de problemas e otimização de sistemas existentes para melhor desempenho e escalabilidade. Uma responsabilidade fundamental é orientar e treinar novos estagiários, fornecer orientação técnica e apoiar sua integração para ajudá-los a integrar-se rapidamente à equipe e contribuir para projetos em andamento.',
-      ],
-      highlights: [],
-    },
-    {
-      company: 'Angular Money Group',
-      logo: '/images/empresas/amg.png',
-      position: 'Engenheiro de Software Full Stack III',
-      period: 'janeiro de 2021 - janeiro de 2024 (3 anos)',
-      location: 'Uberlândia, Minas Gerais, Brazil',
-      description: [
-        'Desenvolvimento e manutenção de projetos Internos como um sistema de gestão de fluxo de caixa e fluxo de estoque para pequenos e grande negócios utilizando NodeJS com express e MongoDB para backend e Angular como Front-End e testes unitários com Karma e Jasmine.',
-        'Desenvolvimento e manutenção de projetos de projetos externos como sistema de logística para transportadoras marítimas, desenvolvimento de ficha de cadastro para pessoas do setor bancário e utilizando a metodologia SCRUM para realizar o desenvolvimento, para devops foi utilizado o Azure DevOps para realizar as atividades e Angular como framework Front-End.',
-        'Gestão de equipes de desenvolvimento dar suporte a desenvolvedores juniors, corrigindo bugs e fazendo code review para aprimorar e capacitar a equipe.',
-      ],
-      highlights: [],
-    },
+  statusCards = [
+    { icon: '🎤', pt: 'Disponível para Palestras', en: 'Available for Speaking',  link: '/palestras', internal: true  },
+    { icon: '🚀', pt: 'Mentorando Devs',           en: 'Mentoring Devs',          link: '/mentoria',  internal: true  },
+    { icon: '✍️', pt: 'Escrevendo no Medium',       en: 'Writing on Medium',       link: 'https://ghabryel.medium.com', internal: false }
   ];
 
-  volunteer = [
-    {
-      organization: 'Global Shapers Community Uberlândia',
-      logo: '/images/voluntário/gsc.png',
-      position: 'Global Shaper',
-      period: 'mar de 2025 - até o momento',
-      category: 'Direitos civis e ações sociais',
-      description:
-        'Como membro da Global Shapers Community, iniciativa do Fórum Econômico Mundial, atuo junto a jovens líderes globais para catalisar mudanças locais com alcance internacional. Nosso hub Uberlândia foca em combate à desigualdade, inovação cívica, combinando ação prática com advocacy em fóruns de impacto. Acredito no poder da juventude para reimaginar sistemas e construir futuros mais justos e sustentáveis.',
-    },
-    {
-      organization: 'UberHub',
-      logo: '/images/voluntário/uberhub.png',
-      position: 'Membro do Ecossistema',
-      period: 'jan de 2023 - até o momento',
-      category: 'Ciência e tecnologia',
-      description:
-        'Como voluntário no Uberhub, o principal ecossistema de inovação e empreendedorismo de Uberlândia, atuei ativamente no fortalecimento da comunidade local. Minhas contribuições incluíram o apoio na organização e execução de eventos, workshops e meetups que conectam startups, empresas, investidores e talentos. Fiz parte de um time dedicado a fomentar a cultura de inovação, facilitar o networking entre os membros e divulgar oportunidades que aceleram o desenvolvimento tecnológico e de negócios na região.',
-    },
-    {
-      organization: 'Nasa Space Apps',
-      logo: '/images/voluntário/nasaSpaceApps.png',
-      position: 'CTO',
-      period: 'ago de 2025 - até o momento',
-      category: 'Ciência e tecnologia',
-      description:
-        'Atuei no desenvolvimento tecnológico do hackathon, contribuindo para a criação do site de inscrição dos participantes e para o sistema de matchmaking, que conectava pessoas com habilidades complementares para a formação de equipes. Esse trabalho possibilitou maior engajamento, organização e colaboração entre os inscritos, potencializando a experiência e os resultados do evento.',
-    },
-  ];
+  constructor() {
+    afterNextRender(() => {
+      this.initWebGL();
+      this.initAnimations();
+    });
+  }
+
+  ngOnInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      this.startRotation();
+    }
+    this.dataService.loadTimeline();
+  }
+
+  ngOnDestroy(): void {
+    cancelAnimationFrame(this.animRaf);
+    clearInterval(this.rotateId);
+    clearInterval(this.scrambleId);
+    if (isPlatformBrowser(this.platformId)) {
+      document.removeEventListener('mousemove', this.onMouseMove);
+    }
+    const r = this.renderer as { dispose?: () => void } | null;
+    r?.dispose?.();
+  }
+
+  // ─── WebGL ───────────────────────────────────────────────────────
+  private async initWebGL(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+
+    const canvas = this.el.nativeElement.querySelector('#hero-canvas') as HTMLCanvasElement;
+    if (!canvas) return;
+
+    const testGL = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+    if (!testGL) return;
+
+    const THREE = await import('three');
+
+    const W = window.innerWidth;
+    const H = window.innerHeight;
+
+    const renderer = new THREE.WebGLRenderer({ canvas, antialias: false, alpha: false });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5));
+    this.renderer = renderer;
+
+    const scene  = new THREE.Scene();
+    const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+    const geo    = new THREE.PlaneGeometry(2, 2);
+
+    const uTime  = { value: 0 };
+    const uMouse = { value: new THREE.Vector2(0.5, 0.5) };
+    const uRes   = { value: new THREE.Vector2(W, H) };
+
+    const mat = new THREE.ShaderMaterial({
+      uniforms: { u_time: uTime, u_mouse: uMouse, u_resolution: uRes },
+      vertexShader: `void main(){ gl_Position = vec4(position,1.0); }`,
+      fragmentShader: `
+        precision mediump float;
+        uniform float u_time;
+        uniform vec2  u_mouse;
+        uniform vec2  u_resolution;
+
+        /* 2D simplex noise by Ian McEwan, Ashima Arts */
+        vec3 mod289v3(vec3 x){ return x - floor(x*(1./289.))*289.; }
+        vec2 mod289v2(vec2 x){ return x - floor(x*(1./289.))*289.; }
+        vec3 permute(vec3 x){ return mod289v3(((x*34.)+1.)*x); }
+        float snoise(vec2 v){
+          const vec4 C = vec4(0.211324865405187,0.366025403784439,-0.577350269189626,0.024390243902439);
+          vec2 i  = floor(v + dot(v, C.yy));
+          vec2 x0 = v - i + dot(i, C.xx);
+          vec2 i1  = (x0.x > x0.y) ? vec2(1.,0.) : vec2(0.,1.);
+          vec4 x12 = x0.xyxy + C.xxzz;
+          x12.xy  -= i1;
+          i = mod289v2(i);
+          vec3 p = permute(permute(i.y+vec3(0.,i1.y,1.))+i.x+vec3(0.,i1.x,1.));
+          vec3 m = max(0.5-vec3(dot(x0,x0),dot(x12.xy,x12.xy),dot(x12.zw,x12.zw)),0.);
+          m = m*m; m = m*m;
+          vec3 x_ = 2.*fract(p*C.www)-1.;
+          vec3 h  = abs(x_)-0.5;
+          vec3 ox = floor(x_+0.5);
+          vec3 a0 = x_-ox;
+          m *= 1.79284291400159 - 0.85373472095314*(a0*a0+h*h);
+          vec3 g;
+          g.x  = a0.x *x0.x  + h.x *x0.y;
+          g.yz = a0.yz*x12.xz + h.yz*x12.yw;
+          return 130.*dot(m,g);
+        }
+
+        void main(){
+          vec2 uv = gl_FragCoord.xy / u_resolution;
+          float t  = u_time;
+
+          float n1 = snoise(uv * 1.6 + vec2( t*0.11,  t*0.07));
+          float n2 = snoise(uv * 2.8 - vec2( t*0.06,  t*0.14));
+          float n3 = snoise(uv * 1.1 + vec2(-t*0.04, -t*0.09) + u_mouse*0.25);
+
+          float f = (n1*0.5 + n2*0.3 + n3*0.2)*0.5 + 0.5;
+
+          float mDist = length(uv - u_mouse);
+          float mGlow = exp(-mDist * 2.8) * 0.18;
+          f = clamp(f + mGlow, 0., 1.);
+
+          vec3 base   = vec3(0.051, 0.051, 0.051);
+          vec3 warm   = vec3(0.09,  0.04,  0.02);
+          vec3 orange = vec3(1.0,   0.271, 0.0);
+          vec3 cyan   = vec3(0.0,   0.851, 1.0);
+
+          vec3 col = base;
+          col = mix(col, warm,   smoothstep(0.3, 0.65, f));
+          col = mix(col, orange, smoothstep(0.6, 0.88, f) * 0.28);
+          col = mix(col, cyan,   smoothstep(0.7, 0.95, f*(1.-uv.y*0.4)) * 0.18);
+
+          float vig = 1. - smoothstep(0.38, 1.1, length((uv-0.5)*1.6));
+          col *= 0.55 + vig * 0.45;
+
+          gl_FragColor = vec4(col, 1.0);
+        }
+      `
+    });
+
+    scene.add(new THREE.Mesh(geo, mat));
+
+    document.addEventListener('mousemove', this.onMouseMove, { passive: true });
+
+    const handleResize = () => {
+      const w = window.innerWidth, h = window.innerHeight;
+      renderer.setSize(w, h);
+      uRes.value.set(w, h);
+    };
+    window.addEventListener('resize', handleResize, { passive: true });
+
+    const t0 = performance.now();
+    const loop = () => {
+      this.animRaf = requestAnimationFrame(loop);
+      uTime.value  = (performance.now() - t0) / 1000;
+      uMouse.value.set(this.mouseX, this.mouseY);
+      renderer.render(scene, camera);
+    };
+    loop();
+  }
+
+  // ─── GSAP Animations ─────────────────────────────────────────────
+  private async initAnimations(): Promise<void> {
+    if (!isPlatformBrowser(this.platformId)) return;
+    const { gsap } = await import('gsap');
+
+    const chars = this.el.nativeElement.querySelectorAll('.char');
+    gsap.fromTo(chars,
+      { y: '110%' },
+      { y: '0%', duration: 0.9, stagger: 0.055, ease: 'power4.out', delay: 0.15 }
+    );
+
+    gsap.to('.hero-greeting', { opacity: 1, y: 0, duration: 0.6, delay: 0.05,
+      from: { opacity: 0, y: 16 } });
+    gsap.fromTo('.hero-role-wrap',  { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.9 });
+    gsap.fromTo('.hero-bio',        { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, delay: 1.1 });
+    gsap.fromTo('.hero-ctas',       { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.6, delay: 1.3 });
+    gsap.fromTo('.status-card',     { opacity: 0, x: -20 }, {
+      opacity: 1, x: 0, duration: 0.5, stagger: 0.12, delay: 1.5, ease: 'power2.out'
+    });
+  }
+
+  // ─── Scramble subtitle ───────────────────────────────────────────
+  private startRotation(): void {
+    setTimeout(() => {
+      this.rotateId = setInterval(() => {
+        this.roleIdx = (this.roleIdx + 1) % ROLES.length;
+        this.scrambleTo(ROLES[this.roleIdx]);
+      }, 2800) as unknown as number;
+    }, 2000);
+  }
+
+  private scrambleTo(target: string): void {
+    clearInterval(this.scrambleId);
+    let iter = 0;
+    const total = target.length * 3;
+    this.scrambleId = setInterval(() => {
+      const out = target.split('').map((ch, i) => {
+        if (ch === ' ') return ' ';
+        return i < iter / 3 ? ch : CHARS[Math.floor(Math.random() * CHARS.length)];
+      }).join('');
+      this.subtitle.set(out);
+      if (++iter > total) {
+        clearInterval(this.scrambleId);
+        this.subtitle.set(target);
+      }
+    }, 35) as unknown as number;
+  }
 }
