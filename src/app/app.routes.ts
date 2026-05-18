@@ -19,7 +19,7 @@ export const routes: Routes = [
   {
     path: 'projetos/:slug',
     title: 'Projeto | Ghabryel Henrique',
-    loadComponent: () => import('./projetos/projetos.component').then(m => m.ProjetosComponent)
+    loadComponent: () => import('./projetos/projetos-detail.component').then(m => m.ProjetosDetailComponent)
   },
   {
     path: 'palestras',
