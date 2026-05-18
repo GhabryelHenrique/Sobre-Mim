@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { HeaderComponent } from '../shared/header/header.component';
 import * as setupData from '../../../public/setup.json';
 
 interface SetupItem {
@@ -16,7 +15,7 @@ interface SetupItem {
 @Component({
   selector: 'app-setup',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule],
   templateUrl: './setup.html',
   styleUrl: './setup.scss',
 })

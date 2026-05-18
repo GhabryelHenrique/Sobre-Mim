@@ -1,0 +1,266 @@
+[
+  {
+    "id": "nasa-space-apps",
+    "slug": "nasa-space-apps",
+    "title": "NASA Space Apps Challenge Uberlândia",
+    "tagline": {
+      "pt": "Hackathon global da NASA — organização local e stack tecnológica",
+      "en": "NASA's global hackathon — local leadership and tech stack"
+    },
+    "description": {
+      "pt": "O NASA Space Apps Challenge é o maior hackathon do mundo, organizado pela NASA. Atuei como CTO da edição de Uberlândia, sendo responsável pelo desenvolvimento do site de inscrições, sistema de matchmaking para formação de equipes e infraestrutura do evento. A edição 2025 contou com 9 venues simultâneos.",
+      "en": "NASA Space Apps Challenge is the world's largest hackathon, organized by NASA. I served as CTO of the Uberlândia edition, responsible for the registration website, team matchmaking system, and event infrastructure. The 2025 edition featured 9 simultaneous venues."
+    },
+    "role": "CTO / Tech Lead",
+    "year": 2025,
+    "status": "completed",
+    "stack": ["Angular", "TypeScript", "Node.js", "NestJS", "PostgreSQL"],
+    "highlights": {
+      "pt": [
+        "Desenvolvimento do site oficial de inscrições com Angular",
+        "Sistema de matchmaking para formação inteligente de equipes",
+        "9 venues simultâneos com infraestrutura unificada",
+        "Impacto em centenas de participantes locais"
+      ],
+      "en": [
+        "Official registration website built with Angular",
+        "Smart team matchmaking system development",
+        "9 simultaneous venues with unified infrastructure",
+        "Impact on hundreds of local participants"
+      ]
+    },
+    "metrics": {
+      "venues": "9",
+      "participants": "200+",
+      "teams": "30+"
+    },
+    "links": {
+      "live": "https://www.nasaspaceappsuberlandia.com.br/",
+      "github": "https://github.com/GhabryelHenrique",
+      "case_study": "/projetos/nasa-space-apps"
+    },
+    "cover_image": "/images/nasa-spaceapps-logo.png",
+    "gallery": [],
+    "color_accent": "#00D9FF",
+    "featured": true
+  },
+  {
+    "id": "beyond-the-framework",
+    "slug": "beyond-the-framework",
+    "title": "Beyond the Framework",
+    "tagline": {
+      "pt": "Mentoria técnica para devs que querem pensar como seniores",
+      "en": "Technical mentorship for devs who want to think like seniors"
+    },
+    "description": {
+      "pt": "Mentoria técnica 1:1 focada em desenvolvedores que querem dominar Angular moderno, arquitetura frontend e fundamentos de engenharia. Não é curso. É acompanhamento real, confronto técnico e desenvolvimento de pensamento sênior. Sessões individuais com análise de código real e plano personalizado.",
+      "en": "1:1 technical mentorship focused on developers who want to master modern Angular, frontend architecture, and engineering fundamentals. Not a course — it's real accompaniment, technical challenges, and senior thinking development. Individual sessions with real code analysis and personalized plans."
+    },
+    "role": "Creator / Mentor",
+    "year": 2024,
+    "status": "active",
+    "stack": ["Angular", "TypeScript", "RxJS", "Signals", "Clean Architecture"],
+    "highlights": {
+      "pt": [
+        "Sessões individuais 1:1 personalizadas",
+        "Análise de código real do mentorado",
+        "Plano de evolução técnica sob medida",
+        "Foco em arquitetura, performance e tomada de decisão"
+      ],
+      "en": [
+        "Personalized 1:1 individual sessions",
+        "Real code analysis from the mentee",
+        "Custom technical growth plan",
+        "Focus on architecture, performance, and decision-making"
+      ]
+    },
+    "metrics": {
+      "mentees": "50+",
+      "satisfaction": "100%",
+      "sessions": "200+"
+    },
+    "links": {
+      "live": "/mentoria",
+      "github": null,
+      "case_study": "/projetos/beyond-the-framework"
+    },
+    "cover_image": null,
+    "gallery": [],
+    "color_accent": "#FF4500",
+    "featured": true
+  },
+  {
+    "id": "uberhub-platform",
+    "slug": "uberhub-platform",
+    "title": "UberHub Digital Platform",
+    "tagline": {
+      "pt": "Plataforma digital do maior ecossistema de inovação de Uberlândia",
+      "en": "Digital platform for Uberlândia's largest innovation ecosystem"
+    },
+    "description": {
+      "pt": "Contribuição para a plataforma digital do UberHub, o principal ecossistema de inovação e empreendedorismo de Uberlândia. Desenvolvimento de features para conectar startups, investidores e talentos da região.",
+      "en": "Contribution to UberHub's digital platform, the main innovation and entrepreneurship ecosystem in Uberlândia. Development of features to connect startups, investors, and local talent."
+    },
+    "role": "Volunteer Developer",
+    "year": 2023,
+    "status": "active",
+    "stack": ["Angular", "TypeScript", "Node.js"],
+    "highlights": {
+      "pt": [
+        "Conexão entre startups e investidores locais",
+        "Plataforma de eventos e workshops",
+        "Perfis de membros e networking"
+      ],
+      "en": [
+        "Connection between startups and local investors",
+        "Events and workshops platform",
+        "Member profiles and networking"
+      ]
+    },
+    "metrics": {
+      "members": "500+",
+      "events": "50+"
+    },
+    "links": {
+      "live": "https://uberhub.com.br",
+      "github": null,
+      "case_study": "/projetos/uberhub-platform"
+    },
+    "cover_image": "/images/voluntário/uberhub.png",
+    "gallery": [],
+    "color_accent": "#888888",
+    "featured": false
+  },
+  {
+    "id": "angular-cashflow",
+    "slug": "angular-cashflow",
+    "title": "Sistema de Gestão Financeira",
+    "tagline": {
+      "pt": "Cash flow e gestão de estoque para pequenas e grandes empresas",
+      "en": "Cash flow and inventory management for small and large businesses"
+    },
+    "description": {
+      "pt": "Sistema interno desenvolvido na Angular Money Group para gestão de fluxo de caixa e estoque. Stack full stack com Node.js, Express, MongoDB e Angular, com testes unitários usando Karma e Jasmine.",
+      "en": "Internal system developed at Angular Money Group for cash flow and inventory management. Full stack with Node.js, Express, MongoDB and Angular, with unit tests using Karma and Jasmine."
+    },
+    "role": "Full Stack Engineer III",
+    "year": 2022,
+    "status": "completed",
+    "stack": ["Angular", "Node.js", "Express", "MongoDB", "TypeScript", "Karma", "Jasmine"],
+    "highlights": {
+      "pt": [
+        "Gestão de fluxo de caixa em tempo real",
+        "Controle de estoque com alertas automáticos",
+        "Relatórios financeiros e exportação",
+        "Testes unitários com cobertura >80%"
+      ],
+      "en": [
+        "Real-time cash flow management",
+        "Inventory control with automatic alerts",
+        "Financial reports and data export",
+        "Unit tests with >80% coverage"
+      ]
+    },
+    "metrics": {
+      "modules": "12+",
+      "coverage": "80%+"
+    },
+    "links": {
+      "live": null,
+      "github": null,
+      "case_study": "/projetos/angular-cashflow"
+    },
+    "cover_image": null,
+    "gallery": [],
+    "color_accent": "#FF4500",
+    "featured": false
+  },
+  {
+    "id": "santander-access-control",
+    "slug": "santander-access-control",
+    "title": "Santander Global Access Control",
+    "tagline": {
+      "pt": "Sistema global de controle de acesso físico para o Santander",
+      "en": "Global physical access control system for Santander"
+    },
+    "description": {
+      "pt": "Sistema crítico responsável pela autorização e segurança física de colaboradores, fornecedores e visitantes em todas as unidades do Santander no Brasil e em operações internacionais. Plataforma de alta disponibilidade com integração global.",
+      "en": "Critical system responsible for physical security authorization of employees, suppliers, and visitors across all Santander branches in Brazil and international operations. High-availability platform with global integration."
+    },
+    "role": "Sênior Software Engineer",
+    "year": 2025,
+    "status": "in_development",
+    "stack": ["Angular", "Java", "Spring Boot", "Oracle", "AWS", "TypeScript"],
+    "highlights": {
+      "pt": [
+        "Sistema crítico de nível bancário global",
+        "Alta disponibilidade e confiabilidade",
+        "Integração com plataformas de segurança física",
+        "Conformidade com padrões corporativos internacionais"
+      ],
+      "en": [
+        "Critical global banking-level system",
+        "High availability and reliability",
+        "Integration with physical security platforms",
+        "Compliance with international corporate standards"
+      ]
+    },
+    "metrics": {
+      "branches": "1000+",
+      "countries": "5+",
+      "uptime": "99.9%"
+    },
+    "links": {
+      "live": null,
+      "github": null,
+      "case_study": "/projetos/santander-access-control"
+    },
+    "cover_image": "/images/empresas/solutis.png",
+    "gallery": [],
+    "color_accent": "#CC0000",
+    "featured": true
+  },
+  {
+    "id": "maritime-logistics",
+    "slug": "maritime-logistics",
+    "title": "Maritime Logistics System",
+    "tagline": {
+      "pt": "Sistema de logística para transportadoras marítimas",
+      "en": "Logistics system for maritime shipping companies"
+    },
+    "description": {
+      "pt": "Sistema externo desenvolvido na Angular Money Group para gerenciamento de logística marítima. Controle de cargas, rastreamento de embarques e gestão de documentação para transportadoras.",
+      "en": "External system developed at Angular Money Group for maritime logistics management. Cargo control, shipment tracking, and documentation management for shipping companies."
+    },
+    "role": "Full Stack Engineer",
+    "year": 2023,
+    "status": "completed",
+    "stack": ["Angular", "Node.js", "MongoDB", "Express", "TypeScript"],
+    "highlights": {
+      "pt": [
+        "Rastreamento de cargas em tempo real",
+        "Gestão de documentação de embarque",
+        "Integração com APIs de transportadoras",
+        "Relatórios operacionais automatizados"
+      ],
+      "en": [
+        "Real-time cargo tracking",
+        "Shipping documentation management",
+        "Integration with carrier APIs",
+        "Automated operational reports"
+      ]
+    },
+    "metrics": {
+      "shipments": "500+/month"
+    },
+    "links": {
+      "live": null,
+      "github": null,
+      "case_study": "/projetos/maritime-logistics"
+    },
+    "cover_image": null,
+    "gallery": [],
+    "color_accent": "#00D9FF",
+    "featured": false
+  }
+]

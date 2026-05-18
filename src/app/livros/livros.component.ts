@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { HeaderComponent } from '../shared/header/header.component';
 import * as livros from '../../../public/livros.json';
 interface Livro {
   titulo: string;
@@ -15,7 +14,7 @@ interface Livro {
 @Component({
   selector: 'app-livros',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule],
   templateUrl: './livros.component.html',
   styleUrl: './livros.component.scss',
 })

@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { HeaderComponent } from '../shared/header/header.component';
 
 @Component({
   selector: 'app-sobre',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeaderComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './sobre.component.html',
   styleUrls: ['./sobre.component.scss'],
 })

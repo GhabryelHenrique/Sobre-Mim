@@ -1,0 +1,100 @@
+[
+  {
+    "id": "nasa-space-apps",
+    "organization": "NASA Space Apps Challenge",
+    "logo": "/images/voluntário/nasaSpaceApps.png",
+    "role": {
+      "pt": "CTO / Local Lead",
+      "en": "CTO / Local Lead"
+    },
+    "period": {
+      "pt": "ago 2025 — presente",
+      "en": "Aug 2025 — Present"
+    },
+    "category": {
+      "pt": "Ciência e Tecnologia",
+      "en": "Science and Technology"
+    },
+    "description": {
+      "pt": "Atuei como CTO da edição de Uberlândia do maior hackathon do mundo, organizado pela NASA. Responsável pelo desenvolvimento do site de inscrições, sistema de matchmaking para formação de equipes e toda a infraestrutura tecnológica do evento. A edição 2025 contou com 9 venues simultâneos.",
+      "en": "Served as CTO of the Uberlândia edition of the world's largest hackathon, organized by NASA. Responsible for the registration website, team matchmaking system, and the entire technological infrastructure. The 2025 edition featured 9 simultaneous venues."
+    },
+    "metrics": [
+      { "label": { "pt": "Venues simultâneos", "en": "Simultaneous venues" }, "value": "9" },
+      { "label": { "pt": "Participantes", "en": "Participants" }, "value": "200+" },
+      { "label": { "pt": "Equipes formadas", "en": "Teams formed" }, "value": "30+" }
+    ],
+    "links": {
+      "website": "https://www.nasaspaceappsuberlandia.com.br/",
+      "global": "https://www.spaceappschallenge.org/"
+    },
+    "color": "#00D9FF",
+    "featured": true,
+    "coordinates": { "lat": -18.9186, "lng": -48.2772 }
+  },
+  {
+    "id": "global-shapers",
+    "organization": "Global Shapers Community",
+    "logo": "/images/voluntário/gsc.png",
+    "role": {
+      "pt": "Global Shaper — Hub Uberlândia",
+      "en": "Global Shaper — Uberlândia Hub"
+    },
+    "period": {
+      "pt": "mar 2025 — presente",
+      "en": "Mar 2025 — Present"
+    },
+    "category": {
+      "pt": "Impacto Social e Inovação Cívica",
+      "en": "Social Impact and Civic Innovation"
+    },
+    "description": {
+      "pt": "Como membro da Global Shapers Community, iniciativa do Fórum Econômico Mundial, atuo junto a jovens líderes globais para catalisar mudanças locais com alcance internacional. O hub Uberlândia foca em combate à desigualdade e inovação cívica.",
+      "en": "As a member of the Global Shapers Community, a World Economic Forum initiative, I work alongside young global leaders to catalyze local changes with international reach. The Uberlândia hub focuses on fighting inequality and civic innovation."
+    },
+    "metrics": [
+      { "label": { "pt": "Hubs no Brasil", "en": "Hubs in Brazil" }, "value": "21" },
+      { "label": { "pt": "Shapers globais", "en": "Global shapers" }, "value": "12.000+" },
+      { "label": { "pt": "Países", "en": "Countries" }, "value": "150+" }
+    ],
+    "links": {
+      "website": "https://www.globalshapers.org/",
+      "hub": "https://www.globalshapers.org/hubs/uberlandia"
+    },
+    "color": "#FF4500",
+    "featured": true,
+    "coordinates": { "lat": -18.9186, "lng": -48.2772 }
+  },
+  {
+    "id": "uberhub",
+    "organization": "UberHub",
+    "logo": "/images/voluntário/uberhub.png",
+    "role": {
+      "pt": "Membro do Ecossistema",
+      "en": "Ecosystem Member"
+    },
+    "period": {
+      "pt": "jan 2023 — presente",
+      "en": "Jan 2023 — Present"
+    },
+    "category": {
+      "pt": "Ciência e Tecnologia",
+      "en": "Science and Technology"
+    },
+    "description": {
+      "pt": "Como voluntário no UberHub, o principal ecossistema de inovação de Uberlândia, apoiei a organização de eventos, workshops e meetups que conectam startups, empresas, investidores e talentos locais. Fomento à cultura de inovação e empreendedorismo na região.",
+      "en": "As a volunteer at UberHub, Uberlândia's leading innovation ecosystem, I supported the organization of events, workshops, and meetups connecting startups, companies, investors, and local talent. Promoting innovation and entrepreneurship culture in the region."
+    },
+    "metrics": [
+      { "label": { "pt": "Membros ativos", "en": "Active members" }, "value": "500+" },
+      { "label": { "pt": "Eventos por ano", "en": "Events per year" }, "value": "50+" },
+      { "label": { "pt": "Startups conectadas", "en": "Connected startups" }, "value": "100+" }
+    ],
+    "links": {
+      "website": "https://uberhub.com.br"
+    },
+    "color": "#888888",
+    "featured": false,
+    "coordinates": { "lat": -18.9186, "lng": -48.2772 }
+  }
+]

@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
-import { HeaderComponent } from '../shared/header/header.component';
 
 interface Projeto {
   nome: string;
@@ -17,7 +16,7 @@ interface Projeto {
 @Component({
   selector: 'app-projetos',
   standalone: true,
-  imports: [CommonModule, RouterLink, HeaderComponent],
+  imports: [CommonModule, RouterLink],
   templateUrl: './projetos.component.html',
   styleUrls: ['./projetos.component.scss']
 })

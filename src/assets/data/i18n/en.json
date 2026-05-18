@@ -1,0 +1,135 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "community": "Community",
+    "articles": "Articles",
+    "speaking": "Speaking",
+    "mentoria": "Mentorship",
+    "books": "Books",
+    "setup": "Setup",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero": {
+      "greeting": "Hi, I'm",
+      "cta_projects": "View Projects",
+      "cta_contact": "Get in Touch",
+      "scroll": "Scroll to explore"
+    },
+    "about_short": {
+      "title": "About me",
+      "description": "Senior Software Engineer passionate about Angular and frontend architecture. I build critical systems at global scale, contribute to the tech community, and help devs grow their careers.",
+      "cta": "Learn more"
+    }
+  },
+  "about": {
+    "title": "About",
+    "bio_title": "Who I am",
+    "experience_title": "Experience",
+    "stats": {
+      "years": "Years of Experience",
+      "companies": "Companies",
+      "devs": "Devs Impacted",
+      "articles": "Articles Published"
+    },
+    "timeline_title": "Professional Journey",
+    "stack_title": "Stack & Technologies",
+    "current": "Current"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Systems and initiatives I've built throughout my career",
+    "filter_all": "All",
+    "filter_featured": "Featured",
+    "status": {
+      "completed": "Completed",
+      "active": "Active",
+      "in_development": "In Development"
+    },
+    "cta_live": "View Project",
+    "cta_github": "GitHub",
+    "cta_case": "Case Study",
+    "next_project": "Next Project"
+  },
+  "community": {
+    "title": "Community",
+    "subtitle": "Initiatives, events, and organizations I contribute to",
+    "map_title": "Impact in Uberlândia and the World",
+    "metrics_title": "Numbers that matter"
+  },
+  "articles": {
+    "title": "Articles",
+    "subtitle": "Technical content about Angular, architecture, and frontend engineering",
+    "filter_all": "All",
+    "read_more": "Read Article",
+    "reading_time": "min read",
+    "published_on": "Published on",
+    "articles_count": "articles published"
+  },
+  "speaking": {
+    "title": "Speaking",
+    "subtitle": "Events, workshops, and conferences where I've spoken",
+    "filter_all": "All",
+    "filter_year": "Year",
+    "type": {
+      "palestra": "Talk",
+      "workshop": "Workshop",
+      "masterclass": "Masterclass"
+    },
+    "cta_invite": "Invite Me to Speak",
+    "cta_invite_desc": "I'm available for talks and workshops on Angular, frontend architecture, AI, and tech careers.",
+    "cta_invite_btn": "Get in Touch",
+    "view_photos": "View Photos",
+    "paid": "Paid"
+  },
+  "mentoria": {
+    "title": "Beyond the Framework",
+    "subtitle": "Technical mentorship for devs who want to think like seniors",
+    "cta_apply": "Apply Now",
+    "cta_learn": "Learn More",
+    "features_title": "What you'll develop",
+    "not_for": "Who this is NOT for",
+    "for_who": "Who this is for",
+    "price_from": "Starting at"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Let's talk? I'm available for projects, talks, and mentorship.",
+    "name": "Your Name",
+    "email": "Your Email",
+    "subject": "Subject",
+    "message": "Your Message",
+    "send": "Send Message",
+    "sending": "Sending...",
+    "success_title": "Message sent!",
+    "success_desc": "Thanks for reaching out. I'll get back to you soon.",
+    "error_title": "Oops, something went wrong",
+    "error_desc": "Please try again or contact me directly via email.",
+    "or": "or reach out directly"
+  },
+  "footer": {
+    "built_with": "Built with",
+    "and": "and",
+    "rights": "All rights reserved.",
+    "back_top": "Back to top"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error loading data",
+    "see_all": "See All",
+    "see_more": "See More",
+    "close": "Close",
+    "next": "Next",
+    "prev": "Previous",
+    "dark_mode": "Dark Mode",
+    "light_mode": "Light Mode",
+    "lang_switch": "Português"
+  },
+  "not_found": {
+    "title": "Lost in space",
+    "subtitle": "This page doesn't exist or was moved to another galaxy.",
+    "cta_home": "Back to Home",
+    "cta_projects": "View Projects"
+  }
+}

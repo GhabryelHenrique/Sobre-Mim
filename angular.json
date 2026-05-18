@@ -29,13 +29,23 @@
                 "glob": "**/*",
                 "input": "public"
               },
+              {
+                "glob": "**/*",
+                "input": "src/assets",
+                "output": "assets"
+              },
               "src/404.html"
             ],
             "styles": [
+              "src/tailwind.css",
+              "src/styles/tokens.css",
+              "src/styles/animations.css",
               "src/styles.scss"
             ],
             "allowedCommonJsDependencies": [
-              "aos"
+              "gsap",
+              "three",
+              "d3"
             ]
           },
           "configurations": {

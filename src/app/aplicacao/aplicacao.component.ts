@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+﻿import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../shared/header/header.component';
 import Swal from 'sweetalert2';
 import emailjs from '@emailjs/browser';
 
@@ -15,7 +14,7 @@ import emailjs from '@emailjs/browser';
 @Component({
   selector: 'app-aplicacao',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, HeaderComponent],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './aplicacao.component.html',
   styleUrl: './aplicacao.component.scss'
 })

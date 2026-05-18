@@ -1,0 +1,109 @@
+/* Design Tokens — Ghabryel Portfolio */
+
+:root {
+  /* Colors — Dark (default) */
+  --color-bg:        #0d0d0d;
+  --color-bg-alt:    #111111;
+  --color-fg:        #f0f0f0;
+  --color-fg-muted:  #888888;
+  --color-accent:    #FF4500;
+  --color-accent-2:  #00D9FF;
+  --color-accent-hover: #ff6633;
+  --color-surface:   #1a1a1a;
+  --color-surface-2: #222222;
+  --color-border:    #2a2a2a;
+  --color-border-2:  #333333;
+
+  /* Typography */
+  --font-sans: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Fluid type scale */
+  --text-xs:   clamp(0.65rem,  0.6rem + 0.25vw, 0.75rem);
+  --text-sm:   clamp(0.8rem,   0.75rem + 0.25vw, 0.875rem);
+  --text-base: clamp(0.9rem,   0.875rem + 0.25vw, 1rem);
+  --text-lg:   clamp(1rem,     0.95rem + 0.5vw, 1.125rem);
+  --text-xl:   clamp(1.1rem,   1rem + 0.75vw, 1.25rem);
+  --text-2xl:  clamp(1.25rem,  1.1rem + 1vw, 1.5rem);
+  --text-3xl:  clamp(1.5rem,   1.25rem + 1.5vw, 2rem);
+  --text-4xl:  clamp(2rem,     1.5rem + 2vw, 2.5rem);
+  --text-5xl:  clamp(2.5rem,   2rem + 2.5vw, 3.5rem);
+  --text-hero: clamp(3.5rem,   4rem + 5vw, 9rem);
+
+  /* Spacing — 8px base scale */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Fluid spacing */
+  --section-py: clamp(4rem, 8vw, 8rem);
+  --container-px: clamp(1rem, 5vw, 4rem);
+
+  /* Border radius */
+  --radius-sm:  0.375rem;
+  --radius-md:  0.75rem;
+  --radius-lg:  1rem;
+  --radius-xl:  1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.4);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.5);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.6);
+  --shadow-xl:  0 16px 64px rgba(0,0,0,0.7);
+  --shadow-accent: 0 0 40px rgba(255,69,0,0.3);
+  --shadow-accent-2: 0 0 40px rgba(0,217,255,0.3);
+
+  /* Easings */
+  --ease-out-expo:    cubic-bezier(0.19, 1, 0.22, 1);
+  --ease-in-out-cubic: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --ease-bounce:      cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring:      cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+  /* Durations */
+  --duration-fast:   150ms;
+  --duration-base:   350ms;
+  --duration-slow:   700ms;
+  --duration-slower: 1200ms;
+
+  /* Z-index scale */
+  --z-base:     1;
+  --z-dropdown: 100;
+  --z-sticky:   200;
+  --z-overlay:  300;
+  --z-modal:    400;
+  --z-cursor:   9999;
+
+  /* Glass effect */
+  --glass-bg:     rgba(17,17,17,0.7);
+  --glass-border: rgba(255,255,255,0.06);
+  --glass-blur:   12px;
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --color-bg:        #fafafa;
+  --color-bg-alt:    #f0f0f0;
+  --color-fg:        #111111;
+  --color-fg-muted:  #555555;
+  --color-surface:   #ffffff;
+  --color-surface-2: #f4f4f4;
+  --color-border:    #e0e0e0;
+  --color-border-2:  #d0d0d0;
+  --shadow-sm:  0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md:  0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg:  0 8px 32px rgba(0,0,0,0.12);
+  --glass-bg:     rgba(255,255,255,0.8);
+  --glass-border: rgba(0,0,0,0.06);
+}

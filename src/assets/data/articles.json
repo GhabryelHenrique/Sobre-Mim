@@ -1,0 +1,164 @@
+[
+  {
+    "id": "angular-21-nova-era",
+    "title": {
+      "pt": "Angular 21: A Nova Era do Framework Mais Amado do Google",
+      "en": "Angular 21: The New Era of Google's Most Beloved Framework"
+    },
+    "subtitle": {
+      "pt": "Uma análise completa das novidades, features experimentais e o futuro do Angular",
+      "en": "A complete analysis of new features, experimental capabilities and Angular's future"
+    },
+    "platform": "Medium",
+    "date": "2025-12-27",
+    "reading_time": 12,
+    "tags": ["Angular", "TypeScript", "Frontend", "Web Development"],
+    "url": "https://ghabryel.medium.com/angular-21-a-nova-era-do-framework-mais-amado-do-google-91034bf22fbb",
+    "thumbnail": "https://cdn-images-1.medium.com/max/860/0*YXiyvkjfkoWqRcSt",
+    "featured": true
+  },
+  {
+    "id": "clean-architecture-angular",
+    "title": {
+      "pt": "Clean Architecture no Angular: Princípios, Implementação e Trade-offs",
+      "en": "Clean Architecture in Angular: Principles, Implementation and Trade-offs"
+    },
+    "subtitle": {
+      "pt": "Aplicando separação de responsabilidades para construir sistemas testáveis e manuteníveis",
+      "en": "Applying separation of concerns to build testable and maintainable systems"
+    },
+    "platform": "Medium",
+    "date": "2025-12-23",
+    "reading_time": 15,
+    "tags": ["Clean Architecture", "Angular", "Architecture", "Best Practices"],
+    "url": "https://ghabryel.medium.com/clean-architecture-no-angular-princ%C3%ADpios-implementa%C3%A7%C3%A3o-e-trade-offs-aa3b449b8926",
+    "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*7d62HhJPNdYUhuadY5HToA.png",
+    "featured": true
+  },
+  {
+    "id": "defer-views-angular",
+    "title": {
+      "pt": "Defer Views: Lazy Loading Granular no Angular",
+      "en": "Defer Views: Granular Lazy Loading in Angular"
+    },
+    "subtitle": {
+      "pt": "Domine @defer para carregamento inteligente, triggers avançados e otimização de Core Web Vitals",
+      "en": "Master @defer for intelligent loading, advanced triggers, and Core Web Vitals optimization"
+    },
+    "platform": "Medium",
+    "date": "2025-12-23",
+    "reading_time": 10,
+    "tags": ["Angular", "@defer", "Performance", "Core Web Vitals"],
+    "url": "https://ghabryel.medium.com/defer-views-granular-lazy-loading-in-angular-f72fc40bff60",
+    "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*SzLIiJaBm0Ki-VwRXj77bA.png",
+    "featured": false
+  },
+  {
+    "id": "angular-control-flow",
+    "title": {
+      "pt": "Angular Control Flow: @if, @for, @switch",
+      "en": "Angular Control Flow: @if, @for, @switch"
+    },
+    "subtitle": {
+      "pt": "Domine a nova sintaxe de template que está revolucionando a forma como escrevemos Angular",
+      "en": "Master the new template syntax that's revolutionizing how we write Angular"
+    },
+    "platform": "Medium",
+    "date": "2025-12-12",
+    "reading_time": 8,
+    "tags": ["Angular", "Control Flow", "Templates", "TypeScript"],
+    "url": "https://ghabryel.medium.com/angular-control-flow-if-for-switch-fb23f24832fb",
+    "thumbnail": "https://cdn-images-1.medium.com/max/1024/1*adgeuifi1Iv9EUq5Pw3hXA.jpeg",
+    "featured": false
+  },
+  {
+    "id": "nx-monorepo-angular",
+    "title": {
+      "pt": "Nx Monorepo para Aplicações Angular Enterprise: O Guia Completo",
+      "en": "Nx Monorepo for Enterprise Angular Applications: The Complete Guide"
+    },
+    "subtitle": {
+      "pt": "Domine workspace setup, affected commands, caching inteligente e CI/CD",
+      "en": "Master workspace setup, affected commands, intelligent caching, and CI/CD"
+    },
+    "platform": "Medium",
+    "date": "2025-12-10",
+    "reading_time": 18,
+    "tags": ["Angular", "Nx", "Monorepo", "Enterprise", "DevOps"],
+    "url": "https://ghabryel.medium.com/nx-monorepo-para-aplica%C3%A7%C3%B5es-angular-enterprise-o-guia-completo-361d17c886b0",
+    "thumbnail": null,
+    "featured": false
+  },
+  {
+    "id": "angular-signals-guia",
+    "title": {
+      "pt": "Angular Signals: O Guia Definitivo para Reatividade de Alta Performance",
+      "en": "Angular Signals: The Definitive Guide to High-Performance Reactivity"
+    },
+    "subtitle": {
+      "pt": "Uma imersão profunda no sistema de reatividade que está transformando o Angular",
+      "en": "A deep dive into the reactivity system that's transforming Angular"
+    },
+    "platform": "Medium",
+    "date": "2025-12-07",
+    "reading_time": 14,
+    "tags": ["Angular", "Signals", "Reactivity", "Performance"],
+    "url": "https://ghabryel.medium.com/angular-signals-o-guia-definitivo-para-reatividade-de-alta-performance-2f4cabed63a6",
+    "thumbnail": null,
+    "featured": true
+  },
+  {
+    "id": "angular-library-npm",
+    "title": {
+      "pt": "Como Criar uma Biblioteca Angular e Publicar no NPM: Guia Completo",
+      "en": "How to Create an Angular Library and Publish to NPM: Complete Guide"
+    },
+    "subtitle": {
+      "pt": "Pare de copiar e colar componentes entre projetos. Crie sua própria lib e publique no NPM",
+      "en": "Stop copy-pasting components between projects. Create your own library and publish to NPM"
+    },
+    "platform": "Medium",
+    "date": "2025-12-01",
+    "reading_time": 11,
+    "tags": ["Angular", "NPM", "Library", "Open Source"],
+    "url": "https://ghabryel.medium.com/como-criar-uma-biblioteca-angular-e-publicar-no-npm-guia-completo-6dfbe01ea093",
+    "thumbnail": null,
+    "featured": false
+  },
+  {
+    "id": "ia-multi-agente",
+    "title": {
+      "pt": "Do Zero à Plataforma de IA Multi-Agente",
+      "en": "From Zero to a Multi-Agent AI Platform"
+    },
+    "subtitle": {
+      "pt": "Um guia completo com Gemini, NestJS e Angular",
+      "en": "A complete guide with Gemini, NestJS and Angular"
+    },
+    "platform": "Medium",
+    "date": "2024-06-28",
+    "reading_time": 20,
+    "tags": ["AI", "Gemini", "NestJS", "Angular", "Multi-Agent"],
+    "url": "https://ghabryel.medium.com/do-zero-%C3%A0-plataforma-de-ia-multi-agente-63b9ccff5032",
+    "thumbnail": null,
+    "featured": false
+  },
+  {
+    "id": "ia-produtividade",
+    "title": {
+      "pt": "Produtividade 24/7: Como Utilizar Agents de IA para Otimizar Tarefas",
+      "en": "24/7 Productivity: How to Use AI Agents to Optimize Tasks"
+    },
+    "subtitle": {
+      "pt": "Uma equipe virtual eficiente trabalhando 24h sem interrupções",
+      "en": "An efficient virtual team working 24 hours without interruptions"
+    },
+    "platform": "Medium",
+    "date": "2024-06-18",
+    "reading_time": 9,
+    "tags": ["AI", "Productivity", "Automation", "Agents"],
+    "url": "https://ghabryel.medium.com/produtividade-24-7-como-utilizar-agents-de-ia-para-otimizar-tarefas-e-atendimento-ao-cliente-8c0678c1dfae",
+    "thumbnail": null,
+    "featured": false
+  }
+]

@@ -1,6 +1,5 @@
-import { Component } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { HeaderComponent } from '../shared/header/header.component';
 
 /**
  * Componente da Landing Page Principal
@@ -9,7 +8,7 @@ import { HeaderComponent } from '../shared/header/header.component';
 @Component({
   selector: 'app-landing',
   standalone: true,
-  imports: [RouterLink, HeaderComponent],
+  imports: [RouterLink],
   templateUrl: './landing.component.html',
   styleUrl: './landing.component.scss'
 })

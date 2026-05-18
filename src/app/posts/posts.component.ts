@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from '../shared/header/header.component';
 
 interface Post {
   titulo: string;
@@ -14,7 +13,7 @@ interface Post {
 @Component({
   selector: 'app-posts',
   standalone: true,
-  imports: [CommonModule, HeaderComponent],
+  imports: [CommonModule],
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })

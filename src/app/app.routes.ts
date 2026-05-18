@@ -1,15 +1,14 @@
 import { Routes } from '@angular/router';
-import { AplicacaoComponent } from './aplicacao/aplicacao.component';
 
 export const routes: Routes = [
   {
     path: '',
-    title: 'Ghabryel Henrique | Engenheiro de Software Sênior',
+    title: 'Ghabryel Henrique | Senior Software Engineer & Angular GDE Candidate',
     loadComponent: () => import('./sobre/sobre.component').then(m => m.SobreComponent)
   },
   {
     path: 'mentoria',
-    title: 'Beyond the Framework | Mentoria Profissional',
+    title: 'Beyond the Framework | Mentoria Técnica — Ghabryel Henrique',
     loadComponent: () => import('./landing/landing.component').then(m => m.LandingComponent)
   },
   {
@@ -18,13 +17,18 @@ export const routes: Routes = [
     loadComponent: () => import('./projetos/projetos.component').then(m => m.ProjetosComponent)
   },
   {
+    path: 'projetos/:slug',
+    title: 'Projeto | Ghabryel Henrique',
+    loadComponent: () => import('./projetos/projetos.component').then(m => m.ProjetosComponent)
+  },
+  {
     path: 'palestras',
-    title: 'Palestras | Ghabryel Henrique',
+    title: 'Palestras & Workshops | Ghabryel Henrique',
     loadComponent: () => import('./palestras/palestras').then(m => m.PalestrasComponent)
   },
   {
     path: 'posts',
-    title: 'Posts | Ghabryel Henrique',
+    title: 'Artigos | Ghabryel Henrique',
     loadComponent: () => import('./posts/posts.component').then(m => m.PostsComponent)
   },
   {
@@ -34,16 +38,27 @@ export const routes: Routes = [
   },
   {
     path: 'setup',
-    title: 'Setup | Ghabryel Henrique',
+    title: 'Setup do Dev | Ghabryel Henrique',
     loadComponent: () => import('./setup/setup').then(m => m.SetupComponent)
+  },
+  {
+    path: 'comunidade',
+    title: 'Comunidade | Ghabryel Henrique',
+    loadComponent: () => import('./features/community/community.component').then(m => m.CommunityComponent)
+  },
+  {
+    path: 'contato',
+    title: 'Contato | Ghabryel Henrique',
+    loadComponent: () => import('./features/contact/contact.component').then(m => m.ContactComponent)
   },
   {
     path: 'aplicacao',
     title: 'Aplicação | Beyond the Framework',
-    component: AplicacaoComponent
+    loadComponent: () => import('./aplicacao/aplicacao.component').then(m => m.AplicacaoComponent)
   },
   {
     path: '**',
-    redirectTo: ''
+    title: '404 | Ghabryel Henrique',
+    loadComponent: () => import('./features/not-found/not-found.component').then(m => m.NotFoundComponent)
   }
 ];
