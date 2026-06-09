@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "nasa-space-apps",
     "slug": "nasa-space-apps",
@@ -86,7 +86,7 @@
     },
     "cover_image": null,
     "gallery": [],
-    "color_accent": "#FF4500",
+    "color_accent": "#DD0031",
     "featured": true
   },
   {
@@ -172,7 +172,7 @@
     },
     "cover_image": null,
     "gallery": [],
-    "color_accent": "#FF4500",
+    "color_accent": "#DD0031",
     "featured": false
   },
   {

@@ -1,5 +1,42 @@
 [
   {
+    "id": "a2w",
+    "company": "A2W Plataforma",
+    "logo": "/images/empresas/a2w.jpg",
+    "position": {
+      "pt": "Sênior Software Engineer",
+      "en": "Senior Software Engineer"
+    },
+    "period": {
+      "pt": "mai 2026 — presente",
+      "en": "May 2026 — Present"
+    },
+    "period_start": "2026-05",
+    "period_end": null,
+    "location": "Brasil",
+    "current": true,
+    "description": {
+      "pt": "Respensavel pela modernização e melhoria do sistema de ERP e Atividades da startup de tecnologia A2W, focada em soluções de gestão empresarial para PMEs. Implementação de novas funcionalidades, otimização de performance e integração com serviços externos.",
+      "en": "Responsible for the modernization and improvement of the ERP and Activities system of A2W, a technology startup focused on enterprise management solutions for SMEs. Implementation of new features, performance optimization, and integration with external services."
+    },
+    "highlights": {
+      "pt": [
+        "Modernização e estabilização de módulos críticos do sistema de acesso físico",
+        "Implementação de melhorias arquiteturais para aumentar confiabilidade e tempo de resposta",
+        "Desenvolvimento de integrações seguras entre serviços internos e plataformas globais",
+        "Redução de falhas operacionais por meio de automação, testes e observabilidade"
+      ],
+      "en": [
+        "Modernization and stabilization of critical physical access system modules",
+        "Architectural improvements to increase reliability and response time",
+        "Secure integrations between internal services and global bank platforms",
+        "Reduction of operational failures through automation, testing, and observability"
+      ]
+    },
+    "stack": ["Angular", "TypeScript", "Java", "Spring", "Oracle", "AWS"],
+    "color": "#FF4500"
+  },
+  {
     "id": "solutis",
     "company": "Solutis Tecnologias",
     "logo": "/images/empresas/solutis.png",
@@ -8,13 +45,13 @@
       "en": "Senior Software Engineer"
     },
     "period": {
-      "pt": "nov 2025 — presente",
-      "en": "Nov 2025 — Present"
+      "pt": "nov 2025 — mar 2026 · 5 meses",
+      "en": "Nov 2025 — Mar 2026 · 5 months"
     },
     "period_start": "2025-11",
-    "period_end": null,
+    "period_end": "2026-03",
     "location": "Brasil",
-    "current": true,
+    "current": false,
     "description": {
       "pt": "Responsável pela evolução e confiabilidade do sistema global de Controle de Acesso de Facilities do Santander — plataforma crítica que gerencia autorização e segurança física de colaboradores, fornecedores e visitantes em operações no Brasil e no mundo.",
       "en": "Responsible for the evolution and reliability of Santander's global Facilities Access Control system — a critical platform managing physical security and authorization for employees, suppliers, and visitors in Brazil and globally."
