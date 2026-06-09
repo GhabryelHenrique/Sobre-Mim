@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component, inject, signal, computed, effect, OnDestroy,
   ChangeDetectionStrategy, PLATFORM_ID
 } from '@angular/core';
@@ -121,7 +121,7 @@ function genBarData(period: Period): number[] {
                   [attr.y]="chartH - barHeight(bar) - 24"
                   [attr.width]="barWidth()"
                   [attr.height]="barHeight(bar)"
-                  [attr.fill]="hovBar() === i ? '#FF4500' : 'rgba(255,69,0,0.45)'"
+                  [attr.fill]="hovBar() === i ? '#DD0031' : 'rgba(221,0,49,0.45)'"
                   rx="3"
                   class="bar-rect"
                   (mouseenter)="hovBar.set(i)"
@@ -231,8 +231,8 @@ function genBarData(period: Period): number[] {
 
     .dash-badge {
       padding: 2px 8px;
-      background: rgba(255,69,0,0.12);
-      border: 1px solid rgba(255,69,0,0.3);
+      background: rgba(221,0,49,0.12);
+      border: 1px solid rgba(221,0,49,0.3);
       border-radius: var(--radius-full);
       font-size: 10px;
       font-family: var(--font-mono);
@@ -394,7 +394,7 @@ function genBarData(period: Period): number[] {
     /* ─── TABLE ─── */
     .user-count {
       padding: 2px 9px;
-      background: rgba(255,69,0,0.1);
+      background: rgba(221,0,49,0.1);
       border-radius: var(--radius-full);
       font-size: var(--text-sm);
       font-family: var(--font-mono);
@@ -482,7 +482,7 @@ export class DashboardDemoComponent implements OnDestroy {
   ];
 
   private baseKpis = signal([
-    { id: 'users',    labelPt: 'Usuários Ativos',  labelEn: 'Active Users',    value: 1248, prevValue: 1100, color: '#FF4500', icon: '👥' },
+    { id: 'users',    labelPt: 'Usuários Ativos',  labelEn: 'Active Users',    value: 1248, prevValue: 1100, color: '#DD0031', icon: '👥' },
     { id: 'revenue',  labelPt: 'Receita (R$)',      labelEn: 'Revenue (R$)',    value: 54200, prevValue: 48000, prefix: 'R$ ', color: '#00D9FF', icon: '💰' },
     { id: 'conv',     labelPt: 'Conversão',          labelEn: 'Conversion',      value: 3.7,  prevValue: 3.2,  suffix: '%', color: '#7C3AED', icon: '📈' },
     { id: 'tickets',  labelPt: 'Tickets Abertos',    labelEn: 'Open Tickets',    value: 23,   prevValue: 31,  color: '#D97706', icon: '🎫' },

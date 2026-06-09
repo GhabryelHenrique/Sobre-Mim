@@ -1,4 +1,4 @@
-import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
+﻿import { Component, inject, computed, ChangeDetectionStrategy } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { I18nService } from '../core/services/i18n.service';
 import { SeoService } from '../core/services/seo.service';
@@ -268,7 +268,7 @@ export class DemosComponent {
       descPt: 'KPIs em tempo real com Signals, gráfico SVG puro, tabela ordenável e filtros de período. Dados simulados que atualizam a cada segundo.',
       descEn: 'Real-time KPIs with Signals, pure SVG chart, sortable table and period filters. Simulated data that updates every second.',
       tags: ['Signals', 'computed()', 'effect()', 'SVG', 'Interval'],
-      color: '#FF4500',
+      color: '#DD0031',
       difficulty: 'Avançado'
     },
     {

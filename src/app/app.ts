@@ -1,4 +1,4 @@
-import { Component, OnInit, inject, signal, computed, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
+﻿import { Component, OnInit, inject, signal, computed, ChangeDetectionStrategy, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterOutlet, Router } from '@angular/router';
 import { LayoutHeaderComponent } from './layout/header/header.component';
@@ -155,7 +155,7 @@ interface PaletteCmd {
       background: var(--color-surface-2);
     }
 
-    .palette-item.active { background: rgba(255,69,0,0.1); }
+    .palette-item.active { background: rgba(221,0,49,0.1); }
 
     .palette-item__icon { font-size: 16px; width: 20px; text-align: center; flex-shrink: 0; }
 
@@ -299,7 +299,7 @@ export class App implements OnInit {
       '  🔗 linkedin.com/in/ghabryelhenrique\n\n' +
       '  Hey dev 👋 You found the source! I built this with Angular 21,\n' +
       '  Three.js, GSAP and a lot of coffee. Want to talk? Hit me up!\n',
-      'color: #FF4500; font-family: monospace; font-size: 11px;'
+      'color: #DD0031; font-family: monospace; font-size: 11px;'
     );
   }
 
@@ -324,7 +324,7 @@ export class App implements OnInit {
     const draw = () => {
       ctx.fillStyle = 'rgba(13,13,13,0.05)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#FF4500';
+      ctx.fillStyle = '#DD0031';
       ctx.font = `${fontSize}px JetBrains Mono, monospace`;
 
       for (let i = 0; i < drops.length; i++) {

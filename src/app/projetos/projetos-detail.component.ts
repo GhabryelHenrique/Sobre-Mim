@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component, OnInit, inject, computed,
   PLATFORM_ID, ChangeDetectionStrategy
 } from '@angular/core';
@@ -212,7 +212,7 @@ import { I18nService } from '../core/services/i18n.service';
 
     .badge--completed     { background: rgba(5,150,105,0.12);  border: 1px solid rgba(5,150,105,0.3);  color: #059669; }
     .badge--active        { background: rgba(0,217,255,0.1);   border: 1px solid rgba(0,217,255,0.3);  color: var(--color-accent-2); }
-    .badge--in_development{ background: rgba(255,69,0,0.1);    border: 1px solid rgba(255,69,0,0.3);   color: var(--color-accent); }
+    .badge--in_development{ background: rgba(221,0,49,0.1);    border: 1px solid rgba(221,0,49,0.3);   color: var(--color-accent); }
     .badge--year          { background: var(--color-surface-2); border: 1px solid var(--color-border);  color: var(--color-fg-muted); }
 
     .detail-hero__title {

@@ -32,6 +32,11 @@ export const routes: Routes = [
     loadComponent: () => import('./posts/posts.component').then(m => m.PostsComponent)
   },
   {
+    path: 'posts/:slug',
+    title: 'Artigo | Ghabryel Henrique',
+    loadComponent: () => import('./posts/post-detail.component').then(m => m.PostDetailComponent)
+  },
+  {
     path: 'livros',
     title: 'Livros Recomendados | Ghabryel Henrique',
     loadComponent: () => import('./livros/livros.component').then(m => m.LivrosComponent)

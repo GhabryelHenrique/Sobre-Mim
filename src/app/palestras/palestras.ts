@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component, OnInit, inject, signal, computed,
   PLATFORM_ID, ChangeDetectionStrategy
 } from '@angular/core';
@@ -254,7 +254,7 @@ import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.d
       z-index: 1;
     }
 
-    .dot-paid { background: var(--color-accent); box-shadow: 0 0 8px rgba(255,69,0,0.4); }
+    .dot-paid { background: var(--color-accent); box-shadow: 0 0 8px rgba(221,0,49,0.4); }
 
     .marker-line { flex: 1; width: 1px; background: var(--color-border); margin-top: 6px; min-height: 60px; }
 
@@ -275,7 +275,7 @@ import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.d
 
     .badge-palestra { background: rgba(0,217,255,0.1); border: 1px solid rgba(0,217,255,0.3); color: var(--color-accent-2); }
     .badge-workshop  { background: rgba(124,58,237,0.1); border: 1px solid rgba(124,58,237,0.3); color: #a78bfa; }
-    .badge-paid      { background: rgba(255,69,0,0.1); border: 1px solid rgba(255,69,0,0.3); color: var(--color-accent); }
+    .badge-paid      { background: rgba(221,0,49,0.1); border: 1px solid rgba(221,0,49,0.3); color: var(--color-accent); }
 
     .item-meta-right { display: flex; align-items: center; gap: 4px; font-size: var(--text-xs); font-family: var(--font-mono); color: var(--color-fg-muted); }
 

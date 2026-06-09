@@ -66,6 +66,22 @@ export interface Article {
   url: string;
   thumbnail: string | null;
   featured: boolean;
+  type?: 'internal' | 'external';
+  slug?: string;
+  cover?: string | null;
+}
+
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title: { pt: string; en: string };
+  subtitle: { pt: string; en: string };
+  date: string;
+  reading_time: number;
+  tags: string[];
+  cover: string | null;
+  content_pt: string;
+  content_en: string;
 }
 
 export interface SpeakingItem {
@@ -130,6 +146,8 @@ export class DataService {
   private _speaking = signal<SpeakingItem[]>([]);
   private _community = signal<CommunityItem[]>([]);
   private _stack = signal<StackData | null>(null);
+  private _blogPost = signal<BlogPost | null>(null);
+  private _blogPostLoading = signal(false);
 
   profile = this._profile.asReadonly();
   timeline = this._timeline.asReadonly();
@@ -138,6 +156,8 @@ export class DataService {
   speaking = this._speaking.asReadonly();
   community = this._community.asReadonly();
   stack = this._stack.asReadonly();
+  blogPost = this._blogPost.asReadonly();
+  blogPostLoading = this._blogPostLoading.asReadonly();
 
   loadAll(): void {
     this.loadProfile();
@@ -190,5 +210,14 @@ export class DataService {
     this.http.get<StackData>('/assets/data/stack.json').subscribe(
       data => this._stack.set(data)
     );
+  }
+
+  loadBlogPost(slug: string): void {
+    this._blogPost.set(null);
+    this._blogPostLoading.set(true);
+    this.http.get<BlogPost>(`/assets/data/blog/${slug}.json`).subscribe({
+      next: data => { this._blogPost.set(data); this._blogPostLoading.set(false); },
+      error: () => this._blogPostLoading.set(false)
+    });
   }
 }

@@ -1,5 +1,26 @@
 [
   {
+    "id": "angular-22-o-que-ha-de-novo",
+    "slug": "angular-22-o-que-ha-de-novo",
+    "type": "internal",
+    "title": {
+      "pt": "Angular 22: O Que Há de Novo e Por Que Isso Importa",
+      "en": "Angular 22: What's New and Why It Matters"
+    },
+    "subtitle": {
+      "pt": "Signals maduros, HMR com estado, Incremental Hydration estável e o fim definitivo do Zone.js.",
+      "en": "Mature Signals, stateful HMR, stable Incremental Hydration, and the definitive end of Zone.js."
+    },
+    "platform": "Blog",
+    "date": "2026-06-09",
+    "reading_time": 14,
+    "tags": ["Angular 22", "Signals", "HMR", "Hydration", "Performance", "TypeScript"],
+    "url": "/posts/angular-22-o-que-ha-de-novo",
+    "thumbnail": null,
+    "cover": null,
+    "featured": true
+  },
+  {
     "id": "angular-21-nova-era",
     "title": {
       "pt": "Angular 21: A Nova Era do Framework Mais Amado do Google",

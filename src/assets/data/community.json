@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "id": "nasa-space-apps",
     "organization": "NASA Space Apps Challenge",
@@ -41,8 +41,8 @@
       "en": "Global Shaper — Uberlândia Hub"
     },
     "period": {
-      "pt": "mar 2025 — presente",
-      "en": "Mar 2025 — Present"
+      "pt": "mar 2025 — Jun 2026 · 1 ano 4 meses",
+      "en": "Mar 2025 — Jun 2026 · 1 year 4 months"
     },
     "category": {
       "pt": "Impacto Social e Inovação Cívica",
@@ -61,7 +61,7 @@
       "website": "https://www.globalshapers.org/",
       "hub": "https://www.globalshapers.org/hubs/uberlandia"
     },
-    "color": "#FF4500",
+    "color": "#DD0031",
     "featured": true,
     "coordinates": { "lat": -18.9186, "lng": -48.2772 }
   },

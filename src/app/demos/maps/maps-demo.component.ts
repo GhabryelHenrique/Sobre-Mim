@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component, inject, signal, computed, afterNextRender,
   ChangeDetectionStrategy, ElementRef, OnDestroy, PLATFORM_ID
 } from '@angular/core';
@@ -21,7 +21,7 @@ interface MapMarker {
 }
 
 const MARKERS: MapMarker[] = [
-  { id: 1, city: 'Uberlândia', state: 'MG', lat: -18.9113, lng: -48.2622, descPt: 'Minha cidade natal. Sede do GDG Uberlândia e NASA Space Apps Local Lead.', descEn: 'My hometown. Home of GDG Uberlândia and NASA Space Apps Local Lead.', color: '#FF4500', icon: '🏠' },
+  { id: 1, city: 'Uberlândia', state: 'MG', lat: -18.9113, lng: -48.2622, descPt: 'Minha cidade natal. Sede do GDG Uberlândia e NASA Space Apps Local Lead.', descEn: 'My hometown. Home of GDG Uberlândia and NASA Space Apps Local Lead.', color: '#DD0031', icon: '🏠' },
   { id: 2, city: 'São Paulo',  state: 'SP', lat: -23.5505, lng: -46.6333, descPt: 'Maior hub tech do Brasil. GDG São Paulo, eventos e oportunidades.', descEn: 'Brazil\'s biggest tech hub. GDG São Paulo, events and opportunities.', color: '#00D9FF', icon: '🏙️' },
   { id: 3, city: 'Belo Horizonte', state: 'MG', lat: -19.9167, lng: -43.9345, descPt: 'Capital de Minas Gerais. Grande comunidade Angular e Google.', descEn: 'Minas Gerais capital. Large Angular and Google community.', color: '#7C3AED', icon: '⛰️' },
   { id: 4, city: 'Rio de Janeiro', state: 'RJ', lat: -22.9068, lng: -43.1729, descPt: 'Cidade maravilhosa. Palco de grandes conferências de tecnologia.', descEn: 'Marvelous city. Stage for major tech conferences.', color: '#059669', icon: '🏖️' },

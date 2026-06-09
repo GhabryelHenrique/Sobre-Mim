@@ -3,6 +3,7 @@ import {
   PLATFORM_ID, ChangeDetectionStrategy
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { RouterLink } from '@angular/router';
 import { DataService } from '../core/services/data.service';
 import { I18nService } from '../core/services/i18n.service';
 import { SeoService } from '../core/services/seo.service';
@@ -11,7 +12,7 @@ import { SeoService } from '../core/services/seo.service';
   selector: 'app-posts',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [],
+  imports: [RouterLink],
   template: `
 <div class="posts-page">
 
@@ -66,19 +67,30 @@ import { SeoService } from '../core/services/seo.service';
       @if (articles().length > 0) {
         <div class="posts-grid">
           @for (a of filtered(); track a.id; let i = $index) {
-            <article class="post-card" [class.post-card--featured]="a.featured">
+            <article class="post-card" [class.post-card--featured]="a.featured" [class.post-card--internal]="a.type === 'internal'">
               @if (a.thumbnail) {
-                <a [href]="a.url" target="_blank" rel="noopener" class="post-card__thumb-link">
-                  <div class="post-card__thumb">
-                    <img [src]="a.thumbnail" [alt]="lang() === 'pt' ? a.title.pt : a.title.en"
-                         loading="lazy" class="post-card__img" />
-                  </div>
-                </a>
+                @if (a.type === 'internal') {
+                  <a [routerLink]="'/posts/' + a.slug" class="post-card__thumb-link">
+                    <div class="post-card__thumb">
+                      <img [src]="a.thumbnail" [alt]="lang() === 'pt' ? a.title.pt : a.title.en"
+                           loading="lazy" class="post-card__img" />
+                    </div>
+                  </a>
+                } @else {
+                  <a [href]="a.url" target="_blank" rel="noopener" class="post-card__thumb-link">
+                    <div class="post-card__thumb">
+                      <img [src]="a.thumbnail" [alt]="lang() === 'pt' ? a.title.pt : a.title.en"
+                           loading="lazy" class="post-card__img" />
+                    </div>
+                  </a>
+                }
               }
 
               <div class="post-card__body">
                 <div class="post-card__meta">
-                  <span class="meta-platform">{{ a.platform }}</span>
+                  <span class="meta-platform" [class.meta-platform--internal]="a.type === 'internal'">
+                    {{ a.type === 'internal' ? (lang() === 'pt' ? 'Artigo' : 'Article') : a.platform }}
+                  </span>
                   <span class="meta-sep">·</span>
                   <span class="meta-date">{{ formatDate(a.date) }}</span>
                   <span class="meta-sep">·</span>
@@ -86,9 +98,15 @@ import { SeoService } from '../core/services/seo.service';
                 </div>
 
                 <h2 class="post-card__title">
-                  <a [href]="a.url" target="_blank" rel="noopener">
-                    {{ lang() === 'pt' ? a.title.pt : a.title.en }}
-                  </a>
+                  @if (a.type === 'internal') {
+                    <a [routerLink]="'/posts/' + a.slug">
+                      {{ lang() === 'pt' ? a.title.pt : a.title.en }}
+                    </a>
+                  } @else {
+                    <a [href]="a.url" target="_blank" rel="noopener">
+                      {{ lang() === 'pt' ? a.title.pt : a.title.en }}
+                    </a>
+                  }
                 </h2>
 
                 <p class="post-card__sub">
@@ -101,10 +119,17 @@ import { SeoService } from '../core/services/seo.service';
                   }
                 </div>
 
-                <a [href]="a.url" target="_blank" rel="noopener" class="post-card__cta">
-                  {{ lang() === 'pt' ? 'Ler artigo' : 'Read article' }}
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                </a>
+                @if (a.type === 'internal') {
+                  <a [routerLink]="'/posts/' + a.slug" class="post-card__cta post-card__cta--internal">
+                    {{ lang() === 'pt' ? 'Ler artigo' : 'Read article' }}
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                } @else {
+                  <a [href]="a.url" target="_blank" rel="noopener" class="post-card__cta">
+                    {{ lang() === 'pt' ? 'Ler artigo' : 'Read article' }}
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                  </a>
+                }
               </div>
             </article>
           }
@@ -279,7 +304,16 @@ import { SeoService } from '../core/services/seo.service';
     }
 
     .post-card--featured {
-      border-color: rgba(255,69,0,0.2);
+      border-color: rgba(221,0,49,0.25);
+    }
+
+    .post-card--internal {
+      border-color: rgba(99,102,241,0.25);
+      background: linear-gradient(135deg, var(--color-surface) 0%, rgba(99,102,241,0.04) 100%);
+    }
+
+    .post-card--internal:hover {
+      border-color: rgba(99,102,241,0.5);
     }
 
     .post-card__thumb-link { display: block; }
@@ -317,6 +351,7 @@ import { SeoService } from '../core/services/seo.service';
     }
 
     .meta-platform { color: var(--color-accent-2); font-weight: 600; }
+    .meta-platform--internal { color: #6366f1; }
     .meta-sep { opacity: 0.4; }
 
     .post-card__title {
@@ -362,7 +397,7 @@ import { SeoService } from '../core/services/seo.service';
       transition: background var(--duration-fast), color var(--duration-fast);
     }
 
-    .tag-chip:hover { background: rgba(255,69,0,0.12); color: var(--color-accent); }
+    .tag-chip:hover { background: rgba(221,0,49,0.1); color: var(--color-accent); }
 
     .post-card__cta {
       display: inline-flex;
@@ -379,6 +414,9 @@ import { SeoService } from '../core/services/seo.service';
     }
 
     .post-card__cta:hover { color: var(--color-accent-2); gap: 8px; }
+
+    .post-card__cta--internal { color: #6366f1; border-top-color: rgba(99,102,241,0.2); }
+    .post-card__cta--internal:hover { color: #818cf8; gap: 8px; }
 
     /* Skeleton */
     .post-skeleton {

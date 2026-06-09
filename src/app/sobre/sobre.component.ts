@@ -1,4 +1,4 @@
-import {
+﻿import {
   Component, OnInit, OnDestroy, inject, signal, computed, effect,
   ElementRef, PLATFORM_ID, ChangeDetectionStrategy, afterNextRender
 } from '@angular/core';
@@ -408,9 +408,9 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
     }
 
     .btn-primary:hover {
-      background: #ff6633;
+      background: #C3002F;
       transform: translateY(-3px);
-      box-shadow: 0 8px 24px rgba(255,69,0,0.4);
+      box-shadow: 0 8px 24px rgba(221,0,49,0.4);
     }
 
     .btn-ghost {
@@ -573,7 +573,7 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,69,0,0.3) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(221,0,49,0.3) 0%, transparent 70%);
       z-index: 0;
       filter: blur(20px);
     }
@@ -841,8 +841,8 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
     .tl-badge-current {
       margin-left: auto;
       padding: 2px 8px;
-      background: rgba(255,69,0,0.12);
-      border: 1px solid rgba(255,69,0,0.28);
+      background: rgba(221,0,49,0.12);
+      border: 1px solid rgba(221,0,49,0.28);
       border-radius: var(--radius-full);
       font-size: 10px;
       font-weight: 700;
@@ -1061,7 +1061,7 @@ export class SobreComponent implements OnInit, OnDestroy {
   });
 
   readonly catColors: Record<string, string> = {
-    core:     '#FF4500',
+    core:     '#DD0031',
     frontend: '#00D9FF',
     backend:  '#7C3AED',
     database: '#059669',
