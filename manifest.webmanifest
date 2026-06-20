@@ -1,0 +1,17 @@
+{
+  "name": "Ghabryel Henrique · Angular GDE & Senior Engineer",
+  "short_name": "Ghabryel",
+  "description": "Google Developer Expert em Angular, Senior Engineer e speaker. Local Lead NASA Space Apps e Global Shaper (WEF).",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0d0d0d",
+  "theme_color": "#DD0031",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon"
+    }
+  ]
+}

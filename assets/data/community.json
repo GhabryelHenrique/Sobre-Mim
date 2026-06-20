@@ -1,5 +1,37 @@
 ﻿[
   {
+    "id": "google-developer-expert",
+    "organization": "Google Developer Experts",
+    "logo": "/images/gde_logo.jpg",
+    "role": {
+      "pt": "Google Developer Expert · Angular",
+      "en": "Google Developer Expert · Angular"
+    },
+    "period": {
+      "pt": "jun 2026 — presente",
+      "en": "Jun 2026 — Present"
+    },
+    "category": {
+      "pt": "Tecnologia e Open Source",
+      "en": "Technology and Open Source"
+    },
+    "description": {
+      "pt": "Reconhecido pelo Google como especialista em Angular, o programa Google Developer Experts (GDE) é uma rede global de profissionais técnicos que contribuem ativamente com a comunidade de desenvolvedores. A conquista reflete anos de contribuição em palestras, artigos, projetos open source e mentoria na comunidade Angular brasileira.",
+      "en": "Recognized by Google as an Angular expert, the Google Developer Experts (GDE) program is a global network of technical professionals who actively contribute to the developer community. This achievement reflects years of contributions through talks, articles, open source projects, and mentoring within the Brazilian Angular community."
+    },
+    "metrics": [
+      { "label": { "pt": "GDEs no mundo", "en": "GDEs worldwide" }, "value": "1.000+" },
+      { "label": { "pt": "Países representados", "en": "Countries represented" }, "value": "90+" },
+      { "label": { "pt": "Tecnologias cobertas", "en": "Technologies covered" }, "value": "30+" }
+    ],
+    "links": {
+      "website": "https://developers.google.com/community/experts"
+    },
+    "color": "#4285F4",
+    "featured": true,
+    "coordinates": { "lat": -18.9186, "lng": -48.2772 }
+  },
+  {
     "id": "nasa-space-apps",
     "organization": "NASA Space Apps Challenge",
     "logo": "/images/voluntário/nasaSpaceApps.png",

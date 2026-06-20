@@ -1,5 +1,26 @@
 [
   {
+    "id": "microfrontends-module-federation-angular",
+    "slug": "microfrontends-module-federation-angular",
+    "type": "internal",
+    "title": {
+      "pt": "Microfrontends no Angular com Module Federation: O Guia Definitivo",
+      "en": "Microfrontends in Angular with Module Federation: The Definitive Guide"
+    },
+    "subtitle": {
+      "pt": "Do System Design ao código: aprenda a dividir sua aplicação em múltiplos MFEs com Webpack Module Federation — do jeito certo.",
+      "en": "From System Design to code: learn how to split your Angular app into multiple MFEs with Webpack Module Federation — the right way."
+    },
+    "platform": "Blog",
+    "date": "2026-06-20",
+    "reading_time": 16,
+    "tags": ["Angular", "Microfrontends", "Module Federation", "Webpack", "Architecture", "Enterprise"],
+    "url": "/posts/microfrontends-module-federation-angular",
+    "thumbnail": null,
+    "cover": null,
+    "featured": true
+  },
+  {
     "id": "angular-22-o-que-ha-de-novo",
     "slug": "angular-22-o-que-ha-de-novo",
     "type": "internal",

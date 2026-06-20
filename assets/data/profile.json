@@ -12,12 +12,12 @@
   "location": "Uberlândia, MG — Brasil",
   "experience_years": 5,
   "bio": {
-    "pt": "Sou um engenheiro de software sênior apaixonado por Angular e arquitetura frontend. Trabalho construindo sistemas críticos em escala global, contribuo com a comunidade tech de Uberlândia e ajudo desenvolvedores a evoluírem sua carreira. Candidato a Google Developer Expert em Angular, Local Lead do NASA Space Apps Challenge e membro do Global Shapers Community (World Economic Forum).",
-    "en": "I'm a senior software engineer passionate about Angular and frontend architecture. I build critical systems at global scale, contribute to the Uberlândia tech community, and help developers grow their careers. GDE Candidate in Angular, Local Lead of NASA Space Apps Challenge, and member of the Global Shapers Community (World Economic Forum)."
+    "pt": "Sou um engenheiro de software sênior apaixonado por Angular e arquitetura frontend. Trabalho construindo sistemas críticos em escala global, contribuo com a comunidade tech de Uberlândia e ajudo desenvolvedores a evoluírem sua carreira. Google Developer Expert (GDE) em Angular, Local Lead do NASA Space Apps Challenge e membro do Global Shapers Community (World Economic Forum).",
+    "en": "I'm a senior software engineer passionate about Angular and frontend architecture. I build critical systems at global scale, contribute to the Uberlândia tech community, and help developers grow their careers. Google Developer Expert (GDE) in Angular, Local Lead of NASA Space Apps Challenge, and member of the Global Shapers Community (World Economic Forum)."
   },
   "roles": {
-    "pt": ["Angular Architect", "GDE Candidate", "Community Builder", "Tech Speaker"],
-    "en": ["Angular Architect", "GDE Candidate", "Community Builder", "Tech Speaker"]
+    "pt": ["Angular Architect", "GDE Angular", "Community Builder", "Tech Speaker"],
+    "en": ["Angular Architect", "GDE Angular", "Community Builder", "Tech Speaker"]
   },
   "status_cards": [
     {
@@ -59,8 +59,8 @@
     "Google Cloud Fundamentals"
   ],
   "gde_status": {
-    "pt": "Candidato a GDE em Angular",
-    "en": "GDE Candidate in Angular"
+    "pt": "Google Developer Expert em Angular",
+    "en": "Google Developer Expert in Angular"
   },
   "avatar": "/images/ghabryelSorriso.jpg",
   "avatar_serious": "/images/ghabryelSerio.png",
