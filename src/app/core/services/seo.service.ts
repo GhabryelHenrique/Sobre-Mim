@@ -112,7 +112,7 @@ export class SeoService {
       sameAs: [
         'https://github.com/GhabryelHenrique',
         'https://www.linkedin.com/in/ghabryelhenrique/',
-        'https://www.youtube.com/@NgGhab/',
+        'https://www.youtube.com/@GhabDev',
         'https://ghabryel.medium.com'
       ]
     });
