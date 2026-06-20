@@ -15,7 +15,7 @@ interface MetaConfig {
 const SITE_URL = 'https://ghabryelhenrique.com.br';
 
 const DEFAULT_META: MetaConfig = {
-  title: 'Ghabryel Henrique · Angular GDE & Senior Engineer',
+  title: 'Ghabryel Henrique | GDE Angular | Software Engineer',
   description: 'Google Developer Expert em Angular, Senior Engineer e speaker. Local Lead NASA Space Apps e Global Shaper (WEF).',
   image: `${SITE_URL}/images/ghabryelSorriso.jpg`,
   url: SITE_URL,

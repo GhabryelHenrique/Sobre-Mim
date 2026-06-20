@@ -1144,7 +1144,7 @@ export class SobreComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.seoService.setMeta({
-      title: 'Ghabryel Henrique · Angular GDE & Senior Engineer',
+      title: 'Ghabryel Henrique | GDE Angular | Software Engineer',
       description: 'Google Developer Expert em Angular, Senior Engineer e speaker. Local Lead NASA Space Apps e Global Shaper (WEF).',
       url: 'https://ghabryelhenrique.com.br'
     });

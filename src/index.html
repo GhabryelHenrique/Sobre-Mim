@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <title>Ghabryel Henrique · Angular GDE &amp; Senior Engineer</title>
+  <title>Ghabryel Henrique | GDE Angular | Software Engineer</title>
   <base href="/">
 
   <!-- Viewport -->
@@ -21,7 +21,7 @@
   <link rel="alternate" hreflang="x-default" href="https://ghabryelhenrique.com.br/">
 
   <!-- Open Graph -->
-  <meta property="og:title"        content="Ghabryel Henrique · Angular GDE &amp; Senior Engineer">
+  <meta property="og:title"        content="Ghabryel Henrique | GDE Angular | Software Engineer">
   <meta property="og:description"  content="Google Developer Expert em Angular, Senior Engineer e speaker. Local Lead NASA Space Apps e Global Shaper (WEF).">
   <meta property="og:image"        content="https://ghabryelhenrique.com.br/images/ghabryelSorriso.jpg">
   <meta property="og:image:width"  content="1200">
@@ -35,7 +35,7 @@
 
   <!-- Twitter / X -->
   <meta name="twitter:card"        content="summary_large_image">
-  <meta name="twitter:title"       content="Ghabryel Henrique · Angular GDE &amp; Senior Engineer">
+  <meta name="twitter:title"       content="Ghabryel Henrique | GDE Angular | Software Engineer">
   <meta name="twitter:description" content="Google Developer Expert em Angular, Senior Engineer e speaker. Local Lead NASA Space Apps e Global Shaper (WEF).">
   <meta name="twitter:image"       content="https://ghabryelhenrique.com.br/images/ghabryelSorriso.jpg">
   <meta name="twitter:creator"     content="@NgGhab">
@@ -83,8 +83,96 @@
     ]
   }
   </script>
+
+  <!-- Pre-Angular styles: visible to crawlers and users before JS loads -->
+  <style>
+    body { margin: 0; background: #0d0d0d; color: #e5e5e5; font-family: Inter, system-ui, sans-serif; font-size: 1rem; }
+    #pre-render {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+    #pre-render h1 {
+      font-size: clamp(1.6rem, 5vw, 2.4rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin: 0 0 0.75rem;
+      color: #fff;
+    }
+    #pre-render h2 {
+      font-size: clamp(1rem, 3vw, 1.25rem);
+      font-weight: 700;
+      color: #DD0031;
+      margin: 2rem 0 0.5rem;
+    }
+    #pre-render p {
+      color: #a1a1a1;
+      max-width: 640px;
+      margin-bottom: 1rem;
+    }
+    #pre-render .social-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    #pre-render .social-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      min-height: 44px;
+      padding: 0 1.25rem;
+      border: 1.5px solid rgba(221,0,49,0.5);
+      border-radius: 999px;
+      color: #DD0031;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: border-color 0.2s;
+    }
+    @media (max-width: 600px) {
+      #pre-render { padding: 1.5rem 1rem; }
+      #pre-render h1 { font-size: 1.6rem; }
+    }
+  </style>
 </head>
 <body>
-  <app-root></app-root>
+  <app-root>
+    <!--
+      Conteúdo estático de fallback para crawlers de SEO e usuários sem JavaScript.
+      O Angular substitui este conteúdo automaticamente ao inicializar.
+    -->
+    <div id="pre-render">
+      <h1>Ghabryel Henrique — Google Developer Expert em Angular</h1>
+      <p>
+        Google Developer Expert (GDE) em Angular, Senior Software Engineer e speaker.
+        Local Lead do NASA Space Apps Challenge e Global Shaper (World Economic Forum).
+      </p>
+
+      <h2>Especialidades</h2>
+      <p>Angular, TypeScript, Arquitetura Frontend, Microfrontends, Module Federation, Performance Web, Clean Architecture e sistemas de alta escala.</p>
+
+      <h2>Projetos</h2>
+      <p>Aplicações enterprise com Angular em escala global, dashboards analíticos e plataformas SaaS para grandes organizações.</p>
+
+      <h2>Artigos e Conteúdo</h2>
+      <p>Artigos técnicos sobre Angular, TypeScript, Microfrontends e arquitetura de software publicados no Medium e neste blog.</p>
+
+      <h2>Palestras</h2>
+      <p>Speaker em eventos de tecnologia, meetups de Angular e conferências de desenvolvimento frontend no Brasil.</p>
+
+      <h2>Comunidade</h2>
+      <p>Google Developer Expert em Angular (2026), Local Lead NASA Space Apps Challenge Uberlândia e Global Shaper (World Economic Forum).</p>
+
+      <h2>Redes Sociais e Contato</h2>
+      <nav class="social-links" aria-label="Redes sociais de Ghabryel Henrique">
+        <a href="https://www.linkedin.com/in/ghabryelhenrique/" rel="noopener noreferrer" aria-label="LinkedIn — Ghabryel Henrique">LinkedIn</a>
+        <a href="https://www.youtube.com/@NgGhab/" rel="noopener noreferrer" aria-label="YouTube — Canal NgGhab">YouTube</a>
+        <a href="https://github.com/GhabryelHenrique" rel="noopener noreferrer" aria-label="GitHub — GhabryelHenrique">GitHub</a>
+        <a href="https://ghabryel.medium.com" rel="noopener noreferrer" aria-label="Medium — Artigos de Ghabryel Henrique">Medium</a>
+      </nav>
+    </div>
+  </app-root>
 </body>
 </html>
