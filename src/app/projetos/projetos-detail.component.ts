@@ -1,11 +1,12 @@
 ﻿import {
-  Component, OnInit, inject, computed,
+  Component, OnInit, inject, computed, effect,
   PLATFORM_ID, ChangeDetectionStrategy
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { DataService, Project } from '../core/services/data.service';
 import { I18nService } from '../core/services/i18n.service';
+import { SeoService } from '../core/services/seo.service';
 
 @Component({
   selector: 'app-projetos-detail',
@@ -417,6 +418,7 @@ export class ProjetosDetailComponent implements OnInit {
   private route       = inject(ActivatedRoute);
   private dataService = inject(DataService);
   private i18nService = inject(I18nService);
+  private seoService  = inject(SeoService);
 
   private _platformId = inject(PLATFORM_ID);
 
@@ -437,6 +439,22 @@ export class ProjetosDetailComponent implements OnInit {
     const idx = all.findIndex(p => p.id === cur.id);
     return all[(idx + 1) % all.length] ?? null;
   });
+
+  constructor() {
+    effect(() => {
+      const p = this.project();
+      if (!p) return;
+      const lang = this.lang();
+      const desc = lang === 'pt' ? p.tagline.pt : p.tagline.en;
+      this.seoService.setMeta({
+        title: `${p.title} | Ghabryel Henrique`,
+        description: desc.length > 130 ? desc.substring(0, 127) + '…' : desc,
+        url: `https://ghabryelhenrique.com.br/projetos/${p.slug}`,
+        image: p.cover_image ?? undefined,
+        type: 'website'
+      });
+    });
+  }
 
   ngOnInit(): void {
     this.dataService.loadProjects();

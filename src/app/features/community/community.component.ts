@@ -265,7 +265,7 @@ export class CommunityComponent implements OnInit {
   ngOnInit(): void {
     this.seo.setMeta({
       title: 'Comunidade | Ghabryel Henrique',
-      description: 'NASA Space Apps Challenge CTO, Global Shapers Community (WEF) e UberHub — iniciativas tech em Uberlândia e no mundo.'
+      description: 'Google Developer Expert em Angular, NASA Space Apps Challenge CTO, Global Shapers Community (WEF) — contribuições na comunidade tech brasileira e global.'
     });
     this.dataService.loadCommunity();
   }

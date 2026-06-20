@@ -10,7 +10,7 @@ import { SeoService } from '../core/services/seo.service';
 import { TranslatePipe } from '../shared/pipes/translate.pipe';
 import { RevealOnScrollDirective } from '../shared/directives/reveal-on-scroll.directive';
 
-const ROLES = ['Angular Architect', 'GDE Candidate', 'Community Builder', 'Tech Speaker'];
+const ROLES = ['Angular Architect', 'GDE Angular', 'Community Builder', 'Tech Speaker'];
 const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
 
 @Component({
@@ -46,8 +46,8 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       <p class="hero-bio">
         @if (profile()) {
           {{ lang() === 'pt'
-              ? 'Sênior Engineer · GDE Candidate em Angular · Local Lead NASA Space Apps · Global Shaper (WEF)'
-              : 'Senior Engineer · Angular GDE Candidate · NASA Space Apps Local Lead · Global Shaper (WEF)' }}
+              ? 'Sênior Engineer · GDE em Angular · Local Lead NASA Space Apps · Global Shaper (WEF)'
+              : 'Senior Engineer · Angular GDE · NASA Space Apps Local Lead · Global Shaper (WEF)' }}
         }
       </p>
 
@@ -128,9 +128,15 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
           }
 
           @if (profile()?.gde_status) {
-            <div class="gde-badge">
-              <span class="gde-dot"></span>
-              <span>{{ lang() === 'pt' ? profile()!.gde_status.pt : profile()!.gde_status.en }}</span>
+            <div class="gde-achievement">
+              <img src="/images/GDE2026_DigitalBadges-Angular.svg"
+                   alt="Google Developer Expert - Angular 2026"
+                   class="gde-badge-img"
+                   loading="lazy" width="300" height="107" />
+              <div class="gde-badge-label">
+                <span class="gde-dot"></span>
+                <span>{{ lang() === 'pt' ? profile()!.gde_status.pt : profile()!.gde_status.en }}</span>
+              </div>
             </div>
           }
 
@@ -647,18 +653,39 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       margin-bottom: 24px;
     }
 
-    .gde-badge {
+    .gde-achievement {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+
+    .gde-badge-img {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+      border-radius: var(--radius-lg);
+      filter: drop-shadow(0 4px 20px rgba(221, 0, 49, 0.25));
+      transition: transform var(--duration-base) var(--ease-bounce), filter var(--duration-base);
+    }
+
+    .gde-badge-img:hover {
+      transform: translateY(-4px) scale(1.02);
+      filter: drop-shadow(0 10px 32px rgba(221, 0, 49, 0.5));
+    }
+
+    .gde-badge-label {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      padding: 10px 18px;
-      background: transparent;
-      border: 1px solid var(--color-accent);
+      padding: 8px 16px;
+      background: rgba(221, 0, 49, 0.08);
+      border: 1px solid rgba(221, 0, 49, 0.3);
       border-radius: var(--radius-full);
       font-size: var(--text-sm);
       font-weight: 600;
       color: var(--color-accent);
-      margin-bottom: 28px;
     }
 
     .gde-dot {
@@ -1093,9 +1120,10 @@ export class SobreComponent implements OnInit, OnDestroy {
   ];
 
   statusCards = [
-    { icon: '🎤', pt: 'Disponível para Palestras', en: 'Available for Speaking',  link: '/palestras', internal: true  },
-    { icon: '🚀', pt: 'Mentorando Devs',           en: 'Mentoring Devs',          link: '/mentoria',  internal: true  },
-    { icon: '✍️', pt: 'Escrevendo no Medium',       en: 'Writing on Medium',       link: 'https://ghabryel.medium.com', internal: false }
+    { icon: '🏅', pt: 'Google Developer Expert · Angular', en: 'Google Developer Expert · Angular', link: '/comunidade', internal: true  },
+    { icon: '🎤', pt: 'Disponível para Palestras',         en: 'Available for Speaking',             link: '/palestras', internal: true  },
+    { icon: '🚀', pt: 'Mentorando Devs',                  en: 'Mentoring Devs',                     link: '/mentoria',  internal: true  },
+    { icon: '✍️', pt: 'Escrevendo no Medium',              en: 'Writing on Medium',                  link: 'https://ghabryel.medium.com', internal: false }
   ];
 
   constructor() {
@@ -1116,8 +1144,9 @@ export class SobreComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.seoService.setMeta({
-      title: 'Ghabryel Henrique — Senior Software Engineer & Angular GDE Candidate',
-      description: 'Senior Engineer especializado em Angular e arquitetura frontend. GDE Candidate, Local Lead NASA Space Apps, Global Shaper (WEF). Conheça meu trabalho.'
+      title: 'Ghabryel Henrique · Angular GDE & Senior Engineer',
+      description: 'Google Developer Expert em Angular, Senior Engineer e speaker. Local Lead NASA Space Apps e Global Shaper (WEF).',
+      url: 'https://ghabryelhenrique.com.br'
     });
     if (isPlatformBrowser(this.platformId)) {
       this.startRotation();

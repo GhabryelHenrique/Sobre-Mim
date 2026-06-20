@@ -12,7 +12,7 @@ import { TranslatePipe } from '../../shared/pipes/translate.pipe';
         <div class="footer-left">
           <span class="footer-logo">G</span>
           <p class="footer-tagline">
-            {{ 'footer.built_with' | translate }} Angular 21 {{ 'footer.and' | translate }} Three.js
+            {{ 'footer.built_with' | translate }} Angular 22 {{ 'footer.and' | translate }} Three.js
           </p>
         </div>
 

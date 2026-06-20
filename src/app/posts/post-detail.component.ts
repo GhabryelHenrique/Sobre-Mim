@@ -1,5 +1,5 @@
 import {
-  Component, OnInit, inject, computed,
+  Component, OnInit, inject, computed, effect,
   PLATFORM_ID, ChangeDetectionStrategy, signal
 } from '@angular/core';
 import { isPlatformBrowser, NgClass } from '@angular/common';
@@ -462,13 +462,31 @@ export class PostDetailComponent implements OnInit {
     return `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`;
   });
 
+  constructor() {
+    effect(() => {
+      const p = this.post();
+      if (!p) return;
+      const lang  = this.lang();
+      const title = lang === 'pt' ? p.title.pt : p.title.en;
+      const desc  = lang === 'pt' ? p.subtitle.pt : p.subtitle.en;
+      this.seoService.setMeta({
+        title: title.length > 57 ? title.substring(0, 54) + '...' : `${title} | Ghabryel`,
+        description: desc.length > 130 ? desc.substring(0, 127) + '…' : desc,
+        url: `https://ghabryelhenrique.com.br/posts/${p.slug}`,
+        image: p.cover ?? undefined,
+        type: 'article'
+      });
+    });
+  }
+
   ngOnInit(): void {
     const slug = this.route.snapshot.paramMap.get('slug') ?? '';
     this.dataService.loadBlogPost(slug);
 
     this.seoService.setMeta({
       title: 'Artigo | Ghabryel Henrique',
-      description: 'Artigos técnicos sobre Angular, arquitetura e engenharia de software.'
+      description: 'Artigos técnicos sobre Angular, arquitetura e engenharia de software.',
+      url: `https://ghabryelhenrique.com.br/posts/${slug}`
     });
   }
 
