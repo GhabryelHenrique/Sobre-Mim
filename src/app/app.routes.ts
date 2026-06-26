@@ -57,6 +57,11 @@ export const routes: Routes = [
     loadComponent: () => import('./features/contact/contact.component').then(m => m.ContactComponent)
   },
   {
+    path: 'links',
+    title: 'Links | Ghabryel Henrique',
+    loadComponent: () => import('./links/links.component').then(m => m.LinksComponent)
+  },
+  {
     path: 'aplicacao',
     title: 'Aplicação | Beyond the Framework',
     loadComponent: () => import('./aplicacao/aplicacao.component').then(m => m.AplicacaoComponent)
