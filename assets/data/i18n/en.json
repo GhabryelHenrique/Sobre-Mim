@@ -126,6 +126,18 @@
     "light_mode": "Light Mode",
     "lang_switch": "Português"
   },
+  "links": {
+    "title": "Links | Ghabryel Henrique",
+    "bio": "Building critical systems at global scale with Angular. Speaker, mentor, and tech community contributor.",
+    "social": "Social",
+    "portfolio": "Portfolio",
+    "share": "Share",
+    "share_subtitle": "Scan to access all links",
+    "copy": "Copy link",
+    "copied": "Copied!",
+    "download_qr": "Download QR",
+    "share_btn": "Share"
+  },
   "not_found": {
     "title": "Lost in space",
     "subtitle": "This page doesn't exist or was moved to another galaxy.",

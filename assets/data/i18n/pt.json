@@ -126,6 +126,18 @@
     "light_mode": "Modo Claro",
     "lang_switch": "English"
   },
+  "links": {
+    "title": "Links | Ghabryel Henrique",
+    "bio": "Construindo sistemas críticos em escala global com Angular. Palestrante, mentor e contribuidor da comunidade tech.",
+    "social": "Social",
+    "portfolio": "Portfólio",
+    "share": "Compartilhar",
+    "share_subtitle": "Escaneie para acessar todos os links",
+    "copy": "Copiar link",
+    "copied": "Copiado!",
+    "download_qr": "Baixar QR",
+    "share_btn": "Compartilhar"
+  },
   "not_found": {
     "title": "Perdido no espaço",
     "subtitle": "Esta página não existe ou foi movida para outra galáxia.",
