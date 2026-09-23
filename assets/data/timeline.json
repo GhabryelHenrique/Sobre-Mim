@@ -1,23 +1,23 @@
 [
   {
-    "id": "a2w",
-    "company": "A2W Plataforma",
-    "logo": "/images/empresas/a2w.jpg",
+    "id": "blips",
+    "company": "Blips Ativos",
+    "logo": "/images/empresas/blips.png",
     "position": {
-      "pt": "Sênior Software Engineer",
-      "en": "Senior Software Engineer"
+      "pt": "AI Engineer",
+      "en": "AI Engineer"
     },
     "period": {
-      "pt": "mai 2026 — presente",
-      "en": "May 2026 — Present"
+      "pt": "sep 2026 — presente",
+      "en": "Sep 2026 — Present"
     },
-    "period_start": "2026-05",
+    "period_start": "2026-09",
     "period_end": null,
     "location": "Brasil",
     "current": true,
     "description": {
-      "pt": "Respensavel pela modernização e melhoria do sistema de ERP e Atividades da startup de tecnologia A2W, focada em soluções de gestão empresarial para PMEs. Implementação de novas funcionalidades, otimização de performance e integração com serviços externos.",
-      "en": "Responsible for the modernization and improvement of the ERP and Activities system of A2W, a technology startup focused on enterprise management solutions for SMEs. Implementation of new features, performance optimization, and integration with external services."
+      "pt": "Responsavel de criação e manutenção de soluções de inteligência artificial para otimização de processos.",
+      "en": "Responsible for creating and maintaining AI solutions for process optimization."
     },
     "highlights": {
       "pt": [
