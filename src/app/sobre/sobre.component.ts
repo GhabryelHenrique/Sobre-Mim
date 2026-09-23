@@ -46,8 +46,8 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
       <p class="hero-bio">
         @if (profile()) {
           {{ lang() === 'pt'
-              ? 'Sênior Engineer · GDE em Angular · Local Lead NASA Space Apps · Global Shaper (WEF)'
-              : 'Senior Engineer · Angular GDE · NASA Space Apps Local Lead · Global Shaper (WEF)' }}
+              ? 'AI Engineer · GDE em Angular · Local Lead NASA Space Apps'
+              : 'AI Engineer · Angular GDE · NASA Space Apps Local Lead' }}
         }
       </p>
 
@@ -96,7 +96,7 @@ const CHARS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#%&';
         <!-- Visual column -->
         <div class="about-visual" revealOnScroll>
           <div class="photo-frame">
-            <img src="/images/ghabryelSorriso.jpg" alt="Ghabryel Henrique"
+            <img src="/images/ghabryelSerio.png" alt="Ghabryel Henrique"
                  class="photo" loading="lazy" width="340" height="340" />
             <div class="photo-border"></div>
             <div class="photo-accent"></div>

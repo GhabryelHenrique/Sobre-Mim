@@ -58,7 +58,7 @@ interface SiteLink {
               GDE Angular
             </span>
             <span class="tag">
-              {{ lang() === 'pt' ? 'Engenheiro Sênior' : 'Senior Engineer' }}
+              {{ lang() === 'pt' ? 'AI Engineer' : 'AI Engineer' }}
             </span>
             <span class="tag">Uberlândia, BR</span>
           </div>
@@ -561,6 +561,16 @@ export class LinksComponent {
   canShare = signal(false);
 
   readonly socialLinks: SocialLink[] = [
+    {
+      abbrev: 'IG',
+      accent: '#e1306c',
+      textColor: '#ffffff',
+      labelPt: 'Instagram',
+      labelEn: 'Instagram',
+      descPt: 'Conteúdo pessoal e profissional',
+      descEn: 'Personal and professional content',
+      url: 'https://www.instagram.com/ghabryel.dev/'
+    },
     {
       abbrev: 'GH',
       accent: '#24292e',
